@@ -7,6 +7,8 @@ Team Leader - Lokesh Kumar Bairwa (Fw18_0979)
 
 **Basic Rules**
 
+<> use node version 18 only
+
 <> Create Your sub-branch for doing your task 
 
 <> clone the work on daily basis  as well push the work daily.
