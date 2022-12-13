@@ -22,7 +22,9 @@ const FlightSchema = new mongoose.Schema({
             amount:Number,
             time:String
         }
-    }
+    },
+    count:Number,
+    booked:Number,
 
 });
 

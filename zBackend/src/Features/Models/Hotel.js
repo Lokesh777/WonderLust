@@ -7,6 +7,8 @@ const HotelSchema = new mongoose.Schema({
         rate:Number,
         reviews:Number,
     },
+    count:Number,
+    booked:Number,
     description:{type:String},
     contactInfo:{
         phone:[String],
@@ -24,6 +26,7 @@ const HotelSchema = new mongoose.Schema({
             detail:String
         }],
         count:Number,
+        booked:Number,
         amenities:[{
             title:String,
             icon:String,
