@@ -1,0 +1,171 @@
+.modal{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.623);
+}
+
+.body{
+    width: 50%;
+    height: 90vh;
+    background-color: #fff;
+    margin:5vh auto;
+    overflow-y: scroll;
+}
+
+.reg1{
+    border: 1px solid rgb(202, 202, 202);
+    width: 90%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 15px auto;
+}
+.reg1>p{
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.reg1 label{
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.reg1 label p{
+    padding: 5px;
+}
+
+.reg1 label input,.reg1 label select {
+    display: block;
+    border:1px solid rgb(185, 185, 185);
+    width: 90%;
+    padding: 7px 14px;
+    border-radius: 7px;
+}
+
+
+.priceBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.checkBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.checkBox label{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.checkBox label input{
+    width: fit-content;
+}
+
+
+/* amenity */
+
+.amenityInput{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.amenityInput label:last-child{
+    width: 70%;
+    display: block;
+}
+.amenityButt{
+    display: block;
+    width: fit-content;
+    padding: 7px 14px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 7px;
+    border: 1px solid rgb(194, 194, 194);
+}
+
+.amenity{
+    display: grid;
+    padding: 15px;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 0;
+}
+
+.amenity ul{
+    display: block;
+    padding: 0 25px;
+    
+}
+
+.amenity ul li{
+    font-size: 13px;
+}
+
+.closeCross{
+    display: flex;
+    justify-content: right;
+    padding: 10px 10px 0;
+}
+.closeCross .close{
+    color: grey;
+    font-size: 29px;
+    cursor: pointer;
+
+}
+
+.butBox{
+    margin: 20px auto;
+    padding: 0 35px;
+    display: flex;
+    justify-content: right;
+}
+
+.butBox .discard{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: rgb(196, 2, 2);
+    font-size: 18px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.butBox .discard:hover{
+    background-color: rgb(143, 0, 0);
+}
+.butBox .discard:active{
+    background-color: rgb(255, 4, 4);
+
+}
+.butBox .addRoom{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: rgb(1, 180, 1);
+    font-size: 18px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 7px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.butBox .addRoom:hover{
+    background-color: rgb(0, 255, 0);
+}
+.butBox .addRoom:active{
+    background-color: rgb(0, 138, 0);
+
+}
+.butBox .addRoom:disabled{
+    background-color: rgb(184, 184, 184);
+    border: 1px solid rgb(95, 95, 95);
+    color: #000;
+    cursor:not-allowed;
+}
