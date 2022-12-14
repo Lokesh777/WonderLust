@@ -27,19 +27,18 @@ const Wrapper = styled("div")`
   display: flex;
   background: white;
   padding-right: 0.5rem;
+  paddind: 40px;
+
   ${"" /* border:1px solid red; */}
 
   &:hover {
     cursor: pointer;
   }
 
-
   .card-image {
     height: 100%;
     width: 30%;
-    border-radius: 0.5rem 0 0 0.5rem;
   }
-
 
   .hotel-detail {
     width: 50%;
@@ -99,7 +98,8 @@ const Wrapper = styled("div")`
   .off {
     border-radius: 0.4rem;
     padding: 0.6rem;
-    background: #1f7d57;
+    ${"" /* background: #1f7d57; */}
+    background: #7b1fa2;
     color: white;
     text-align: center;
   }
@@ -121,6 +121,9 @@ const Wrapper = styled("div")`
       font-size: 0.9rem;
       color: red;
     }
+  }
+  @media (min-width: 500px) {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   }
   @media (max-width: 500px) {
     width: 80%;
@@ -186,13 +189,13 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
     >
       {w > 820 ? (
         <div className="card-image">
-          <Carousel
+          <Carousel 
             responsive={responsive}
             swipeable={false}
             draggable={false}
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={2000}
+            autoPlaySpeed={5000}
             centerMode={false}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-100-px"
@@ -200,7 +203,7 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
             keyBoardControl={true}
           >
             {data.images.map((ele, i) => (
-              <img style={{ height: "170px", width: "500px" }} src={ele.url} alt="nm" />
+              <img key={i} style={{ height: "170px", width: "500px",borderRadius:"10px" }} src={ele.url} alt="nm" />
             ))}
           </Carousel>
         </div>
