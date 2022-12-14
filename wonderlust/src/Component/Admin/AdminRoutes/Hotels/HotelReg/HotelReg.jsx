@@ -73,6 +73,13 @@ export const HotelReg = () => {
         });
     }
 
+    const removeRoom = (index) => {
+        setRooms((data)=>{
+            const newData = data.filter((i, e)=>e!==index);
+            return newData;
+        })
+    }
+
     return <div className={style.hotelReg}>
         <h1>Register New Hotel</h1>
 
@@ -116,13 +123,13 @@ export const HotelReg = () => {
                             <p>{e+1}.</p>
                             <input type="number" value={ph} key={'phone'+e} onChange={(event)=>{
                                 setPhones((data)=>{
-                                    data.map((i, j)=>{
+                                    let newData = data.map((i, j)=>{
                                         if(j===e){
                                             i=event.target.value;
                                         }
                                         return i
                                     });
-                                    return data
+                                    return newData;
                                 })
                             }}/>
                             <button onClick={removePhone} disabled={phone.length===1}><RiDeleteBin6Line/></button>
@@ -136,7 +143,18 @@ export const HotelReg = () => {
                     {
                         emails.map((em, e)=><div>
                             <p>{e+1}.</p>
-                            <input type="email" value={em} key={'emails'+e}/>
+                            <input type="email" value={em} key={'emails'+e} onChange={(event)=>{
+                                setEmails((data)=>{
+                                    let newData=data.map((i, j)=>{
+                                        if(j===e){
+                                            i=event.target.value;
+                                        }
+                                        return i
+                                    });
+                                    
+                                    return newData
+                                })
+                            }}/>
                             <button onClick={removeEmail} disabled={emails.length===1}><RiDeleteBin6Line/></button>
                         </div>)
                     }
@@ -151,15 +169,30 @@ export const HotelReg = () => {
                 </label>
             </div>
 
+            
+            {/* Room Details */}
             <h2>Rooms Details</h2>
 
             <div className={style.roomForm}>
                 {rooms.map((room, e)=>{
-                    return <RoomCard data={room} key={e+'$%^'+'roomcardForm'}/>
+                    return <RoomCard data={room} methods={{index:e, removeRoom}} key={e+'$%^'+'roomcardForm'}/>
                 })}
                 {rooms.length<=3?<EmptyRoomCard click={showRoomModal}/>:""}
 
                 {modalRoomDis?<RoomRegModal close={hideRoomModal} add={addRoomModel}/>:""}
+            </div>
+
+
+            {/* Submit */}
+
+            <div className={style.submitBox}>
+                <div className={style.agreeCheck}>
+                    <input type="checkbox" />
+                    <p>I have read all the legal agreement and policies and agreed to them.</p>
+                </div>
+                <div>
+                    <button className={style.submitButton}>Register</button>
+                </div>
             </div>
 
         </div>

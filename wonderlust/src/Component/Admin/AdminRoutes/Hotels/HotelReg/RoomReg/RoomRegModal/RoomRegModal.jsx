@@ -69,6 +69,7 @@ export const RoomRegModal = (props) => {
         }
 
         add(obj);
+        close();
     }
 
 

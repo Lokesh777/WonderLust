@@ -54,9 +54,8 @@ const HotelSchema = new mongoose.Schema({
     ],
     misc:[
         {
-            icon:String,
             title:String,
-            points:String
+            points:[String]
         }
     ],
     nearby:[
