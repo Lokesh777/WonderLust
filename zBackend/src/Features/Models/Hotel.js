@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const HotelSchema = new mongoose.Schema({
     name:{type:String, required:true},
     starRating:{type:Number, required:true},
-    rating:{
-        rate:Number,
-        reviews:Number,
+    reviews:{
+        type:[{
+            rating:{type:Number, required:true},
+            comment:String
+        }],
+        required:true
     },
     count:Number,
     booked:Number,
@@ -16,22 +19,26 @@ const HotelSchema = new mongoose.Schema({
         websiteUrl:String,
         address:String,
         city:{type: mongoose.Schema.Types.ObjectId, ref: "city", required: true,},
-        long:{type:Number},
+        long:{type:Number },
         lat:{type:Number},
     },
     images:[String],
     rooms:[{
-        features:[{
-            img:String,
-            detail:String
-        }],
+        size:Number,
+        beds:{
+            count:Number,
+            type:String
+        },
+        maxPersons:Number,
         count:Number,
         booked:Number,
-        amenities:[{
-            title:String,
-            icon:String,
-            features:[String]
-        }],
+        images:[String],
+        amenities:{
+            bathroom:[String],
+            bedroom:[String],
+            foodAndDrink:[String],
+            other:[String]
+        },
         refundable:Boolean,
         payLater:Boolean,
         price:Number,
@@ -47,9 +54,8 @@ const HotelSchema = new mongoose.Schema({
     ],
     misc:[
         {
-            icon:String,
             title:String,
-            points:String
+            points:[String]
         }
     ],
     nearby:[

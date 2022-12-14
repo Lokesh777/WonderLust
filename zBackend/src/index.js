@@ -9,6 +9,7 @@ const cityRouter = require('./Features/Routes/City.js');
 const flightRouter = require('./Features/Routes/flights.js');
 const hotelRouter = require('./Features/Routes/hotel.js');
 const tripRouter = require('./Features/Routes/trip.js');
+const userRouter = require('./Features/Routes/user')
 
 
 
@@ -27,6 +28,7 @@ app.use('/trip', tripRouter);
 app.use('/flight', flightRouter);
 app.use('/hotel', hotelRouter);
 app.use('/city', cityRouter);
+app.use('/user', userRouter)
 
 app.listen(8080,async()=> { 
     await MongoDBConnect();
