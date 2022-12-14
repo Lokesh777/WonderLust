@@ -1,0 +1,13 @@
+.dashboard{
+    padding: 50px;
+    background-color: rgb(249, 249 , 249 );
+    margin-top: 10px;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-evenly;
+    align-items: center;
+    gap:25px;
+}
