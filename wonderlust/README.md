@@ -68,34 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-***********************************************************************************
-
-*Update npm: To update NPM, use the following command*
-
-
-- nvm install --lts
-
-
-# Packages installed
-- Front-End
-  # Slider
-    - npm i react-multi-carousel
-
-
-
-
-@material-ui/core -> @mui/material
-@material-ui/unstyled -> @mui/base
-@material-ui/icons -> @mui/icons-material
-@material-ui/styles -> @mui/styles
-@material-ui/system -> @mui/system
-@material-ui/lab -> @mui/lab
-@material-ui/types -> @mui/types
-@material-ui/styled-engine -> @mui/styled-engine
-@material-ui/styled-engine-sc ->@mui/styled-engine-sc
-@material-ui/private-theming -> @mui/private-theming
-@material-ui/codemod -> @mui/codemod
-@material-ui/docs -> @mui/docs
-@material-ui/envinfo -> @mui/envinfo

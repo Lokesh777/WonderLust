@@ -1,12 +1,11 @@
 import React from "react";
 import './App.css';
-import Allroutes from "./Routes/AllRoutes";
+// import Navbar from './Component/navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-     
-      <Allroutes />
+      {/* <Navbar/> */}
     </div>
   );
 }
