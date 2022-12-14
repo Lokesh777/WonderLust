@@ -17,7 +17,7 @@ import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 // import { FaLaptop } from "react-icons/fa";
 
-export default function NavbarPage() {
+export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
 const Reload = () => {
