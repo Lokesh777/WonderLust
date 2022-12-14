@@ -78,7 +78,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - nvm install --lts
 
 
-
+# Packages installed
+- Front-End
+  # Slider
+    - npm i react-multi-carousel
 
 
 

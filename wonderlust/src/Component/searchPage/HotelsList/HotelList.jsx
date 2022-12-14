@@ -9,9 +9,9 @@ import { FormControlLabel, styled, Radio, Button, FormControl, RadioGroup, Circu
 import { useCallback } from "react";
 
 import { useNavigate } from "react-router";
-import { SearchByProperty } from "./FilterComponents/SearchByProperty";
+import { SearchByProperty } from "./Filter/SearchByProperty";
 import { Hotelcard } from "./Hotelcard";
-import Ads from "./FilterComponents/Ad";
+import Ads from "./Filter/Ad";
 // import { makeStyles } from '@material-ui/core/styles'
 const url = `http://localhost:3004/data`;
 
@@ -38,12 +38,18 @@ const Wrapper = styled(Box)`
     font-size: 1rem;
     font-weight: 700;
     margin: 1.5rem 0;
+    text-align:left;
   }
 
   .popular-filter {
     display: flex;
     flex-direction: column;
     color: #505c66;
+
+    @media (max-width: 400px) {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   .progress {
@@ -68,20 +74,40 @@ const Wrapper = styled(Box)`
     width: 100%;
     margin: auto;
     display: grid;
-    grid-template-columns: 90%;
-    gap:10px;
-    justify-content:center;
+    grid-template-columns: 95%;
+    gird-template-row:auto;
+    gap: 10px;
+    justify-content: center;
     align-items: center;
-   
+
     .ads {
       display: none;
     }
     .list {
       width: 90%;
       margin: auto;
+      
     }
   }
 `;
+
+const RadioGrp = styled(RadioGroup)`
+ @media (max-width: 480px) {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center
+ }
+`
+const BoxButton = styled(Box)`
+ @media (max-width: 480px) {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center
+ }
+`
+
 
 export const HotelList = () => {
   const [hotels, setHotels] = useState([]);
@@ -178,7 +204,7 @@ export const HotelList = () => {
 
           {/* ---------------------------------------------------------------------------------------------------Star rating  */}
           <div className="filter-title">Star rating</div>
-          <Box style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          <BoxButton  style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
             <Button
               onClick={() => {
                 handleStar(1);
@@ -228,10 +254,27 @@ export const HotelList = () => {
             >
               5
             </Button>
-          </Box>
+          </BoxButton>
 
           {/* ------------------------------------------------------------------------------------------------------- Your Budget rating  */}
           <div className="filter-title">Your Budget</div>
+          <div className="popular-filter">
+            <FormControl component="fieldset">
+              <RadioGrp aria-label="guest-rating" name="guest-rating" value={priceFilter} onChange={handleChange}>
+                <FormControlLabel value="0 75" control={<Radio color="primary" />} label="Less than 75$" />
+                <FormControlLabel value="75 125" control={<Radio color="primary" />} label="75$ to 125$" labelPlacement="end" />
+                <FormControlLabel value="125 200" control={<Radio color="primary" />} label="125$ to 200$" labelPlacement="end" />
+                <FormControlLabel value="200 300" control={<Radio color="primary" />} label="200$ to 300$" labelPlacement="end" />
+                <FormControlLabel value="300 1000" control={<Radio color="primary" />} label="300$ and above" labelPlacement="end" />
+              </RadioGrp>
+            </FormControl>
+          </div>
+          {/* <PopularFilter />
+          <GuestRating />
+          <PaymentType />
+          <PropertyType />
+          <PopularLocation />
+          <Mealplans /> */}
         </div>
         {/*------------------------------------------------------------------------------------------>>>>>> Hotel List  */}
 

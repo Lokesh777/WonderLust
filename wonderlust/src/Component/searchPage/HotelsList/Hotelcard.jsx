@@ -1,5 +1,23 @@
 import { styled } from "@mui/material";
+import { useEffect, useState } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import ImageSlide from "./Filter/ImageSlide";
 
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 const Wrapper = styled("div")`
   width: 95%;
   height: 170px;
@@ -15,11 +33,13 @@ const Wrapper = styled("div")`
     cursor: pointer;
   }
 
+
   .card-image {
     height: 100%;
     width: 30%;
     border-radius: 0.5rem 0 0 0.5rem;
   }
+
 
   .hotel-detail {
     width: 50%;
@@ -129,7 +149,6 @@ const Wrapper = styled("div")`
     }
   }
   @media (max-width: 400px) {
-    
   }
 `;
 
@@ -148,14 +167,49 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
   //     price:data.price
   // }
   // console.log('hotelData:', hotelData)
+  const [w, setW] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setW(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
 
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <Wrapper
       onClick={() => {
         // handleOpenHotel(data.hotelId);
       }}
     >
-      <img className="card-image" src={data.images[1].url} alt="" />
+      {w > 820 ? (
+        <div className="card-image">
+          <Carousel
+            responsive={responsive}
+            swipeable={false}
+            draggable={false}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={2000}
+            centerMode={false}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-100-px"
+            containerClass="carousel-container"
+            keyBoardControl={true}
+          >
+            {data.images.map((ele, i) => (
+              <img style={{ height: "170px", width: "500px" }} src={ele.url} alt="nm" />
+            ))}
+          </Carousel>
+        </div>
+      ) : (
+        <img className="card-image" src={data.images[1].url} alt="" />
+      )}
+      {/* {data.images.map((ele, i) => (
+          <img textAlign={"center"} style={{ height: "170px", width: "500px",padding:'10px' }}  src={ele.url} alt="nm" />
+        ))} */}
 
       <div className="hotel-detail">
         <div className="hotel-name-add">

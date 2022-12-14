@@ -14,6 +14,8 @@ const Wrapper = styled(Box)`
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #263159;
+    display:flex;
+    align-content: "start";
   }
 
   .divider {
