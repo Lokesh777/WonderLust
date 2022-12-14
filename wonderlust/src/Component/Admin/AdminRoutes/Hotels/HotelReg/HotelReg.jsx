@@ -4,12 +4,48 @@ import {RiDeleteBin6Line} from 'react-icons/ri'
 import { EmptyRoomCard, RoomCard } from './RoomReg/RoomCard/RoomCard';
 import { RoomRegModal } from './RoomReg/RoomRegModal/RoomRegModal';
 
+
+const hardData = {
+    images:[
+        "https://cdn.impala.travel/properties/cknec55gi008x0uo52tnnaw5c.jpg",
+        "https://cdn.impala.travel/properties/cknec4k5j008t0uo5828shuij.jpg",
+        "https://cdn.impala.travel/properties/cknec4prc008u0uo5b75wcwzk.jpg",
+        "https://cdn.impala.travel/properties/cknec4yuj008w0uo57d1l2qk7.jpg",
+        "https://cdn.impala.travel/properties/cknec5elh008y0uo5a6wxbfge.jpg",
+        "https://cdn.impala.travel/properties/cknec5l3b00900uo528jt49h8.jpg",
+        "https://cdn.impala.travel/properties/cknec5wyf00920uo5elq7g20c.jpg",
+    ],
+    popularAmenities:[
+        {icon:1, title:"Free Wifi"},
+        {icon:1, title:"Spa"},
+        {icon:1, title:"Air Conditioning"},
+        {icon:1, title:"Restruarant"},
+        {icon:1, title:"Breakfast available"},
+        {icon:1, title:"Bar"},
+        {icon:1, title:"Housekeeping"},
+        {icon:1, title:"24/7 front desk"},
+    ],
+    starRating:1,
+}
+
+const priIdata = {
+    name:"",
+    city:"",
+    address:"",
+    description:"",
+    websiteUrl:""
+}
+
+
+
+
 export const HotelReg = () => {
     
     const [phone, setPhones] = useState([""]);
     const [emails, setEmails] = useState([""]);
     const [rooms, setRooms] = useState([]);
     const [modalRoomDis, setModalRoomDis] = useState(false);
+    const [priData, setPriData] = useState(priIdata)
 
 
     const addPhone = () => {
@@ -80,6 +116,26 @@ export const HotelReg = () => {
         })
     }
 
+    const handleSubmitHotel = () => {
+        
+        const {name, description, city, address, websiteUrl} = priData;
+        
+        let obj={
+            name, description, rooms,
+            images:hardData.images, popularAmenities:hardData.popularAmenities,
+            starRating:hardData.starRating,
+            contactInfo:{
+                city,
+                address,
+                websiteUrl,
+                phone,
+                emails
+            }
+        };
+
+        console.log(obj);
+    }
+
     return <div className={style.hotelReg}>
         <h1>Register New Hotel</h1>
 
@@ -91,17 +147,38 @@ export const HotelReg = () => {
                 <div className={style.primary}>
                     <label>
                         <p>Hotel Name</p>
-                        <input type="text" placeholder='Enter The Hotel Name' />
+                        <input type="text" placeholder='Enter The Hotel Name' value={priData.name} onChange={(event)=>{
+                            setPriData((data)=>{
+                                return({
+                                    ...data,
+                                    name:event.target.value
+                                })
+                            })
+                        }}/>
                     </label>
 
                     <label>
                         <p>City</p>
-                        <input type="text" placeholder='Enter City' />
+                        <input type="text" placeholder='Enter City' value={priData.city} onChange={(event)=>{
+                            setPriData((data)=>{
+                                return({
+                                    ...data,
+                                    city:event.target.value
+                                })
+                            })
+                        }}/>
                     </label>
 
                     <label>
                         <p>Address</p>
-                        <input type="text" placeholder='Enter Address' />
+                        <input type="text" placeholder='Enter Address' value={priData.address} onChange={(event)=>{
+                            setPriData((data)=>{
+                                return({
+                                    ...data,
+                                    address:event.target.value
+                                })
+                            })
+                        }}/>
                     </label>
                 </div>
 
@@ -109,7 +186,15 @@ export const HotelReg = () => {
                 <div className={style.description}>
                     <label>
                         <p>Description</p>
-                        <textarea className={style.descriptionBox} type="text" placeholder='Enter Hotel Description' ></textarea>
+                        <textarea className={style.descriptionBox} type="text" placeholder='Enter Hotel Description' 
+                        value={priData.description} onChange={(event)=>{
+                            setPriData((data)=>{
+                                return({
+                                    ...data,
+                                    description:event.target.value
+                                })
+                            })
+                        }}></textarea>
                     </label>
                 </div>
             </div>
@@ -164,7 +249,14 @@ export const HotelReg = () => {
                 <label>
                     <p>WebSite</p>
                     <div>
-                    <input type="url" placeholder='Enter Website URL' />
+                    <input type="url" placeholder='Enter Website URL' value={priData.websiteUrl} onChange={(event)=>{
+                            setPriData((data)=>{
+                                return({
+                                    ...data,
+                                    websiteUrl:event.target.value
+                                })
+                            })
+                        }}/>
                     </div>
                 </label>
             </div>
@@ -191,7 +283,7 @@ export const HotelReg = () => {
                     <p>I have read all the legal agreement and policies and agreed to them.</p>
                 </div>
                 <div>
-                    <button className={style.submitButton}>Register</button>
+                    <button className={style.submitButton} onClick={handleSubmitHotel}>Register</button>
                 </div>
             </div>
 
