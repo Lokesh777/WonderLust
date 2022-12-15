@@ -26,7 +26,6 @@ function LandingPage() {
               className={styles.imgshow}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_FitForYou_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
             />
-            <h3 className={styles.texthead}>Find your perfect trip</h3>
           </div>
           <p>
             {" "}
@@ -41,7 +40,6 @@ function LandingPage() {
               className={styles.imgshow}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_Transparency_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
             />
-            <h3 className={styles.texthead}>Book with flexibility</h3>
           </div>
           <p>
             {" "}
@@ -56,7 +54,6 @@ function LandingPage() {
               className={styles.imgshow}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_GotYourBack_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
             />
-            <h3 className={styles.texthead}>We've got your back</h3>
           </div>
           <p>
             Need more help along your journey? We offer 24/7 support on social

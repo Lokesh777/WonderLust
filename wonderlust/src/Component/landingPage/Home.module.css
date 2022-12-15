@@ -95,6 +95,9 @@
     height: 90%;
     
 }
+.imgweb>img{
+    border-radius: 10px;
+}
 .showbox >p{
     font-size: 12px;
 }
@@ -205,21 +208,25 @@
 .info3BgImg1 {
     background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Beach_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
     background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .info3BgImg2 {
     background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Car_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
     background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .info3BgImg3 {
     background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_MOD_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
     background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .info3BgImg4 {
     background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_VacationRentals_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
     background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .info3BgImg1 > h3 , .info3BgImg2 > h3 , .info3BgImg3 > h3 , .info3BgImg4 > h3 {
@@ -256,6 +263,7 @@
     width: 100%;
     height: 248px;
     background-size: cover;
+    background-blend-mode: multiply;
     background-position: 0px 490px;
     border-radius: 10px;
     position: relative;
