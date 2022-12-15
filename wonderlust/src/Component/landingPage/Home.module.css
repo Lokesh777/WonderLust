@@ -1,0 +1,302 @@
+.container {
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+    background: #F0F3F5;
+}
+
+.forms {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/06/25/TVLY_SeizeYourSomeday_lpheroB_1680x945_20210623.jpg?impolicy=fcrop&w=900&h=506&q=mediumHigh");
+    width: 100vw;
+    background-position: bottom;
+    background-size: 100vw;
+    padding: 50px 0px;
+}
+
+.formsContainer {
+    width: 80vw;
+    margin: auto;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.offerTop {
+    color: white;
+    width: 80vw;
+    margin: 15px auto;
+}
+
+.offerTop > h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.offerTop > p{
+    font-size: 1.125rem;
+    font-weight: 500;
+    width: 50%;
+    margin: 5px 0px;
+}
+
+.offerTop > button {
+    border-color: #a1aab3;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    background-color: #fff;
+    color: #0d5ab9;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    min-height: 2.25rem;
+    padding: 0.25rem 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+}
+
+.header {
+    border-radius: 0.5rem 0.5rem 0px 0px;
+    box-shadow: 0px 2px 0px -1px rgb(0 0 0 / 20%);
+    background: white;
+    padding-top: 15px;
+}
+
+.info1 {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 0px;
+    margin: 30px auto;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.flex {
+    
+    width: 90vw;
+    margin:  auto;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+
+    margin: 30px;
+}
+.showbox{
+    width: 30%;
+    height: 1000%;
+    margin-top: 30px;
+    margin: 30px;
+    
+}
+.imgweb{
+    width: 100;
+    height: 90%;
+    
+}
+.showbox >p{
+    font-size: 12px;
+}
+.imgshow{
+    width: 100%;
+    height: 100%;
+   
+}
+.texthead {
+    color: white;
+    margin-top: -2%;
+    font-weight: 700px;
+    position: absolute;
+    z-index: 30;
+    padding-left: 1%;
+}
+
+
+
+.info1InnerDiv {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_AllInclusive_imgB_1199x399_20211104.jpg"),linear-gradient(
+        270deg
+        , rgba(0,11,38,0) 5rem, rgba(0,11,38,0.4), rgba(0,1,38,0.5));;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    border-radius: 10px;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.info1InnerDiv1 {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_LastMinute_imgB_1199x399_20211104.jpg"),linear-gradient(
+        270deg
+        , rgba(0,11,38,0.7) 5rem, rgba(0,11,38,0.4), rgba(0,1,38,0.5));;
+    border-radius: 10px;   
+    display: flex;
+    margin: 15px;
+    align-items: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.info1Heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    padding: 0rem 1.5rem;
+    margin: 0;
+    color: white;
+
+}
+
+.info1Para {
+    font-size: 1.125rem;
+    padding: 0rem 1.5rem;
+    /* margin: 0; */
+}
+
+.info1Btn {
+    margin: 0rem 1.5rem;
+    border: none;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-color: #a1aab3;
+    border-width: 1px;
+    color: #0d5ab9;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+}
+
+.info1Btn:hover {
+    filter: contrast(0.85);
+
+}
+
+.info1BottomPara {
+    width: 80vw;
+    margin: 10px auto;
+}
+
+.info1BottomPara > p {
+    color: #505c66;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.info3 {
+    width: 90vw;
+    margin: auto;
+}
+
+.info3Heading {
+    color: #242c33;
+    font-size: 1.75rem;
+    font-weight: 700;
+    padding-top: 20px;
+}
+
+.info3BgImg1, .info3BgImg2, .info3BgImg3, .info3BgImg4 {
+    height: 200px;
+    width: 95%;
+    background: gray;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+}
+.info3BgImg1 {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Beach_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
+    background-size: cover;
+}
+
+.info3BgImg2 {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Car_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
+    background-size: cover;
+}
+
+.info3BgImg3 {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_MOD_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
+    background-size: cover;
+}
+
+.info3BgImg4 {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_VacationRentals_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium");
+    background-size: cover;
+}
+
+.info3BgImg1 > h3 , .info3BgImg2 > h3 , .info3BgImg3 > h3 , .info3BgImg4 > h3 {
+    margin: 0;
+    text-shadow: 0px 1px 2px rgb(17 21 26 / 80%);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.375rem;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 15px;
+}
+.info3Grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.infoVideo {
+    width: 80%;
+    margin: auto;
+}
+
+.infoVideo > iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+.infoFeaturedImg {
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Family_imgB_1200x674_20211104.jpg");
+    width: 100%;
+    height: 248px;
+    background-size: cover;
+    background-position: 0px 490px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.infoFeaturedOfferDetails {
+    position: absolute;
+    bottom: 8px;
+    padding-left: 20px;
+    color: #fff;
+}
+
+.infoFeaturedOfferDetails > h3 {
+    margin: 5px 0px;
+    font-size: 0.875rem;
+    line-height: calc(18 / 14);
+    font-weight: 700;
+    color: #fff;
+}
+
+.infoFeaturedOfferDetails > p {
+    margin: 5px 0px;
+}
+
+
+/* media querry */
+
+@media (min-width: 200px) and (max-width: 1197px) {
+    .info1{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+@media (min-width: 565px) and (max-width: 865px) {
+    .info3Grid{
+        grid-template-columns: repeat(2,1fr);
+        row-gap: 10px;
+    }
+}
+@media (min-width: 200px) and (max-width: 564px) {
+    .info3Grid{
+        grid-template-columns: repeat(1,1fr);
+        row-gap: 10px;
+    }
+}

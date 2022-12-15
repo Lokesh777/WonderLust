@@ -1,0 +1,221 @@
+.hotelReg{
+    background-color: rgb(250, 250, 250);
+    min-height: 100vh;
+    margin-top: 10px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+.hotelReg *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.hotelReg h1{
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    padding: 15px 10%;
+    text-transform: uppercase;
+    border-bottom: 3px solid orange;
+    letter-spacing: 1mm;
+    word-spacing: 5mm;
+    margin-bottom: 50px;
+}
+
+.regForm{
+    width: 80%;
+    padding: 25px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.regForm h2{
+    text-transform: capitalize;
+    text-align: center;
+    padding: 25px 0 15px;
+}
+
+.reg1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Primary form data */
+.primary{
+    border: 1px solid rgb(202, 202, 202);
+    width: 45%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.primary label{
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.primary label p{
+    padding: 5px;
+}
+
+.primary label input{
+    display: block;
+    border:1px solid rgb(185, 185, 185);
+    width: 100%;
+    padding: 7px 14px;
+    border-radius: 7px;
+}
+
+
+/* description data */
+
+.description{
+    border: 1px solid rgb(202, 202, 202);
+    width: 45%;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 15px;
+    height: 260px;
+}
+
+.description label{
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.description label p{
+    padding: 5px;
+}
+
+.description label textarea{
+    width: 100%;
+    max-width: 100%;
+    border:1px solid rgb(185, 185, 185);
+    min-width: 100%;
+    padding: 7px 14px;
+    max-height: 200px;
+}
+
+/* constact details */
+
+.contact{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid rgb(202, 202, 202);
+    padding: 15px 30px;
+    border-radius: 15px;
+}
+
+.contact label{
+    padding: 15px;
+}
+
+.contact label div{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.contact label p{
+    padding: 5px;
+    text-transform: capitalize;
+}
+
+.contact label div input{
+    display: block;
+    border:1px solid rgb(185, 185, 185);
+    padding: 7px 14px;
+    border-radius: 7px;
+}
+
+.contact label div button{
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 10px;
+    background-color: #fff;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.contact label div button:hover{
+    background-color: red;
+    color: #fff;
+}
+.contact label div button:active{
+    background-color: rgb(255, 136, 136);
+    color: #fff;
+}
+.contact label div button:disabled{
+    background-color: rgb(218, 218, 218);
+    color: grey;
+    border: 1px solid grey;
+    cursor: not-allowed;
+}
+
+.contact label .add_Button{
+    padding: 5px 10px;
+    font-size: 16px;
+    display: block;
+    margin: 10px 0;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 255, 0);
+    border: 1px solid rgb(0, 255, 0);
+    border-radius: 5px;
+    cursor:pointer;
+
+}
+
+.roomForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.submitBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    margin-top: 100px;
+}
+.submitBox .agreeCheck{
+    display: flex;
+    width: fit-content;
+}
+.submitBox .agreeCheck>*{
+    padding: 5px 15px;
+    font-size: 14px;
+    color: grey;
+}
+
+.submitBox button {
+    padding: 10px 14px ;
+    border-radius: 7px;
+    border: none;
+    background-color: rgb(3, 182, 3);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px
+}
+.submitBox button:hover {
+    background-color: rgb(0, 255, 0);
+    color: #000;
+}
+
+.submitBox button:disabled {
+    background-color: rgb(192, 192, 192);
+    color: #000;
+    cursor: not-allowed;
+}
