@@ -18,7 +18,7 @@ import {Admin} from "../Component/Admin/Admin";
                 <Route path="trip" element={<Trip /> } />
                 <Route path="support" element={<Support /> } />
                 <Route path="login" element={<Register /> } />                
-                <Route path="admin" element={<Admin /> } />                
+                <Route path="admin/*" element={<Admin /> } />                
            </Routes>
         
         </div>
