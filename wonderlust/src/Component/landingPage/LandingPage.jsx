@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./Home.module.css";
 // import ScrollableTabsButtonForce from './Slider'
-import { style } from "@mui/system";
 
 function LandingPage() {
   useEffect(() => {
