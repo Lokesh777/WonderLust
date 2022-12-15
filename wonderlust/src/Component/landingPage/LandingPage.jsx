@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import styles from "./Home.module.css";
 // import ScrollableTabsButtonForce from './Slider'
-import Grid from "@material-ui/core/Grid";
 import { style } from "@mui/system";
 
-export function LandingPage() {
+function LandingPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,7 +26,6 @@ export function LandingPage() {
               className={styles.imgshow}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_FitForYou_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
             />
-            <h3 className={styles.texthead}>Find your perfect trip</h3>
           </div>
           <p>
             {" "}
@@ -42,7 +40,6 @@ export function LandingPage() {
               className={styles.imgshow}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_Transparency_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
             />
-            <h3 className={styles.texthead}>Book with flexibility</h3>
           </div>
           <p>
             {" "}
@@ -57,7 +54,6 @@ export function LandingPage() {
               className={styles.imgshow}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_GotYourBack_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
             />
-            <h3 className={styles.texthead}>We've got your back</h3>
           </div>
           <p>
             Need more help along your journey? We offer 24/7 support on social
@@ -143,3 +139,5 @@ export function LandingPage() {
     </div>
   );
 }
+
+export default LandingPage

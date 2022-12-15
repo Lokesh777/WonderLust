@@ -16,9 +16,12 @@ app.get('/', async (req, res) => {
                 k = -1
             }
             const data = await Hotel.find().limit(limit).sort({ name: k }).skip((page - 1) * limit);
+            // console.log('data:', data)
+
             return res.send(data)
         } else {
             const data = await Hotel.find().limit(limit).skip((page - 1) * limit);
+            // console.log('data:', data)
             return res.send(data)
         }
     } catch (err) {
@@ -64,6 +67,26 @@ app.get('/:id', async (req, res) => {
     }
 })
 
+app.get('/price/:value', async (req, res) => {
+    const value = req.params.value
+    const value2= 500;
+    // console.log('value:', value)
+
+    try {rooms[0].price
+        if (value) {
+        
+            const data = await Hotel.find({$and:[{rooms:{$gt:value}},{rooms:{$lt:value2}}]});
+            return res.send(data)
+        } else {
+            const data = await Hotel.find().limit(limit).skip((page - 1) * limit);
+            return res.send(data)
+        }
+    } catch (err) {
+        res.send({ error: true, message: err.message })
+    }
+})
+
+
 
 app.post('/', async (req, res) => {
     try {
@@ -102,3 +125,5 @@ app.post('/', async (req, res) => {
     }
 })
 module.exports = app;
+
+

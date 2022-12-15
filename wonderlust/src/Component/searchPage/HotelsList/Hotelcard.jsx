@@ -28,6 +28,7 @@ const Wrapper = styled("div")`
   background: white;
   padding-right: 0.5rem;
   paddind: 40px;
+  ${"" /* z-index:0; */}
 
   ${"" /* border:1px solid red; */}
 
@@ -122,8 +123,13 @@ const Wrapper = styled("div")`
       color: red;
     }
   }
-  @media (min-width: 500px) {
+  @media (min-width: 600px) {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  }
+  @media (max-width: 700px) {
+    .description {
+      display: none;
+    }
   }
   @media (max-width: 500px) {
     width: 80%;
@@ -134,9 +140,7 @@ const Wrapper = styled("div")`
       width: 30%;
       border-radius: 0.5rem 0 0 0.5rem;
     }
-    .desc-rating {
-      display: none;
-    }
+
     .price-detail {
       display: flex;
       flex-direction: column;
@@ -152,6 +156,9 @@ const Wrapper = styled("div")`
     }
   }
   @media (max-width: 400px) {
+    .desc-rating {
+      display: none;
+    }
   }
 `;
 
@@ -189,7 +196,7 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
     >
       {w > 820 ? (
         <div className="card-image">
-          <Carousel 
+          <Carousel
             responsive={responsive}
             swipeable={false}
             draggable={false}
@@ -202,14 +209,18 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
             containerClass="carousel-container"
             keyBoardControl={true}
           >
+            {/* <img key={i} style={{ height: "170px", width: "500px",borderRadius:"10px" }} src={ele.url} alt="nm" /> */}
             {data.images.map((ele, i) => (
-              <img key={i} style={{ height: "170px", width: "500px",borderRadius:"10px" }} src={ele.url} alt="nm" />
+              <img key={i} style={{ height: "170px", width: "500px", borderRadius: "10px" }} src={ele} alt="nm" />
             ))}
           </Carousel>
         </div>
       ) : (
-        <img className="card-image" src={data.images[1].url} alt="" />
+        <img className="card-image" src={data.images[1]} alt="" />
       )}
+
+
+      {/* <img className="card-image" src={data.images[1].url} alt="" /> */}
       {/* {data.images.map((ele, i) => (
           <img textAlign={"center"} style={{ height: "170px", width: "500px",padding:'10px' }}  src={ele.url} alt="nm" />
         ))} */}
@@ -217,11 +228,17 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
       <div className="hotel-detail">
         <div className="hotel-name-add">
           <h3 className="hotel-name">{data.name}</h3>
-          <div className="hotel-city">{data.address.city}</div>
+           {/* note */}
+          {/* <div className="hotel-city">{data.address.city}</div>  */}
+          <div className="hotel-city">{data.contactInfo.city}
+          {data.contactInfo.address} 
+          </div> 
+          
         </div>
         <div className="desc-rating">
           <div className="description">Fully refundable</div>
           <div className="description">Reserve Now Pay Later</div>
+        
           <div className="rating">
             <span className="star">{data.starRating}/5.0</span> Excellent (356 reviews)
           </div>
@@ -229,9 +246,11 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
       </div>
       <div className="price-detail">
         <div className="off">We have 5 left</div>
-        <div className="price">${data.price}</div>
+{/* note */}
+        {/* <div className="price">${data.price}</div> */}
+        <div className="price">${data.rooms[0].price}</div>
         <div>Per night</div>
-        <div className="total-price">${data.price + 20} Total</div>
+        <div className="total-price">${data.rooms[0].price + 20} Total</div>
         <div>Includes taxes and fees</div>
       </div>
     </Wrapper>
