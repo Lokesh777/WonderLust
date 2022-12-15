@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./Home.module.css";
-// import ScrollableTabsButtonForce from './Slider'
+import ScrollableTabsButtonForce from './Slider'
 
 function LandingPage() {
   useEffect(() => {
@@ -12,7 +12,7 @@ function LandingPage() {
       <div className={styles.forms}>
         <div style={{ marginRight: "10px" }}>
           <div className={styles.formsContainer}>
-            {/* <ScrollableTabsButtonForce /> */}
+            <ScrollableTabsButtonForce />
           </div>
         </div>
       </div>
