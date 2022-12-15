@@ -18,17 +18,17 @@ const HotelSchema = new mongoose.Schema({
         emails:[String],
         websiteUrl:String,
         address:String,
-        city:{type: mongoose.Schema.Types.ObjectId, ref: "city", required: true,},
+        // city:{type: mongoose.Schema.Types.ObjectId, ref: "city", required: true,},
+        city:String,
         long:{type:Number },
         lat:{type:Number},
     },
     images:[String],
     rooms:[{
         size:Number,
-        beds:{
-            count:Number,
-            type:String
-        },
+        beds:{type:{
+            type:String //
+        }, count:{type:Number}},
         maxPersons:Number,
         count:Number,
         booked:Number,
@@ -47,9 +47,8 @@ const HotelSchema = new mongoose.Schema({
     }],
     popularAmenities:[
         {
-            icon:String,
+            icon:Number,
             title:String,
-            points:[String]
         }
     ],
     misc:[
