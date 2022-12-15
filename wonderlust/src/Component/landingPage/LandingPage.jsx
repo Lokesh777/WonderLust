@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import styles from "./Home.module.css";
 // import ScrollableTabsButtonForce from './Slider'
-import Grid from "@material-ui/core/Grid";
 import { style } from "@mui/system";
 
-export function LandingPage() {
+function LandingPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -143,3 +142,5 @@ export function LandingPage() {
     </div>
   );
 }
+
+export default LandingPage
