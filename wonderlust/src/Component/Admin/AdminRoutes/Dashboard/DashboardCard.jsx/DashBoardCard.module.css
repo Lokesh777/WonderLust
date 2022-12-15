@@ -68,3 +68,7 @@
     background-color: rgb(146, 0, 243);
     color: #fff;
 }
+.buttonBox a{
+    color: inherit;
+    text-decoration: none;
+}
