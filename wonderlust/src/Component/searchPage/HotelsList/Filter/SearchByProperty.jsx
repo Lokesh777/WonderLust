@@ -50,13 +50,13 @@ export const SearchByProperty = ({ handleQueryChange, query }) => {
           id="outlined-basic"
           label="Eg: Taj Hotel "
           variant="outlined"
-          color="primary"
+          color="secondary"
           value={query}
           onChange={(e) => {
             handleQueryChange(e.target.value);
           }}
         />
-        <SearchIcon className="iconSearch" fontSize="large" sx={{ color: "blue", mr: 1 }} />
+        <SearchIcon className="iconSearch" fontSize="large" sx={{ color: "#7b1fa2", mr: 1 }} />
       </Box>
       <Divider className="divider" />
       <div className="search-title">Filter by</div>
