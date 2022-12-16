@@ -1,0 +1,182 @@
+.hotel{
+    padding: 10px 15px 35px;
+}
+.hotel .head{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 1000;
+    padding: 0px 45px 10px;
+    width: fit-content;
+    margin: 0px auto 30px;
+    border-bottom: 3px solid orange;
+}
+.hotel *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: left;
+}
+.page{
+    display: grid;
+    width: 90%;
+    padding: 10px 0px 0 35px;
+    grid-template-columns: 1fr 2fr;
+    gap: 0 55px;
+}
+.hotel .panelB{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+
+}
+.hotel .panel{
+    height: 90vh;
+    width: 100%; 
+    /* border: 1px solid skyblue; */
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+/* Panel */
+
+.registerButton{
+    width: 250px;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 20px;
+    justify-content: center;
+    color: #fff;
+    margin: auto;
+    background-color: green;
+    transform: translate(40px, -70px);
+}
+.registerButton p{
+    padding: 0 15px 0 0;
+}
+
+.panelBox{
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    padding: 7px;
+    margin: 15px auto;
+    background-color: rgb(252, 252, 252);
+}
+
+.panel .panelBox h2{
+    font-weight: 500;
+    font-size: 19px;
+    text-align: center;
+    width: fit-content;
+    padding: 5px 20px;
+    border-bottom: 1px solid orange;
+    margin: 0 auto 10px;
+}
+.panelBox>label{
+    display: block;
+    margin-bottom: 15px;
+}
+.panelBox>label>input{
+    border: 1px solid grey;
+    padding: 5px 10px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0px auto;
+}
+.panelBox>label>p{
+    padding: 5px;
+    font-weight: 500;
+}
+.checkBoxes{
+    display: flex;
+    align-items: center;
+
+}
+.checkBoxes>label{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin-right: 10px;
+}
+.checkBoxes label p{
+    width: fit-content;
+    padding: 2px 7px;
+    font-size: 14px
+}
+
+
+
+
+
+
+
+/* cards */
+.hotelcard{
+    border: 1px solid skyblue;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hotelcard .images{
+    border-radius: 20px 0 0 20px;
+    width: 50%;
+    height: 100%;
+    
+}
+.hotelcard .images img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+}
+
+.hotelcard .info{
+    width: 50%;
+    height: 100%;
+}
+
+.hotelcard .info .infoTitle{
+    font-size: 20px;
+    font-weight: 700;
+    /* width: 250px; */
+    padding: 7px 14px 7px;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hotelcard .info .infoStars{
+    color: orange;
+    padding: 5px 15px;
+    display: flex;
+}
+
+.hotelcard .info .infoCity{
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+}
+.hotelcard .info .infoCity p{
+    margin-left: 7px;
+}
+
+.hotelcard .info .infoPrice{
+    font-size: 28px;
+    font-weight: 700;
+    padding: 5px 15px;
+}
+.hotelcard .info .buttonBox{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
