@@ -9,7 +9,7 @@ const userDetailsScehma = new mongoose.Schema(
 		
 	},
 	{
-		collation: "user",
+		// collation: "user",
 	}
 )
 
