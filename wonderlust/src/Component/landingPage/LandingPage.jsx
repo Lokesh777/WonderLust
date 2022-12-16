@@ -18,47 +18,9 @@ function LandingPage() {
       </div>
 
       <div className={styles.flex}>
-        <div className={styles.showbox}>
-          <div className={styles.imgweb}>
-            <img
-              alt
-              className={styles.imgshow}
-              src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_FitForYou_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
-            />
-          </div>
-          <p>
-            {" "}
-            Plan a trip for the whole family—from family travel tips to
-            family-friendly filters, our tools make it easy.
-          </p>
-        </div>
-        <div className={styles.showbox}>
-          <div className={styles.imgweb}>
-            <img
-              alt
-              className={styles.imgshow}
-              src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_Transparency_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
-            />
-          </div>
-          <p>
-            {" "}
-            Looking for a change of scenery, but want something flexible? With
-            free cancellation on most hotels, you can book with peace of mind.
-          </p>
-        </div>
-        <div className={styles.showbox}>
-          <div className={styles.imgweb}>
-            <img
-              alt
-              className={styles.imgshow}
-              src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_GotYourBack_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=900&h=386&q=mediumHigh"
-            />
-          </div>
-          <p>
-            Need more help along your journey? We offer 24/7 support on social
-            and through virtual agents onsite.
-          </p>
-        </div>{" "}
+      <div><img  alt="image" src="https://user-images.githubusercontent.com/107500115/208183848-98568732-680d-47e0-aa34-d981fab7a121.png" /></div>
+      <div><img  alt="image" src="https://user-images.githubusercontent.com/107500115/208183889-cec794d9-71d1-4d41-9503-e3296d67754e.png" /></div>
+      <div><img alt="image" src="https://user-images.githubusercontent.com/107500115/208183969-dde18812-f0a1-4377-8146-bb036cdfadd0.png" /></div>
       </div>
       <div className={styles.info1}>
         <div className={styles.info1InnerDiv}>
@@ -133,6 +95,9 @@ function LandingPage() {
             title="YouTube video player"
             allowFullScreen
           ></iframe>
+        </div>
+        <div style={{marginTop:'40px', cursor:"pointer"}}>
+        <img alt="image" src="https://user-images.githubusercontent.com/107500115/208185422-2fde849e-16f5-443a-8142-ec6859dc55ab.png" />
         </div>
       </div>
     </div>

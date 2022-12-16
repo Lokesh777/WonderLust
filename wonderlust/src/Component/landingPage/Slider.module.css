@@ -7,7 +7,7 @@
 
 .hotelBtns {
     display: flex;
-    border: 1px solid rgba(80, 92, 102, 0.5);
+    border: 1px solid black;
     padding: 4px 10px;
     border-radius: 10px;
     align-items: center;
@@ -35,12 +35,12 @@
 }
 
 .Icon {
-    color: #505c66;
+    color: black;
 }
 
 .HeadingGoingto {
     margin-left: 10px;
-    color: #505c66;
+    color: black;
 }
 
 .checkInHeading {
@@ -62,7 +62,7 @@
 
 .searchBtnDiv > button {
     border: none;
-    background-color: #0d5ab9;
+    background-color: rgb(195, 7, 195);
     color: #fff;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -119,11 +119,11 @@
 }
 
 .SearchResult:hover {
-    background-color: #f0f3f5;
+    background-color: #f8e9ff;
 }
 
 .searchIcon {
-    color: #505c66;
+    color: black;
     font-size: 1.2rem !important;
     opacity: 0.7;
 }
