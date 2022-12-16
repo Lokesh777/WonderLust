@@ -273,7 +273,7 @@ export default function ScrollableTabsButtonForce() {
                             <LocalizationProvider dateAdapter={AdapterDateFns }>
                                 <DatePicker
                                     onChange={(newValue) => {
-                                        if(newValue < startDate){
+                                        if(newValue < startDate ){
                                             alert("Please Enter a valid Date");
                                             return;
                                         }
@@ -300,8 +300,9 @@ export default function ScrollableTabsButtonForce() {
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DatePicker
                                     onChange={(newValue) => {
-                                        if(newValue < endDate){
+                                        if(newValue < endDate || newValue < startDate){
                                             alert("Please Enter a valid Date");
+                                            setEndDate(startDate)
                                             return;
                                         }
                                         setEndDate(newValue);
