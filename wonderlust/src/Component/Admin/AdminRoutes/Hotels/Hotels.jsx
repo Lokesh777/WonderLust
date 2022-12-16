@@ -9,7 +9,7 @@ export const Hotels = () => {
 
     useEffect(() => {
         async function getData() {
-            let res = await axios.get(' http://localhost:8080/hotel');
+            let res = await axios.get('http://localhost:8080/hotel');
             setData(res.data);
         }
         getData();

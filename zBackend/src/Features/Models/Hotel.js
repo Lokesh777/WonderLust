@@ -3,6 +3,18 @@ const mongoose = require('mongoose');
 const HotelSchema = new mongoose.Schema({
     name:{type:String, required:true},
     starRating:{type:Number, required:true},
+    // 
+    rating:{type:Number, required:true},
+    prices:[Number],
+    realPrices:[Number],
+    discounts:[Number],
+    minDiscount:Number,
+    maxDiscount:Number,
+    minPrice:Number,
+    maxPrice:Number,
+    createdAt:{type:Date, required:true},
+    modifiedAt:{type:Date, required:true},
+    // 
     reviews:{
         type:[{
             rating:{type:Number, required:true},
@@ -43,6 +55,7 @@ const HotelSchema = new mongoose.Schema({
         payLater:Boolean,
         price:Number,
         realPrice:Number,
+        discount:Number,
         name:String
     }],
     popularAmenities:[
