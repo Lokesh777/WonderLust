@@ -530,3 +530,202 @@ let data = {
   price: 350,
   starRating: 3,
 };
+
+[
+  {
+      "contactInfo": {
+          "phone": [
+              "7308840270"
+          ],
+          "emails": [
+              "Temple.House@gmail.com"
+          ],
+          "websiteUrl": "House.Temple512.in",
+          "address": "8, Masai Nagar, Janasahu Road",
+          "city": "Surat"
+      },
+      "_id": "639aa00735c93b7df1aeb0d6",
+      "name": "The Temple House",
+      "starRating": 1,
+      "reviews": [
+          {
+              "rating": 4,
+              "comment": "Good",
+              "_id": "639aa00735c93b7df1aeb0d7"
+          }
+      ],
+      "count": 138,
+      "booked": 0,
+      "description": "In a unique reconstructed and renovated building in an enviable location, Gran Hotel Sardinero is the perfect starting point for exploring Santander’s cultural, leisure and business activities.",
+      "images": [
+          "https://cdn.impala.travel/properties/ckna6389z006c0uo53gyeb9oq.jpg",
+          "https://cdn.impala.travel/properties/ckna61sei006a0uo56txresa3.jpg",
+          "https://cdn.impala.travel/properties/ckna62ckp006b0uo51jq4dou6.jpg",
+          "https://cdn.impala.travel/properties/ckna64p8r006f0uo51csrhy1v.jpg",
+          "https://cdn.impala.travel/properties/ckna66uyn006i0uo5b21wgdy5.jpg"
+      ],
+      "rooms": [
+          {
+              "beds": {
+                  "type": "twin",
+                  "count": 1
+              },
+              "amenities": {
+                  "bathroom": [
+                      "Bathroom ameniti",
+                      "Massage",
+                      "Bathtub",
+                      "Slippers"
+                  ],
+                  "bedroom": [
+                      "Slippers",
+                      "Satellite television",
+                      "Wireless internet connection"
+                  ],
+                  "foodAndDrink": [
+                      "Fastfood",
+                      "Beer",
+                      "Traditional Meal",
+                      "ColdDrinks",
+                      "Dining",
+                      "BBQ"
+                  ],
+                  "other": [
+                      "Seating area with sofa/chair",
+                      "Balcony",
+                      "Business library",
+                      "Pool"
+                  ]
+              },
+              "size": 1768,
+              "maxPersons": 2,
+              "count": 39,
+              "booked": 0,
+              "images": [
+                  "https://cdn.impala.travel/properties/ckned0efs00bf0uo5gznv7vw4.jpg",
+                  "https://cdn.impala.travel/properties/ckned5t3z00ca0uo5fpok75ec.jpg",
+                  "https://cdn.impala.travel/properties/ckned6we200cc0uo5gi43164d.jpg",
+                  "https://cdn.impala.travel/properties/ckned7gef00cd0uo5d9ia8049.jpg",
+                  "https://cdn.impala.travel/properties/ckned3o0n00c60uo5af8f80r6.jpg"
+              ],
+              "refundable": true,
+              "payLater": false,
+              "price": 309,
+              "realPrice": 279,
+              "name": "royal",
+              "_id": "639aa00735c93b7df1aeb0d8"
+          },
+          {
+              "beds": {
+                  "type": "twin",
+                  "count": 4
+              },
+              "amenities": {
+                  "bathroom": [
+                      "Bathroom amenities (free toiletries)",
+                      "Bathtub",
+                      "Private bathroom",
+                      "Massage",
+                      "Spa"
+                  ],
+                  "bedroom": [
+                      "Slippers",
+                      "Desk",
+                      "Air conditioning",
+                      "Bidet",
+                      "Wireless internet connection",
+                      "Soundproofed room"
+                  ],
+                  "foodAndDrink": [
+                      "Beer",
+                      "Dining",
+                      "Breakfast"
+                  ],
+                  "other": [
+                      "Wireless internet connection",
+                      "Pool",
+                      "Seating area with sofa/chair",
+                      "Currency exchange",
+                      "Business library",
+                      "Balcony"
+                  ]
+              },
+              "size": 1172,
+              "maxPersons": 5,
+              "count": 56,
+              "booked": 0,
+              "images": [
+                  "https://cdn.impala.travel/properties/ckna5ie83004y0uo58jlh0gzh.jpg",
+                  "https://cdn.impala.travel/properties/ckna5jjyg004z0uo5dmhxgznz.jpg",
+                  "https://cdn.impala.travel/properties/ckna5lidl00520uo54zzk9pp7.jpg",
+                  "https://cdn.impala.travel/properties/ckna5lsv000540uo526g305o3.jpg",
+                  "https://cdn.impala.travel/properties/ckna5o98o005c0uo5egqh76dx.jpg"
+              ],
+              "refundable": true,
+              "payLater": false,
+              "price": 1198,
+              "realPrice": 1103,
+              "name": "luxury",
+              "_id": "639aa00735c93b7df1aeb0d9"
+          },
+          {
+              "beds": {
+                  "type": "twin",
+                  "count": 3
+              },
+              "amenities": {
+                  "bathroom": [
+                      "Bath or Shower",
+                      "Bathroom amenities (free toiletries)",
+                      "Massage",
+                      "Separate toilet area",
+                      "Slippers"
+                  ],
+                  "bedroom": [
+                      "Minibar",
+                      "Hairdryer",
+                      "Satellite television",
+                      "Air conditioning",
+                      "Bidet"
+                  ],
+                  "foodAndDrink": [
+                      "Breakfast",
+                      "ColdDrinks",
+                      "Fastfood",
+                      "Dining",
+                      "Campfire",
+                      "Beer"
+                  ],
+                  "other": [
+                      "Pool",
+                      "Balcony",
+                      "Business library"
+                  ]
+              },
+              "size": 1588,
+              "maxPersons": 5,
+              "count": 43,
+              "booked": 0,
+              "images": [
+                  "https://cdn.impala.travel/properties/cknec291n008j0uo5gu6rdk1x.jpg",
+                  "https://cdn.impala.travel/properties/cknec3l4p008o0uo5hnasfmmk.jpg",
+                  "https://cdn.impala.travel/properties/cknec49bq008r0uo54w37aqqp.jpg",
+                  "https://cdn.impala.travel/properties/cknec4ydp008v0uo5224hdslr.jpg",
+                  "https://cdn.impala.travel/properties/cknec5knn008z0uo521o6hupf.jpg"
+              ],
+              "refundable": false,
+              "payLater": true,
+              "price": 1002,
+              "realPrice": 922,
+              "name": "family",
+              "_id": "639aa00735c93b7df1aeb0da"
+          }
+      ],
+      "popularAmenities": [],
+      "misc": [],
+      "nearby": [],
+      "__v": 0
+  }
+]
+
+
