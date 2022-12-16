@@ -158,6 +158,14 @@ app.get('/getByCiy/:city', async (req, res) => {
         res.send({ error: true, message: err.message })
     }
 })
+app.get('/count', async(req, res)=>{
+    try{
+        const count = await Hotel.find().count();
+        res.send({count});
+    }catch(err){
+        res.send({error:true, message:err.message})
+    }
+})
 
 app.get('/:id', async (req, res) => {
     const id = req.params.id
