@@ -5,10 +5,10 @@ const CitySchema = new mongoose.Schema({
     name:{type:String, required:true, unique:true},
     state:{type:String, required:true, enum:states},
     country:{type:String, enum:['India']},
-    location:{
+    location:{type:{
         lat:Number,
         long:Number
-    },
+    }},
     places:[String]
 });
 
