@@ -2,9 +2,16 @@
 	font-size: 50px;
 	margin-bottom: 50px;
 }
+.backGroundContainer{
+   width: 50%;
+   height:100%;
+   /* border: 1px solid red; */
+}
 .welcome_img{
 	width: 100%;
-	display: block;
+	/* height: 34.5rem; */
+	height:100% ;
+	/* display: block; */
 	margin: auto;
 }
 

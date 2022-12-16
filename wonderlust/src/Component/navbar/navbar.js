@@ -100,6 +100,16 @@ const Reload = () => {
                 <div className={styles.nav}>Support</div>
               </Link>
               <Link
+                to="checkout"
+                smooth={true}
+                duration={1000}
+                activeClass={styles.active}
+                spy={true}
+                hashSpy={true}
+              >
+                <div className={styles.nav}>Checkout</div>
+              </Link>
+              <Link
                 to="trip"
                 smooth={true}
                 duration={1000}
