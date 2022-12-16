@@ -1,0 +1,38 @@
+.h1{
+	font-size: 50px;
+	margin-bottom: 50px;
+}
+.welcome_img{
+	width: 100%;
+	display: block;
+	margin: auto;
+}
+
+.flex{
+	
+	display: flex;
+	
+	justify-content: center;
+	justify-content: space-between;
+}
+.box{
+	display: flex;
+	background-color: #0d5ab9;
+	margin-top: 30px;
+	height: 40px;
+	width: 30%;
+	border-radius: 10px;
+	
+}
+.box:hover{
+	background-color: #368df8;
+	cursor:pointer;
+}
+.box>a{
+
+	text-decoration: none;
+	color: white;
+     display: block;
+	 margin: auto;
+
+}
