@@ -4,7 +4,11 @@ const City = require('../Models/city');
 const app = express.Router();
 
 app.get('/', async(req, res)=>{
-    const {name=''} = req.query;
+    const {name} = req.query;
+
+    if(!name){
+        name='';
+    }
     try{
         const data = await City.find({name:{$regex:name}});
         res.send(data)
