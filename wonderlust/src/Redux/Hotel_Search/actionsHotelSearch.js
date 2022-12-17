@@ -1,12 +1,14 @@
 import axios from "axios";
 import {
-  
-    FILTER_BY_PRICE_FAILURE,
-    FILTER_BY_PRICE_REQ,
+  FILTER_BY_PRICE_FAILURE,
+  FILTER_BY_PRICE_REQ,
   FILTER_BY_PRICE_SUCCESS,
   GET_HOTELS_FAILURE,
   GET_HOTELS_REQUEST,
   GET_HOTELS_SUCCESS,
+  GET_HOTEL_DETAILS_FAILURE,
+  GET_HOTEL_DETAILS_REQUEST,
+  GET_HOTEL_DETAILS_SUCCESS,
 } from "./typesHotelSearch";
 
 const URL = `http://localhost:8080`;
@@ -14,14 +16,31 @@ const URL = `http://localhost:8080`;
 export const getHotelAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_HOTELS_REQUEST });
-    let response = await axios.get(`${URL}/hotel?limit=12`);
+    let response = await axios.get(`${URL}/hotel?limit=2`);
     // console.log("GetHotel response:", response.data);
 
     dispatch({ type: GET_HOTELS_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: GET_HOTELS_FAILURE, payload: error.message });
 
-    console.log("Error While calling get products API Action", error.message);
+    console.log("Error While calling get hotel API Action", error.message);
+  }
+};
+
+export const getHotelDetailsAction = (id) => async (dispatch) => {
+  // console.log("getHotelDetailsAction:", id);
+
+  try {
+    dispatch({ type: GET_HOTEL_DETAILS_REQUEST });
+
+    const { data } = await axios.get(`${URL}/hotel/${id}`);
+    // console.log("data:", data);
+
+    dispatch({ type: GET_HOTEL_DETAILS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_HOTEL_DETAILS_FAILURE, payload: error.message });
+
+    console.log("Error While  getting hotel Detail API Action", error.message);
   }
 };
 
@@ -38,7 +57,7 @@ export const filterByPriceAction = (a, b) => async (dispatch) => {
 
         return item.rooms[0].price >= a && item.rooms[0].price <= b;
       });
-      console.log('newData:', newData)
+      console.log("newData:", newData);
       dispatch({ type: FILTER_BY_PRICE_SUCCESS, payload: newData });
     }
   } catch (error) {

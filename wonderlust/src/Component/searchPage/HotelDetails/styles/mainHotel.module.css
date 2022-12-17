@@ -1,0 +1,35 @@
+h1, h2, h3, h4, h5, h6 {
+    color: #242c33;
+}
+
+.container {
+    background: #F0F3F5;
+    text-align: justify;
+
+}
+
+.mainBox {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 22px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2A6EC1;
+    padding: 4px 12px;
+    background: #FFF;
+    font-size: 14px;
+}
+
+.flex>:nth-child(n):hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.content {
+    flex-grow: 1;
+}

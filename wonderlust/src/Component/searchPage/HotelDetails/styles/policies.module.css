@@ -1,0 +1,53 @@
+.policies_div {
+    background: #FFF;
+    border-radius: 12px;
+    padding: 22px 14px;
+    margin-top: 20px;
+}
+
+.policies {
+    display: flex;
+    /* gap: 30px; */
+}
+
+.left {
+    width: 29%;
+}
+
+.mid, .right {
+    width: 34%;
+}
+
+.policies p {
+    font-size: 13px;
+    color: #505c66;
+    margin-bottom: 8px;
+}
+
+.policies h4 {
+    margin-bottom: 12px;
+}
+
+.policies h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.right_2 {
+    width: 62%;
+}
+
+.margin {
+    margin-top: 20px;
+}
+
+.flex_card {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 40px;
+}
+
+.flex_card>img {
+    width: 50px;
+}
