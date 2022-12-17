@@ -1,0 +1,46 @@
+.page{
+    background-color:rgb(233, 233, 233);
+    padding: 25px 0;
+    min-height: 90vh;
+}
+
+.board{
+    width: 40%;
+    margin: auto;
+}
+
+.createButton{
+    display: flex;
+    justify-content: right;
+}
+
+.createButton>button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    background-color: #7d2ae8;
+    padding: 7px 14px;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 20px;
+
+}
+.createButton>button:hover{
+    background-color: #9761df;
+}
+
+.createButton>button p{
+    font-size: 14px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.tripBoard{
+    text-align: left;
+}
+
+.tripBoard>h2{
+    font-size: 22px;
+    font-weight: 1000;
+}
