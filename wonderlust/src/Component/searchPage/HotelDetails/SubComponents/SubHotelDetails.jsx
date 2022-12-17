@@ -51,7 +51,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
 
   const handleReserve = () => {
     console.log("handleReserve:", handleReserve);
-    navigate(`/hotels`);
+    // navigate(`/hotels`);
     localStorage.setItem("hotelBooking", JSON.stringify(hotelData));
   };
   const nextSlide = () => {
