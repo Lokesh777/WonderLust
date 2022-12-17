@@ -15,17 +15,18 @@ app.post("/register", async (req, res) => {
 	  const oldUser = await User.findOne({ email });
   
 	  if (oldUser) {
-		return res.json({ error: "User_Exists" });
+		return res.json({ error:true, message:"User_Exists" });
 	  }
 	  await User.create({
 		fname,
 		lname,
 		email,
 		password: encryptedPassword,
+		role:'user'
 	  });
-	  res.send({ status: "ok" });
+	  res.send({ message: "user created successfully" });
 	} catch (error) {
-	  res.send({ status: error.message });
+	  res.send({ error:true, message:error.message });
 
 	}
   });

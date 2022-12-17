@@ -3,54 +3,48 @@ import style from '../Signup/signup.module.css'
 import './login.css'
 import {VStack,Container} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux';
+import { SignInAction } from '../../../Redux/Auth/actions'
 
+
+const initialFormData = {
+  email: "",
+  password: "",
+}
 
 function Login() {
 
+  // states and misc
+  const [formData, setFormData] = useState(initialFormData);
+  const navigator = useNavigate();
+  const dispatcher = useDispatch();
+
   
-  const [state, setState] = useState({
-    email: "",
-    password: "",
-    })
-  
-    
+  // events functions
   const handleChange = (e)=>{
-    
-    const {name, value} = e.target
-    setState({
-      ...state, [name] : value
-    })
-    
+    const {name, value} = e.target;
+    setFormData({...formData, [name] : value})
+  }
+  const signupSuccess = () => {
+    alert('Looged In Successfully');
+    clearForm();
+    navigator('/')
+  }
+
+  const signupError = (message) => {
+    alert(message);
+  }
+
+  const clearForm = () => {
+    setFormData(initialFormData)
   }
 
   const handleSubmit = (e)=>{
-
     e.preventDefault();
-    const { email, password } = state;
-    console.log(email, password);
-    fetch("http://localhost:8080/login", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "userRegister");
-        if (data.status == "ok") {
-          alert("login successful");
-          window.localStorage.setItem("token", data.data);
-          // window.location.href = "./userDetails";
-        }
-      });
+    dispatcher(SignInAction(formData, signupSuccess, signupError));
   }
+  
 
 
 
@@ -61,12 +55,12 @@ function Login() {
     <Container maxW='md' className={style.Container}>
       <form onSubmit={handleSubmit} >
         <input className={style.Allinput} type="email" name="email" placeholder='Email address'
-        value={state.email} 
+        value={formData.email} 
         onChange={handleChange}
         />
         <br />
         <input className={style.Allinput} type="password" name='password' placeholder='Password'
-        value={state.password} 
+        value={formData.password} 
         onChange={handleChange}
         />
         <br />
