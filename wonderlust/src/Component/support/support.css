@@ -1,0 +1,324 @@
+* {
+  font-family: Roboto;
+}
+
+#support {
+  background-color: #d1c2d9;
+}
+#support1 {
+  background-color: rgb(0, 64, 116);
+  display: flex;
+
+  padding: 15px 12%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#support12 > button {
+  background-color: rgb(0, 64, 116);
+  color: white;
+  text-decoration: none;
+
+  border-color: rgb(0, 64, 116);
+  margin: 10px;
+  padding: 5px;
+  border: 0px;
+}
+
+#support12 > button:hover {
+  background-color: rgb(0, 78, 147);
+  cursor: pointer;
+}
+
+#support12 > button:nth-child(1) {
+  border: 1px solid white;
+  font-weight: bold;
+  color: rgb(106, 171, 249);
+  border-radius: 2px;
+}
+
+#support2 {
+  padding: 15px 12%;
+}
+
+#support21 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#support21 > a {
+  text-decoration: none;
+  color: rgb(8, 9, 9);
+  font-size: 1rem;
+  font-weight: 500;
+}
+#support21 > a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#support3 {
+  position: relative;
+}
+
+#support3 > img {
+  width: 100%;
+  height: 100px;
+}
+
+#support31 {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  padding: 0px 12%;
+  gap: 75px;
+}
+
+#support31 > h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+#support31 > input {
+  padding: 15px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+#support4 {
+  background-color: #d1c2d9;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#support41 {
+  padding: 30px 12%;
+  line-height: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#support41 a {
+  text-decoration: none;
+  color: rgb(48, 111, 167);
+}
+
+#support42 {
+  display: flex;
+  gap: 10px;
+  padding: 0px 12%;
+  padding-bottom: 40px;
+}
+
+#support42 > button {
+  display: flex;
+  width: 220px;
+  gap: 5px;
+  background-color: white;
+  border: 0px;
+  padding-left: 10px;
+}
+
+#support5 {
+  background-color: #d1c2d9;
+}
+
+#support51 {
+  display: flex;
+  padding: 20px 12%;
+  gap: 25%;
+}
+
+#support6 {
+  display: flex;
+  padding: 0px 12%;
+  background-color: #d1c2d9;
+
+  gap: 25px;
+  padding-bottom: 50px;
+}
+
+#support61 {
+  width: 25%;
+}
+
+#support61 > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: white;
+
+  padding: 15px;
+  height: 10px;
+  margin: 1px;
+}
+
+#support61 > div:hover {
+  background-color: rgb(213, 231, 251);
+  cursor: pointer;
+}
+#support62 > div:hover {
+  background-color: rgb(213, 231, 251);
+  cursor: pointer;
+}
+
+#support61 img {
+  width: 20px;
+  height: 20px;
+}
+
+#support62 {
+  width: 75%;
+}
+
+#support62 > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: white;
+
+  padding: 15px;
+  height: 15px;
+  margin: 1px;
+}
+
+#support62 > div > h3 {
+  color: rgb(7, 106, 188);
+}
+
+#support7 {
+  background-color: #d1c2d9;
+}
+#support71 {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0px 0px;
+}
+
+#support71 > button {
+  background-color: white;
+  color: rgb(26, 101, 184);
+  border-color: rgb(26, 101, 184);
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+#support71 > button:hover {
+  border-color: lightskyblue;
+  color: lightskyblue;
+}
+
+#support7 {
+  padding: 10px 12%;
+}
+
+#support7 > div:nth-child(2) {
+  margin-top: 20px;
+  border: 2px solid rgb(14, 103, 181);
+}
+
+#support72 {
+  display: flex;
+  padding: 30px;
+  padding-bottom: 0px;
+}
+
+#support720 {
+  width: 90%;
+
+  gap: 15px;
+}
+
+#support721 > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+#support7211 > input {
+  padding: 10px;
+  width: 250px;
+}
+
+#support7211 > button {
+  padding: 10px 15px;
+  font-weight: bold;
+  background-color: rgb(144, 201, 0);
+  border-color: white;
+  cursor: pointer;
+}
+
+#support721 {
+  display: flex;
+  gap: 15px;
+}
+
+#support7212 {
+  display: flex;
+  gap: 25px;
+  text-align: center;
+  padding-right: 100px;
+}
+
+#support7212 img {
+  width: 20px;
+}
+
+#support722 {
+  text-align: center;
+  padding: 20px;
+}
+
+#support8 {
+  /* padding: 0px 12%; */
+}
+
+#support81 {
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: 1fr 5fr; */
+  align-items: center;
+  justify-content: flex-start;
+}
+#support81 > div {
+  margin-right: auto;
+  margin-left: 20px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  /* gap: 20px; */
+  /* align-items: center; */
+  justify-content: space-between;
+}
+#support81 > div h3 {
+  width: 200px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+#support81 > div div {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+}
+#support81 a {
+  text-decoration: none;
+  color: grey;
+  margin-right: 10px;
+}
+#support81 a:hover {
+  text-decoration: underline;
+}
+
+#support9 {
+  padding: 0px 12%;
+  text-align: center;
+}

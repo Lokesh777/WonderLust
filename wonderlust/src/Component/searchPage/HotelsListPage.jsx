@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { styled ,CircularProgress} from "@mui/material";
-import { HotelList } from './HotelsList/HotelList';
-import trvloLogo from './HotelsList/gitWanderlust.gif'
-
+import React, { useEffect, useState } from "react";
+import { styled, CircularProgress } from "@mui/material";
+import { HotelList } from "./HotelsList/HotelList";
+import trvloLogo from "./HotelsList/gitWanderlust.gif";
 
 const Wrapper = styled("div")`
   .progress {
@@ -11,6 +10,7 @@ const Wrapper = styled("div")`
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
 
   .progress > img {
@@ -20,29 +20,28 @@ const Wrapper = styled("div")`
 `;
 
 export const HotelsListPage = () => {
-    const [loading, setloading] = useState(true);
-  
-    useEffect(() => {
-      setTimeout(() => {
-        setloading(false);
-      }, 1200);
-    });
-    return (
-      <>
-        {loading ? (
-          <Wrapper>
-            <div className="progress">
+  const [loading, setloading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setloading(false);
+    }, 1200);
+  });
+  return (
+    <>
+      {loading ? (
+        <Wrapper>
+          <div className="progress">
             <img src={trvloLogo} alt="" />
 
-              <CircularProgress color="secondary"/>
-            </div>
-          </Wrapper>
-        ) : (
-          <HotelList />
-        )}
-      </>
-    );
-  };
-  
+            <CircularProgress color="secondary" />
+          </div>
+        </Wrapper>
+      ) : (
+        <HotelList />
+      )}
+    </>
+  );
+};
 
-export default HotelsListPage
+export default HotelsListPage;
