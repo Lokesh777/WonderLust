@@ -1,6 +1,9 @@
+ import style from './styles.module.css'
  const Trip = () => {
-    return <div>
-        <h1>Trip Page</h1>
+    return <div className={style.page}>
+        <div className={style.board}>
+
+        </div>
     </div>
 }
 export default Trip;
