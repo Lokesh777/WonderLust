@@ -28,11 +28,13 @@ import PaginationComp from "./Pagination/PaginationComp";
 // const url = `http://localhost:8080/hotel?limit=12`;
 
 const Wrapper = styled(Box)`
-  width: 90%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 0px auto;
   display: grid;
   grid-template-columns: 22% 63% 15%;
   grid-gap: 1.5rem;
+  background-color: #d1c2d9;
+  padding: 2rem 1rem;
 
   .filter-title {
     font-size: 1rem;
@@ -142,7 +144,7 @@ export const HotelList = () => {
     setTimeout(() => {
       setloading(false);
     }, 1400);
-  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice,city]);
+  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -162,9 +164,7 @@ export const HotelList = () => {
     setsearchHotel(val);
   };
   const handleClicksSearch = () => {
-  // console.log('handleClicksSearch:', searchHotel)
-
-
+    // console.log('handleClicksSearch:', searchHotel)
   };
   const handleChange = (event) => {
     const range = event.target.value.split(" ").map(Number);
