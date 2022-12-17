@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const TripSchema = new mongoose.Schema({
     name:{type:String, required:true},
     user:{type:String, required:true},
-    types:{type:String, required:true, enum:['default', 'special']},
+    description:String,
     createdAt:{type:Number},
     modifiedAt:{type:Number},
 });

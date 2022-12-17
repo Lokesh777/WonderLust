@@ -1,6 +1,6 @@
 .modal{
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.507);
+    background-color: rgba(0, 0, 0, 0.397);
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -9,11 +9,13 @@
     display: flex;
     justify-content: right;
 }
-
+.modal *{
+    box-sizing: border-box;
+}
 .modalBox{
     min-height: 100vh;
     width: 35%;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(255, 251, 251);
     padding: 15px 35px 15px 15px;
 }
 
@@ -29,4 +31,67 @@
 .closeBox button:hover{
     color: rgb(167, 0, 0);
     background-color: rgba(255, 255, 255, 0);    
+}
+
+.form{
+    margin: 55px auto 20px;
+    padding: 15px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 20px;
+}
+
+.form h2{
+    font-size: 25px;
+    font-weight: 900;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.form input{
+    width: 100%;
+    display: block;
+    padding: 7px 14px;
+    border-radius: 7px;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid rgb(204, 204, 204);
+    margin-bottom: 15px;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+.buttonBox{
+    margin: 55px auto 0px;
+    display: flex;
+    justify-content: space-around;
+}
+.buttonBox>button{
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-weight: 800;
+    transition: 0.2s;
+    color: rgb(247, 247, 247);
+}
+
+.buttonBox>.discard{
+    background-color: #df153d;
+}
+.buttonBox>.discard:hover{
+    background-color: #ff0033;
+    
+}
+.buttonBox>.discard:active{
+    background-color: #a30424;
+    
+}
+
+.buttonBox>.create{
+    background-color: rgb(0, 192, 0);
+}
+.buttonBox>.create:hover{
+    background-color: rgb(3, 245, 3);
+}
+.buttonBox>.create:active{
+    background-color: rgb(4, 131, 4);
 }
