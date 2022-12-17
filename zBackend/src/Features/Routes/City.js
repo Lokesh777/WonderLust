@@ -4,7 +4,7 @@ const City = require('../Models/city');
 const app = express.Router();
 
 app.get('/', async(req, res)=>{
-    const {name} = req.query;
+    let {name} = req.query;
 
     if(!name){
         name='';
