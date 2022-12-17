@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ImageSlide from "./Filter/ImageSlide";
+import StarIcon from "@mui/icons-material/Star";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ApartmentIcon from "@mui/icons-material/Apartment";
 
 const responsive = {
   desktop: {
@@ -49,19 +52,28 @@ const Wrapper = styled("div")`
     justify-content: space-between;
     text-align: left;
   }
-
   .hotel-name,
   .hotel-city {
     margin: 0.1rem 0;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
   .hotel-name-add {
     margin-top: 5px;
   }
 
+  .hotel-city-name {
+    padding-bottom: 0.2rem;
+    display: "flex";
+    justify-content: "center";
+  }
   .hotel-city {
     color: #505c66;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.2rem;
+    display: "flex";
+    justify-content: "center";
+    text-transform: capitalize;
   }
 
   .description {
@@ -119,8 +131,8 @@ const Wrapper = styled("div")`
       width: 60%;
     }
     .hotel-name {
-      font-size: 0.9rem;
-      color: red;
+      font-size: 0.8rem;
+      
     }
   }
   @media (min-width: 600px) {
@@ -161,7 +173,7 @@ const Wrapper = styled("div")`
     }
   }
 `;
-
+// starRating
 // hotelId
 // images[1].url
 // name
@@ -188,10 +200,12 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  // console.log('Number(data.starRating):', typeof(data.starRating))
+
   return (
     <Wrapper
       onClick={() => {
-        // handleOpenHotel(data.hotelId);
+        handleOpenHotel(data._id);
       }}
     >
       {w > 820 ? (
@@ -219,7 +233,6 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
         <img className="card-image" src={data.images[1]} alt="" />
       )}
 
-
       {/* <img className="card-image" src={data.images[1].url} alt="" /> */}
       {/* {data.images.map((ele, i) => (
           <img textAlign={"center"} style={{ height: "170px", width: "500px",padding:'10px' }}  src={ele.url} alt="nm" />
@@ -227,26 +240,41 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
 
       <div className="hotel-detail">
         <div className="hotel-name-add">
-          <h3 className="hotel-name">{data.name}</h3>
-           {/* note */}
+          <div className="hotel-city-name">
+            <h3 className="hotel-name">
+              <ApartmentIcon fontSize="16px" color="secondary"></ApartmentIcon>
+              {data.name}
+            </h3>
+          </div>
+          {/* note */}
           {/* <div className="hotel-city">{data.address.city}</div>  */}
-          <div className="hotel-city">{data.contactInfo.city}
-          {data.contactInfo.address} 
-          </div> 
-          
+          <div className="hotel-city">
+            {<LocationOnIcon fontSize="16px" color="secondary"></LocationOnIcon>}
+            {data.contactInfo.city}
+            {/* {data.contactInfo.address} */}
+          </div>
         </div>
         <div className="desc-rating">
           <div className="description">Fully refundable</div>
           <div className="description">Reserve Now Pay Later</div>
-        
+
           <div className="rating">
-            <span className="star">{data.starRating}/5.0</span> Excellent (356 reviews)
+            {new Array(Number(data.starRating)).fill(0).map((i) => (
+              <StarIcon color="secondary" fontSize="small"></StarIcon>
+            ))}
+
+            {/* <span className="star">
+              {data.starRating}
+              
+              /5.0
+            </span>{" "}
+            Excellent (356 reviews) */}
           </div>
         </div>
       </div>
       <div className="price-detail">
-        <div className="off">We have 5 left</div>
-{/* note */}
+        <div className="off">View More </div>
+        {/* note */}
         {/* <div className="price">${data.price}</div> */}
         <div className="price">${data.rooms[0].price}</div>
         <div>Per night</div>

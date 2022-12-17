@@ -27,18 +27,6 @@ import PaginationComp from "./Pagination/PaginationComp";
 // const url = `http://localhost:3004/hotel`;
 const url = `http://localhost:8080/hotel?limit=12`;
 
-// const useStyle = makeStyles({
-//   button: {
-//     margin: "10px 10px 0 0",
-//     background: "white",
-//   },
-
-//   selected: {
-//     display: "flex",
-//     background: "#f0f3f5",
-//   },
-// });
-
 const Wrapper = styled(Box)`
   width: 90%;
   margin: 30px auto;
@@ -125,7 +113,7 @@ export const HotelList = () => {
   const [loading, setloading] = useState(false);
   //   const classes = useStyle();
   const [priceFilter, setPriceFilter] = useState("");
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
   const dispatch = useDispatch();
@@ -140,7 +128,7 @@ export const HotelList = () => {
       dispatch(getHotelAction());
     }
     if (hotelsState) {
-      console.log("hotelsState:", hotelsState);
+      // console.log("hotelsState:", hotelsState);
       setHotels(hotelsState);
       setData(hotelsState);
     }
@@ -239,9 +227,9 @@ export const HotelList = () => {
     },
     [data]
   );
-  console.log("data:", data);
+  // console.log("data:", data);
   const handleOpenHotel = (id) => {
-    history(`/hotels/${id}`);
+    navigate(`/hotel/${id}`);
   };
 
   useEffect(() => {
@@ -333,7 +321,7 @@ export const HotelList = () => {
             {w > 500 && <PopularLocation />} {w > 500 && <FoodPlans />}
           </div>
           {/*------------------------------------------------------------------------------------------>>>>>> Hotel List  */}
-          <div className="list" >
+          <div className="list">
             {loading ? (
               <div className="progress">
                 <img src={trvloLogo} alt="" />
@@ -347,7 +335,7 @@ export const HotelList = () => {
             ) : (
               <NoDataFound></NoDataFound>
             )}
-            <div style={{ display:'flex',justifyContent:'center' }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               <PaginationComp></PaginationComp>
             </div>
           </div>
@@ -398,15 +386,16 @@ export const HotelList = () => {
           className="progress"
           style={{
             width: "50%",
-            height: "500px",
+            height: "100px",
             margin: "auto",
             display: "flex",
+            marginTop: "200px",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <img src={trvloLogo} alt="" />
+          <img style={{ height: "100px" }} src={trvloLogo} alt="" />
           Loading.......
           <CircularProgress color="secondary" />
         </div>

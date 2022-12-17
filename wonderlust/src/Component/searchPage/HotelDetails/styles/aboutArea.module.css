@@ -1,0 +1,112 @@
+.about_area {
+    border-radius: 12px;
+    background: #FFF;
+    padding: 22px 14px 40px 14px;
+    margin: 20px 0;
+}
+
+.grid {
+    display: grid;
+    gap: 16px;
+    grid-template-areas: "about map map" "about details details";
+    grid-template-columns: 30% 33% 33%;
+}
+
+.about {
+    grid-area: about;
+}
+
+.about>h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.about>h3 {
+    margin: 18px 0 12px;
+}
+
+.about>p {
+    color: #505c66;
+    font-size: 13px;
+    text-align: justify;
+    width: 90%;
+}
+
+.map {
+    grid-area: map;
+}
+
+.details {
+    grid-area: details;
+    display: grid;
+    gap: 14px;
+    grid-template-areas: "nearby restaurant" "around restaurant";
+    grid-template-columns: 49% 49%;
+}
+
+.nearby {
+    grid-area: nearby;
+}
+
+.restaurant {
+    grid-area: restaurant;
+}
+
+.around {
+    grid-area: around;
+}
+
+.flex_1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flex_2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #505c66;
+}
+
+.flex_2>:first-child {
+    width: 20px;
+}
+
+.details p {
+    font-size: 13px;
+    color: #505c66;
+    margin-top: 8px;
+    text-align: justify;
+}
+
+/* ! about property page */
+
+.about_area h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
+
+.right>h4 {
+    margin-bottom: 16px;
+}
+
+.right>p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #505c66;
+}
+
+.line {
+    border-bottom: 1px solid rgb(143, 141, 141);
+    margin: 20px auto;
+}

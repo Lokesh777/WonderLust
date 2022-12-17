@@ -8,6 +8,8 @@ import {Admin} from "../Component/Admin/Admin";
 import Signup from "../Component/register/Signup/Signup";
 import Login from '../Component/register/Login/Login'
 import CheckoutPage from "../Component/Checkout/Checkout";
+import HotelDetails from "../Component/searchPage/HotelDetails/HotelDetails";
+
 
 
  const Allroutes=()=>{
@@ -22,7 +24,9 @@ import CheckoutPage from "../Component/Checkout/Checkout";
                 <Route path="checkout" element={<CheckoutPage /> } />
                 <Route path="signup" element={<Signup/>}></Route>    
                 <Route path="login" element={<Login/>}></Route>          
-                <Route path="admin/*" element={<Admin /> } />                
+                <Route path="admin/*" element={<Admin /> } />   
+                <Route path="/hotel/:id" element={<HotelDetails />} />
+         
            </Routes>
         
         </div>
