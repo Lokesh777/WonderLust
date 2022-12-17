@@ -1,10 +1,26 @@
 import style from './DashBoardCard.module.css';
 import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 export const DashBoardCard = (props) => {
     const {type, links} = props;
-
     const {reg, view} = links;
+
+    const [count, setCount] = useState(0);
+
+    
+    useEffect(()=>{
+        if(type==='hotels'){
+            const getCount = async()=>{
+                let res = await axios.get('http://localhost:8080/hotel/count')
+                let count = res.data.count
+
+                setCount(count);
+            }
+            getCount();
+        }
+    }, [])
 
 
     return <div className={style.cateCard}>
@@ -16,7 +32,7 @@ export const DashBoardCard = (props) => {
 
             <div className={style.infoTag}>
                 <h3>Count: </h3>
-                <p>75</p>
+                <p>{count}</p>
             </div>
 
             <div className={style.infoTag}>

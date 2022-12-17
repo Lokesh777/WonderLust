@@ -1,0 +1,54 @@
+.Signup_continer{
+	margin-top: 50px;
+}	
+
+.create{
+	text-align: center;
+	margin-left: -4%;
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+.privcy{
+	width: 53%;
+	font-size: 13px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+input{
+	font-size: 15px;
+}
+.Allinput{
+	display: block;
+	margin: auto;
+	height: 40px;
+	width: 53%;
+	
+	border-radius: 10px;
+	border: 1px solid rgb(112, 112, 112);
+}
+.checkbox{
+	display: inline-block;
+	margin-left: -28%;
+	margin-bottom: 10px;
+}
+.continue_button{
+	display: block;
+	margin: auto;
+	width: 53%;
+	height: 40px;
+	border: none;
+	background-color: #0d5ab9;
+	color: white;
+	font-size: 16px;
+	border-radius: 10px;
+	font-weight: 500;
+	
+}
+button:hover{
+	background-color: #3f74b6;
+}
+
+.Sign_in{
+	text-align: center;
+	margin-top: 30px;
+}

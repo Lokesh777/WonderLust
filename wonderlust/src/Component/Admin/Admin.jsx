@@ -13,11 +13,11 @@ export const Admin = () => {
         <AdminNav/>
         <Routes>
             <Route path="/" element={<Dashboard/>}></Route>
-            <Route path="/flights" element={<Flights/>}></Route>
+            {/* <Route path="/flights" element={<Flights/>}></Route> */}
             <Route path="/hotels" element={<Hotels/>}></Route>
-            <Route path="/users" element={<Users/>}></Route>
+            {/* <Route path="/users" element={<Users/>}></Route>
             <Route path="/bookings" element={<Bookings/>}></Route>
-            <Route path="/flightsReg" element={<FlightReg/>}></Route>
+            <Route path="/flightsReg" element={<FlightReg/>}></Route> */}
             <Route path="/hotelsReg" element={<HotelReg />}></Route>
         </Routes>
     </div>

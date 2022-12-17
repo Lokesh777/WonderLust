@@ -1,0 +1,21 @@
+.roomCard{
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 7px;
+}
+
+.name{
+    text-transform: uppercase;
+    font-size: 17px;
+}
+.price{
+    color: grey;
+    text-decoration:line-through;
+}
+.realPrice{
+    font-size: 25px;
+    font-weight: 700;
+}
+.discount{
+
+}

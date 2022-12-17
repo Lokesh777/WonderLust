@@ -20,10 +20,10 @@ import { AdapterDateFns   } from '@mui/x-date-pickers/AdapterDateFns'
 import RestoreIcon from '@mui/icons-material/Restore';
 // import { useHistory } from 'react-router-dom';
 import axios from "axios";
-import { v4 as uuid } from "uuid";
 import SwapHorizSharpIcon from '@mui/icons-material/SwapHorizSharp';
 import { DatePicker } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
+import {useNavigate} from "react-router-dom"
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         width: '100%',
-        // backgroundColor: theme.background,
+        backgroundColor: "white",
         borderRadius: "0.5rem"
     },
     header: {
@@ -87,11 +87,11 @@ export default function ScrollableTabsButtonForce() {
     const [endDate, setEndDate] = React.useState(new Date());
     // const history = useHistory();
     const [query, setQuery] = useState("");
-    const [searchQueryResult, setSearchQueryResult] = useState([]);
+    // const [searchQueryResult, setSearchQueryResult] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
     const [flightLeavingVal, setFlightLeavingVal] = useState("");
     const [flightLeavingSearchPopup, setFlightLeavingSearchPopup] = useState("none");
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (isSearching || query === "") {
@@ -105,7 +105,7 @@ export default function ScrollableTabsButtonForce() {
         setIsSearching(false);
 
         axios.get(``).then((res) => {
-            setSearchQueryResult(res.data);
+            // setSearchQueryResult(res.data);
         }).catch((err) => {
             console.log(err);
         }).finally(() => {
@@ -204,19 +204,33 @@ export default function ScrollableTabsButtonForce() {
         return temp.slice(2);
     }
 
+    const handleSaveData = (e)=> {
+        e.stopPropagation();
+        console.log(query);
+        localStorage.setItem("searchQuery", query);
+        if(query === ""){
+            return (alert("Please Enter City !"))
+        }else{
+            setInterval(() => {
+                navigate("/hotels");
+            }, 1000);
+        }
+    }
 
+    
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={{backgroundColor:"#f8e9ff"}} >
             <AppBar position="static" color="default" className={classes.header}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
                     variant="scrollable"
                     scrollButtons="on"
-                    indicatorColor="primary"
-                    textColor="primary"
+                    indicatorColor="secondary"
+                    textColor="secondary"
                     aria-label="scrollable force tabs example"
+                    className={styles.Tabs_data}
                 >
                     <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Stays" icon={<ApartmentIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(0)} />
                     <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Flights" icon={<FlightIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(1)} />
@@ -225,7 +239,6 @@ export default function ScrollableTabsButtonForce() {
                     <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Things to do" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><svg><path fill="#505c66" d="M22 10.18V6H2v4.18c.9 0 1.66.75 1.66 1.66 0 .9-.76 1.66-1.66 1.66v4.18h20V13.5c-.9 0-1.66-.76-1.66-1.66 0-.9.76-1.66 1.66-1.66zm-4.16 4.57c0 .23-.2.43-.43.43H6.59a.43.43 0 01-.43-.43V8.93c0-.23.2-.43.43-.43h10.82c.23 0 .43.2.43.43v5.82zm-10-4.57h8.32v3.32H7.84v-3.32z"></path></svg></svg>} {...a11yProps(4)} />
                     <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Cruises" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><svg><path path fill="#505c66" d="M20.34 10.96v1.68c0 .13-.06.24-.14.32-2.21 1.99-3.51 4.72-4.58 7.45-.24.62-.4 1.05-.48 1.3a.4.4 0 01-.39.29h-5.5a.4.4 0 01-.4-.3c-.07-.24-.23-.67-.47-1.3-1.06-2.7-2.4-5.47-4.58-7.44a.44.44 0 01-.14-.32v-1.68c0-.18.11-.33.3-.4l6.5-2.17c.23-.05.54.08.54.35L12 16l1-7.26c0-.28.3-.4.54-.35l6.5 2.16c.19.08.3.23.3.41zM5.83 8.2L12 6.12l6.17 2.07-1.72-3.14h1.66l-.47-1.37a.4.4 0 00-.39-.3h-4.14v-.97c0-.23-.2-.41-.4-.41H11.3c-.21 0-.41.18-.41.41v.98H6.75a.4.4 0 00-.4.29L5.9 5.05h1.66L5.83 8.19z"></path></svg></svg>} {...a11yProps(5)} />
                 </Tabs>
-
             </AppBar>
             <TabPanel value={value} index={0}>
                 <div className={styles.hotelContainer}>
@@ -248,20 +261,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -273,7 +272,7 @@ export default function ScrollableTabsButtonForce() {
                             <LocalizationProvider dateAdapter={AdapterDateFns }>
                                 <DatePicker
                                     onChange={(newValue) => {
-                                        if(newValue < startDate){
+                                        if(newValue < startDate ){
                                             alert("Please Enter a valid Date");
                                             return;
                                         }
@@ -300,8 +299,9 @@ export default function ScrollableTabsButtonForce() {
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DatePicker
                                     onChange={(newValue) => {
-                                        if(newValue < endDate){
+                                        if(newValue < endDate || newValue < startDate){
                                             alert("Please Enter a valid Date");
+                                            setEndDate(startDate)
                                             return;
                                         }
                                         setEndDate(newValue);
@@ -368,7 +368,7 @@ export default function ScrollableTabsButtonForce() {
                     </div>
                 </div>
                 <div className={styles.searchBtnDiv}>
-                    <button style={{ cursor: 'pointer' }} onClick={(e) => { e.stopPropagation();}}>Search</button>
+                    <button style={{ cursor: 'pointer' }} onClick={handleSaveData}>Search</button>
                 </div>
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -392,20 +392,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleFlightLeavingCloseSearchPopup(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -430,20 +416,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -499,20 +471,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -596,20 +554,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -740,20 +684,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -834,20 +764,6 @@ export default function ScrollableTabsButtonForce() {
                                         </div>
                                     </div>
                                 </div>
-
-                                {
-                                    searchQueryResult.map((data) => {
-                                        return <div key={uuid()} className={styles.SearchResult}>
-                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
-                                                <LocationOnIcon className={styles.searchIcon} />
-                                                <div className={styles.SearchResultsMapping}>
-                                                    <strong>{data.name}</strong>
-                                                    <div>{data.country}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    })
-                                }
                             </div>
                         </div>
                     </div>
@@ -948,4 +864,3 @@ export default function ScrollableTabsButtonForce() {
         </div>
     );
 }
-
