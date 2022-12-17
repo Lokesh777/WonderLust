@@ -17,7 +17,7 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import FreeBreakfastIcon from "@mui/icons-material/FreeBreakfast";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import DoneIcon from "@mui/icons-material/Done";
-import { Modal, styled, Box, RadioGroup, Radio, FormControlLabel, Typography } from "@mui/material";
+import { Modal, styled, Box, RadioGroup, Radio, FormControlLabel, Typography, Button } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
@@ -30,15 +30,17 @@ const Tyed = styled(Typography)`
   font-weight: 600;
 `;
 
-const Rooms = ({ room, hId }) => {
+const Rooms = ({ room, hId,handleReserve }) => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
   const [price, setPrice] = useState(0);
-  // const [totalPrice, setTotalPrice] = useState(room.roomPrice + price)
-  const totalPrice = room.roomPrice + price;
+  // const [totalPrice, setTotalPrice] = useState(room.price + price)
+
   // console.log('totalPrice:', totalPrice)
+  // 0.rooms[0].price
 
   const handleOpen = () => {
     // dispatch(paymentType(totalPrice))
@@ -65,6 +67,10 @@ const Rooms = ({ room, hId }) => {
     // console.log(id, hId)
   };
 
+  // const handleReserve=()=>{
+  //   navigate(`checkout`)
+  //   localStorage.setItem("hotelBooking", JSON.stringify(hoteldata));
+  // }
   const modal = (
     <div className={styles.modal}>
       <Box className={styles.flex_box}>
@@ -164,40 +170,7 @@ const Rooms = ({ room, hId }) => {
               </Box>
             </Box>
           </Box>
-          {/* <Box style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>{Math.floor(Math.random() * 300 + 99)} Square fit</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>City view</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>Sleep 3</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>2 Twin beds</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>Free wifi</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>Breakfast buffet</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>free self parking</p>
-            </Box>
-            <Box className={styles.flex_1}>
-              <DoneIcon />
-              <p>Reserve now, pay deposit</p>
-            </Box>
-          </Box> */}
+        
           <Box style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
             <Box className={styles.flex_1} style={{ marginTop: "10px" }}>
               <p className={styles.green}>Fully refundable</p>
@@ -224,21 +197,24 @@ const Rooms = ({ room, hId }) => {
             <RadioGroup aria-label="price" name="price_1">
               <Box className={styles.flex_2}>
                 <FormControlLabel value="noExtra" control={<Radio color="primary" />} label="One-way airport transfer" onChange={handlePricesDec} />
-                <p>+ $0</p>
+                <p>+ $40</p>
               </Box>
               <Box className={styles.flex_2}>
                 <FormControlLabel value="halfBoard" control={<Radio color="primary" />} label="Half Board" onChange={handlePricesInc} />
                 <p>+ $118</p>
               </Box>
             </RadioGroup>
-            <h3 className={styles.h3_price}>${room.roomPrice + price}</h3>
+            {/* 0.rooms[0].price */}
+            <h3 className={styles.h3_price}>${room.price}</h3>
             <div className={styles.flex_2}>
               <div className={styles.flex_small}>
                 <small>per night</small>
-                <small style={{ fontWeight: "bold", marginBottom: "5px" }}>${room.roomPrice + price} total</small>
+                <small style={{ fontWeight: "bold", marginBottom: "5px" }}>${room.price + price} total</small>
                 <small>include tax & fees</small>
               </div>
-              <button onClick={handleOpen}>Reserve</button>
+              <button color="secondary" onClick={handleReserve}  >
+                Reserve
+              </button>
             </div>
           </div>
         </div>
