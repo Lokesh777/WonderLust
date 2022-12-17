@@ -25,7 +25,7 @@ export const HotelsListPage = () => {
     useEffect(() => {
       setTimeout(() => {
         setloading(false);
-      }, 2000);
+      }, 1200);
     });
     return (
       <>

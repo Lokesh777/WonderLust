@@ -39,7 +39,7 @@ const Wrapper = styled(Box)`
   }
 `;
 
-export const SearchByProperty = ({ handleQueryChange, query }) => {
+export const SearchByProperty = ({ handleQueryChange, query, handleClicksSearch }) => {
   //   const classes = useStyles();
   return (
     <Wrapper>
@@ -56,7 +56,7 @@ export const SearchByProperty = ({ handleQueryChange, query }) => {
             handleQueryChange(e.target.value);
           }}
         />
-        <SearchIcon className="iconSearch" fontSize="large" sx={{ color: "#7b1fa2", mr: 1 }} />
+        <SearchIcon onClick={handleClicksSearch} className="iconSearch" fontSize="large" sx={{ color: "#7b1fa2", mr: 1 }} />
       </Box>
       <Divider className="divider" />
       <div className="search-title">Filter by</div>
