@@ -1,0 +1,17 @@
+.page{
+    background-color:rgb(233, 233, 233);
+    padding: 25px 0;
+    min-height: 90vh;
+}
+
+.buttonBox1{
+    display: flex;
+    justify-content: right;
+}
+
+.buuton{    
+    padding: 7px 15px;
+}
+.buttonBox1 button{
+    color: #b300ff;
+}
