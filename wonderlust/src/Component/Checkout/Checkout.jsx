@@ -283,7 +283,7 @@ const CheckoutPage = () => {
     
    const myFunction = (event) =>{
         event.preventDefault();
-       
+
         var discount=form.discount.value
    
         discount=discount/100;

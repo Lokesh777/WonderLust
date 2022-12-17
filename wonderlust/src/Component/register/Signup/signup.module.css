@@ -1,12 +1,21 @@
 .Signup_continer{
 	margin-top: 50px;
+	display: flex;
 }	
+
+.Container{
+	/* border: 1px solid red; */
+	width: 90%;
+	
+}
 
 .create{
 	text-align: center;
 	margin-left: -4%;
 	font-size: 40px;
 	margin-bottom: 20px;
+	margin-top: 10px;
+	font-weight: 700;
 }
 .privcy{
 	width: 53%;
@@ -16,6 +25,7 @@
 }
 input{
 	font-size: 15px;
+	
 }
 .Allinput{
 	display: block;
@@ -26,18 +36,20 @@ input{
 	border-radius: 10px;
 	border: 1px solid rgb(112, 112, 112);
 }
-.checkbox{
+
+
+/* .checkbox{
 	display: inline-block;
 	margin-left: -28%;
 	margin-bottom: 10px;
-}
+} */
 .continue_button{
 	display: block;
 	margin: auto;
 	width: 53%;
 	height: 40px;
 	border: none;
-	background-color: #0d5ab9;
+	background-color: rgb(195, 7, 195);
 	color: white;
 	font-size: 16px;
 	border-radius: 10px;
@@ -45,10 +57,33 @@ input{
 	
 }
 button:hover{
-	background-color: #3f74b6;
+	background-color: rgb(221, 109, 221);
 }
 
 .Sign_in{
 	text-align: center;
 	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+.background_imag{
+	background-image: url("https://media.giphy.com/media/AErExHJVxRbkm5hPkB/giphy.gif");
+	background-repeat: no-repeat;
+	width: 100%;
+	/* background-size: 100%; */
+	background-size:  cover;
+	padding-bottom:20%;
+	margin-top: -100px;
+	opacity: 0.7;
+}
+
+.easily{
+	font-size: 60px;
+	color: white;
+	margin-top: 10%;
+	width: 50%;
+}
+
+.link{
+	color: blue;
 }

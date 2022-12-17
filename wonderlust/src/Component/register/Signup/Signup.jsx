@@ -1,8 +1,8 @@
 import React, { useState} from 'react'
 import style from './signup.module.css'
-import { VStack, Container, Img } from '@chakra-ui/react'
+import { VStack, Container, Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-
+import "./Recaptcha.css";
 
 function Signup() {
 
@@ -70,10 +70,11 @@ function Signup() {
   
   return (
     <div className={style.Signup_continer}>
-      <h1 className={style.create}>Create an account</h1>
-      <VStack  >
-        <Container maxW='md' className={style.Container}>
+     
+        <Container maxW='full' className={style.Container}>
+      <h1 className={style.create}>Create an account.....</h1>
           <form onSubmit={handleSubmit}>
+           
             <input className={style.Allinput} type="email" name="email" placeholder='Email address' 
          
             value={state.email} 
@@ -101,17 +102,42 @@ function Signup() {
             />
             <br />
             <span>
-              <input type="checkbox" className={style.checkbox} name='checkStatus' value={state.checkStatus} onChange={handleChange} /> Keep me signed in
+              {/* <input type="checkbox" className={style.checkbox} name='checkStatus' value={state.checkStatus} onChange={handleChange} /> Keep me signed in */}
+               
+              <div className="captcha">
+      <div className="spinner">
+        <label>
+          <input
+            type="checkbox"
+            // onClick="$(this).attr('disabled','disabled');"
+          />
+          <span className="checkmark">
+            <span>&nbsp;</span>
+          </span>
+        </label>
+      </div>
+      <div className="text">I'm not a robot</div>
+      <div className="captcha_logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/2048px-RecaptchaLogo.svg.png" />
+        <p>Privacy - Terms</p>
+      </div>
+    </div>
+
             </span>
-            <div className={style.privcy}>Selecting this checkbox will keep you signed into your account on this device until you sign out. Do not select this on shared devices.</div>
-            <div className={style.privcy}>By creating an account, I agree to the Travelocity <Link to='#'>Terms and Conditions and Privacy Statement. </Link></div>
+            {/* <div className={style.privcy}>Selecting this checkbox will keep you signed into your account on this device until you sign out. Do not select this on shared devices.</div> */}
+            {/* <div className={style.privcy}>By creating an account, I agree to the Travelocity <Link to='#'>Terms and Conditions and Privacy Statement. </Link></div> */}
             <button className={style.continue_button} type='submit'>Continue</button>
           </form>
           <div className={style.Sign_in}>
-            Aleardy have an account ? <Link to='/login_again' >Sign in</Link>
+            Aleardy have an account ? <Link to='/login' className={style.link} >Login</Link>
           </div>
         </Container>
-      </VStack>
+
+ 
+
+      <div className={style.background_imag}>
+        <h1 className={style.easily}>Easily find your perfect trip.....</h1>
+      </div>
     </div>
   )
 }
