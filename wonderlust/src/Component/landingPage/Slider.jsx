@@ -23,6 +23,7 @@ import axios from "axios";
 import SwapHorizSharpIcon from '@mui/icons-material/SwapHorizSharp';
 import { DatePicker } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
+import { v4 as uuid } from "uuid";
 import {useNavigate} from "react-router-dom"
 
 function TabPanel(props) {
@@ -87,10 +88,11 @@ export default function ScrollableTabsButtonForce() {
     const [endDate, setEndDate] = React.useState(new Date());
     // const history = useHistory();
     const [query, setQuery] = useState("");
-    // const [searchQueryResult, setSearchQueryResult] = useState([]);
+    const [searchQueryResult, setSearchQueryResult] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
     const [flightLeavingVal, setFlightLeavingVal] = useState("");
     const [flightLeavingSearchPopup, setFlightLeavingSearchPopup] = useState("none");
+    const [inputData, setinputData] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -104,8 +106,8 @@ export default function ScrollableTabsButtonForce() {
     const handleSearchByQuery = () => {
         setIsSearching(false);
 
-        axios.get(``).then((res) => {
-            // setSearchQueryResult(res.data);
+        axios.get(`http://localhost:8080/city?name=${query}`).then((res) => {
+            setSearchQueryResult(res.data);
         }).catch((err) => {
             console.log(err);
         }).finally(() => {
@@ -206,11 +208,13 @@ export default function ScrollableTabsButtonForce() {
 
     const handleSaveData = (e)=> {
         e.stopPropagation();
-        console.log(query);
-        localStorage.setItem("searchQuery", query);
+        setinputData(document.getElementById("strong_data_name").innerHTML)
+        console.log(inputData);
+       
         if(query === ""){
             return (alert("Please Enter City !"))
         }else{
+             localStorage.setItem("searchQuery", JSON.stringify(inputData || []));
             setInterval(() => {
                 navigate("/hotels");
             }, 1000);
@@ -241,8 +245,8 @@ export default function ScrollableTabsButtonForce() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                <div className={styles.hotelContainer}>
-                    <div className={`${styles.hotelBtns} ${styles.hotelGoingToBtn}`} onClick={(e) => { handleOpenLocation(e) }}>
+                <div className={styles.main_container}>
+                    <div className={`${styles.hotelBtns}`} onClick={(e) => { handleOpenLocation(e) }}>
                         <LocationOnIcon className={styles.Icon} />
                         <div className={styles.HeadingGoingto}>
                             {(goingToVal === "") ? "Going to" : <div><div className={styles.checkInHeading}>Going to</div>
@@ -253,18 +257,24 @@ export default function ScrollableTabsButtonForce() {
                             <input ref={searchRef} value={query} onChange={(e) => { setQuery(e.target.value) }} type="text" className={styles.searchInput} placeholder="Where are you going?" />
                             <div className={styles.searchResultHight}>
                                 <div className={styles.SearchResult}>
-                                    <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation("Goa", e) }}>
-                                        <RestoreIcon className={styles.searchIcon} />
-                                        <div className={styles.SearchResultsMapping}>
-                                            <strong>Goa</strong>
-                                            <div>IN</div>
-                                        </div>
-                                    </div>
                                 </div>
+                                {
+                                    searchQueryResult.map((data) => {
+                                        return <div key={uuid()} className={styles.SearchResult}>
+                                            <div className={styles.SearchResultIndividual} onClick={(e) => { handleCloseLocation(`${data.name}`, e) }}>
+                                                <LocationOnIcon className={styles.searchIcon} />
+                                                <div onClick={(e)=> {setinputData(data.name)}} className={styles.SearchResultsMapping}>
+                                                    <strong id="strong_data_name" style={{textTransform:"capitalize"}}>{data.name}</strong>
+                                                    <div>{data.country}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.hotelBtns} ${styles.hoteldateBtn}`}>
+                    <div className={`${styles.hotelBtns}`}>
                         <EventIcon className={styles.Icon} />
                         <div className={styles.HeadingGoingto}>
                             <div className={styles.checkInHeading}>Check-in</div>
@@ -280,8 +290,8 @@ export default function ScrollableTabsButtonForce() {
                                     }}
                                     renderInput={(params) => <TextField {...params} style={{
                                         position: "absolute",
-                                        top: "-10px",
-                                        left: "-65px",
+                                        top: "0px",
+                                        left: "-170px",
                                         opacity: 0,
                                         cursor: "pointer",
                                         width: "100%"
@@ -290,7 +300,7 @@ export default function ScrollableTabsButtonForce() {
 
                         </div>
                     </div>
-                    <div className={`${styles.hotelBtns} ${styles.hoteldateBtn}`}>
+                    <div className={`${styles.hotelBtns}`}>
                         <EventIcon className={styles.Icon} />
                         <div className={styles.HeadingGoingto}>
                             <div className={styles.checkInHeading}>Check-out</div>
@@ -308,15 +318,15 @@ export default function ScrollableTabsButtonForce() {
                                     }}
                                     renderInput={(params) => <TextField {...params} style={{
                                         position: "absolute",
-                                        top: "-10px",
-                                        left: "-65px",
+                                        top: "0px",
+                                        left: "-170px",
                                         opacity: 0,
                                         cursor: "pointer",
                                         width: "100%"
                                     }}/>}/>
                         </LocalizationProvider>
                     </div>
-                    <div className={`${styles.hotelBtns} ${styles.hotelTraverls}`} onClick={(e) => { e.stopPropagation(); setTrevelersPopupOpen("inline") }}>
+                    <div className={`${styles.hotelBtns}`} onClick={(e) => { e.stopPropagation(); setTrevelersPopupOpen("inline") }}>
                         <PersonIcon className={styles.Icon} />
                         <div className={styles.HeadingGoingto}>
                             <div className={styles.checkInHeading}>Travelers</div>
