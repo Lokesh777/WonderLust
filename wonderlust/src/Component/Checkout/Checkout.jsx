@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import style from './Checkout.module.css';
 import {AiFillStar} from 'react-icons/ai'
 import {FaArrowCircleLeft, FaArrowCircleRight} from 'react-icons/fa'
 import { useRef } from 'react';
 import RoomCard from './RoomCard/RoomCard';
+import Total from './Total/total';
 
 const sampleHotelData = {
     "contactInfo": {
@@ -271,97 +272,110 @@ const sampleHotelData = {
     "nearby": [],
     "__v": 0
 }
-const sampleUserData = {
-    fname: 'Lokesh',
-    lname: "kumar",
-}
+// const sampleUserData = {
+//     fname: 'Lokesh',
+//     lname: "kumar",
+// }
 const CheckoutPage = () => {
     const [imageNo, setImageNo] = useState(0);
-    const [imageNoX, setImageNoX] = useState(1);
+    // const [imageNoX, setImageNoX] = useState(1);
     const [persons, setPersons] = useState(1);
+    const [food,setFood]=useState(1)
+    const [prebook,setPrebook]=useState(1)
     const imageNoCounter = useRef(null);
     
-   const myFunction = (event) =>{
-        event.preventDefault();
-       
-        var discount=form.discount.value
-   
-        discount=discount/100;
-   
-        var random=discount*price1;
-        
-        
-      
-    }
+  
 
     return <div className={style.checkout}>
         <h1 className={style.pageHead}>Booking</h1>
 
-//         <div className={style.main}>
+        <div className={style.main}>
 
-//             {/* left side div */}
-//             <div className={style.info}>
+            {/* left side div */}
+            <div className={style.info}>
 
-//                 {/* first box */}
-//                 <div className={style.hotelBox}>
-//                     <div>
-//                         <h2>Hotel</h2>
-//                         <div className={style.infoTag1}><p>Hotel Name:</p> <p>{sampleHotelData.name}</p></div>
-//                         <div className={style.infoTag1}><p>City:</p> <p>{sampleHotelData.contactInfo.city}</p></div>
-//                         <div className={style.infoStars}>{new Array(sampleHotelData.starRating).fill(0).map((i,e)=><AiFillStar key={'satr'+e}/>)}</div>
-//                         <div className={style.infoTag2}>
-//                             <p>Available</p>
-//                             <p style={{backgroundColor:'rgb(80, 22, 173)'}}>Upto 35% off</p>
-//                         </div>
-//                     </div>
-//                     <div>
-//                         {imageNo>0?<button onClick={()=>{
-//                             setImageNo((i)=>i-1);
-//                         }}><FaArrowCircleLeft/></button>:""}
-//                         <img src={sampleHotelData.images[imageNo]} alt="" />
-//                         {imageNo<4?<button onClick={()=>{
-//                             setImageNo((i)=>i+1);
-//                         }}><FaArrowCircleRight/></button>:""}
-//                     </div>
-//                 </div>
+                {/* first box */}
+                <div className={style.hotelBox}>
+                    <div>
+                        <h2>Hotel</h2>
+                        <div className={style.infoTag1}><p>Hotel Name:</p> <p>{sampleHotelData.name}</p></div>
+                        <div className={style.infoTag1}><p>City:</p> <p>{sampleHotelData.contactInfo.city}</p></div>
+                        <div className={style.infoStars}>{new Array(sampleHotelData.starRating).fill(0).map((i,e)=><AiFillStar key={'satr'+e}/>)}</div>
+                        <div className={style.infoTag2}>
+                            <p>Available</p>
+                            <p style={{backgroundColor:'rgb(80, 22, 173)'}}>Upto 35% off</p>
+                        </div>
+                    </div>
+                    <div>
+                        {imageNo>0?<button onClick={()=>{
+                            setImageNo((i)=>i-1);
+                        }}><FaArrowCircleLeft/></button>:""}
+                        <img src={sampleHotelData.images[imageNo]} alt="" />
+                        {imageNo<4?<button onClick={()=>{
+                            setImageNo((i)=>i+1);
+                        }}><FaArrowCircleRight/></button>:""}
+                    </div>
+                </div>
 
-//                 {/* rooms data */}
-//                 <div className={style.roomBox}>
-//                     <h2>Select Room</h2>
-//                     <div className={style.roomBoxGrid}>
-//                         {sampleHotelData.rooms.map((i, e)=><RoomCard key={e+'selectRoom'} data={sampleHotelData.rooms[e]}/>)}
-//                     </div>
+                {/* rooms data */}
+                <div className={style.roomBox}>
+                    <h2>Select Room</h2>
+                    <div className={style.roomBoxGrid}>
+                        {sampleHotelData.rooms.map((i, e)=><RoomCard key={e+'selectRoom'} data={sampleHotelData.rooms[e]}/>)}
+                    </div>
 
-//                     <div className={style.generalData}>
-//                         <div>
-//                         <p><b>Number of Persons : </b>{persons}</p>
-//                         </div>
-//                     </div>
+                    <div className={style.generalData}>
+                        <div>
+                        <p><b>Number of Persons : </b>{persons}</p>
+                        </div>
+                    </div>
                     
                 </div>
+               
+               <div className={style.foodDiv}>
+                  <h2>Include Food Per Day 
+                    <input
+                    type="number"
+                    style={{border: "1px solid #7d2ae8",
+                    borderRadius: ".2rem",margin:"0 .5rem 0 .5rem",
+                    padding:"1rem",
+                    height:"2rem"}}
+                    value={food}
+                    onChange={(e) => setFood((e.target.value))}
+                    placeholder='Food Per Person' /> 
+                    =
+                   ${food*50}
+                  </h2>
+                </div>
+
+               <div className={style.foodDiv}>
+                  <h2> Pre-Booking Charge
+                    <input
+                    type="number"
+                    style={{border: "1px solid #7d2ae8",
+                    borderRadius: ".2rem",margin:"0 .5rem 0 .5rem",
+                    padding:"1rem",
+                    height:"2rem"}}
+                    value={prebook}
+                    onChange={(e) => setPrebook((e.target.value))}
+                    placeholder='pre-booked' /> 
+                    =
+                   ${prebook*8}  Per Room
+                  </h2>
+                </div>
+
+
             </div>
 
 
-
+             {/* total calculation after discount */}
             <div className={style.pricing}>
-                  <h3 className={style.calculationLK} >Order Summary</h3>
-                  
-                  <p className={style.calculationLK}  >cart value :<span  id="price">₹</span></p>
-                  <p className={style.calculationLK} 
-                //   className={style.disc}
-                  >Discount : <span id="disoffer">₹</span></p>
-                  <h4 className={style.calculationLK} >Amount to be Paid: <span  id="finalamt">₹</span></h4>
-                  {/* <!-- form  for discount selection here --> */}
-                  {/* <input type="text" id="discount" placeholder="Apply The Exciting Discount Here!">
-                    <input  type="submit"> */}
-                  <form onClick={myFunction}>
-                       <input  type={"text"} className="discount" placeholder="Apply The Exciting Discount Here!" />
-                       <input  type="submit"/>
-                  </form>
-                 
+                 <img src='travel.gif' alt='Logo' />
+                 <Total />
+
             </div>
         </div>
     </div>
 }
 
-// export default CheckoutPage;
+export default CheckoutPage;
