@@ -12,3 +12,5 @@ export const GET_HOTEL_DETAILS_REQUEST= 'getHotelDetailsRequest'
 export const GET_HOTEL_DETAILS_SUCCESS= 'getHotelDetailsSuccess'
 export const GET_HOTEL_DETAILS_FAILURE= 'getHotelDetailsFail'
 export const GET_HOTEL_DETAILS_RESET= 'getHotelDetailsReset'
+
+
