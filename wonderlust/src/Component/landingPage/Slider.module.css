@@ -4,6 +4,13 @@
     display: flex;
     justify-content: space-between;
 }
+.main_container {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
 
 .hotelBtns {
     display: flex;
@@ -21,7 +28,14 @@
     box-shadow: inset 0 0 0 1px #0d5ab9;
     color: #0d5ab9 !important;
 }
-
+.calender_shift{
+    position: absolute;
+    top: -100px;
+    left: -165px;
+    opacity: 1;
+    cursor: pointer;
+    width: 100%;
+}
 .hotelGoingToBtn {
     width: 40%;
 }
@@ -240,4 +254,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 410px) and (max-width: 665px){
+    .main_container {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width: 200px) and (max-width: 409px){
+    .main_container {
+        grid-template-columns: repeat(1,1fr);
+    }
 }

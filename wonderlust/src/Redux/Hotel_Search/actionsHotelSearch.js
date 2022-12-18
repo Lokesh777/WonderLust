@@ -13,13 +13,19 @@ import {
 
 const URL = `http://localhost:8080`;
 
-export const getHotelAction = () => async (dispatch) => {
+export const getHotelAction = (city) => async (dispatch) => {
+  let response;
   try {
     dispatch({ type: GET_HOTELS_REQUEST });
-    let response = await axios.get(`${URL}/hotel?limit=2`);
-    // console.log("GetHotel response:", response.data);
-
+    if (city) {
+      response = await axios.get(`${URL}/hotel?city=${city}&limit=10`);
+    } else {
+      response = await axios.get(`${URL}/hotel?limit=12`);
+    }
     dispatch({ type: GET_HOTELS_SUCCESS, payload: response.data });
+    // console.log("GetHotel response:", response);
+    localStorage.removeItem("hotelBooking");
+    localStorage.removeItem("searchQuery");
   } catch (error) {
     dispatch({ type: GET_HOTELS_FAILURE, payload: error.message });
 
@@ -57,7 +63,7 @@ export const filterByPriceAction = (a, b) => async (dispatch) => {
 
         return item.rooms[0].price >= a && item.rooms[0].price <= b;
       });
-      console.log("newData:", newData);
+      // console.log("newData:", newData);
       dispatch({ type: FILTER_BY_PRICE_SUCCESS, payload: newData });
     }
   } catch (error) {

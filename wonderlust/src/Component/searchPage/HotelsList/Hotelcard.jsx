@@ -35,9 +35,9 @@ const Wrapper = styled("div")`
 
   ${"" /* border:1px solid red; */}
 
-  &:hover {
+  ${'' /* &:hover {
     cursor: pointer;
-  }
+  } */}
 
   .card-image {
     height: 100%;
@@ -112,6 +112,7 @@ const Wrapper = styled("div")`
     border-radius: 0.4rem;
     padding: 0.6rem;
     ${"" /* background: #1f7d57; */}
+    cursor:pointer;
     background: #7b1fa2;
     color: white;
     text-align: center;
@@ -132,7 +133,6 @@ const Wrapper = styled("div")`
     }
     .hotel-name {
       font-size: 0.8rem;
-      
     }
   }
   @media (min-width: 600px) {
@@ -203,11 +203,7 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
   // console.log('Number(data.starRating):', typeof(data.starRating))
 
   return (
-    <Wrapper
-      onClick={() => {
-        handleOpenHotel(data._id);
-      }}
-    >
+    <Wrapper>
       {w > 820 ? (
         <div className="card-image">
           <Carousel
@@ -273,7 +269,14 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
         </div>
       </div>
       <div className="price-detail">
-        <div className="off">View More </div>
+        <div
+          className="off"
+          onClick={() => {
+            handleOpenHotel(data._id);
+          }}
+        >
+          View More{" "}
+        </div>
         {/* note */}
         {/* <div className="price">${data.price}</div> */}
         <div className="price">${data.rooms[0].price}</div>

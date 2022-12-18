@@ -6,7 +6,7 @@ const userDetailsScehma = new mongoose.Schema(
 		lname:String,
 		email:{type:String, unique:true},
 		password:String,
-		
+		role:{type:String, required:true, enum:['user', 'admin']}		
 	},
 	{
 		// collation: "user",

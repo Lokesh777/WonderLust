@@ -16,8 +16,10 @@ import { AccessAlarm, ThreeDRotation } from "@mui/icons-material";
 import HotelOverview from "./HotelOverView";
 import AboutArea from "./AboutArea";
 import Rooms from "./Rooms";
+import { useNavigate } from "react-router-dom";
 
 const SubHotelDetails = ({ hotelData, id }) => {
+  let navigate = useNavigate();
   console.log("SubHotelDetails:", hotelData);
 
   const { images } = hotelData;
@@ -45,8 +47,13 @@ const SubHotelDetails = ({ hotelData, id }) => {
   };
 
   const [current, setCurrent] = useState(0);
-  const length = images.length-1;
+  const length = images.length - 1;
 
+  const handleReserve = () => {
+    console.log("handleReserve:", handleReserve);
+    // navigate(`/hotels`);
+    localStorage.setItem("hotelBooking", JSON.stringify(hotelData));
+  };
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -76,7 +83,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
         </div>
         <div className={styles.right}>
           <div>
-            <img  src={hotelData.images[1]} alt="" />
+            <img src={hotelData.images[1]} alt="" />
           </div>
           <div>
             <img src={hotelData.images[2]} alt="" />
@@ -108,10 +115,9 @@ const SubHotelDetails = ({ hotelData, id }) => {
       </div>
 
       <div className={styles.room_grid} id="rooms">
-
-      {hotelData.rooms.map(room => (
-                    <Rooms key={room.size} room={room} hId={id} />
-                ))}
+        {hotelData.rooms.map((room) => (
+          <Rooms key={room.size} handleReserve={handleReserve} room={room} hId={id} />
+        ))}
       </div>
 
       <div id="location">
