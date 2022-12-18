@@ -21,6 +21,7 @@ app.get('/user/',AuthmiddleWare,async(req, res)=>{
     const userId = req.headers.userId;
     try{
         const data = await Booking_Hotel.find({user:userId}).populate([{path:"hotel", select:{name:true}}]);
+        console.log('data')
         res.send(data);
     }catch(err){
         res.send({error:true, message:err.message})
@@ -31,7 +32,7 @@ app.get('/user/',AuthmiddleWare,async(req, res)=>{
 app.post('/', authMiddleware, async(req, res)=>{
     const {userId} = req.headers;
     const {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId} = req.body;
-    const hotel=hotelId;
+    const hotel=hotelId
     const createdAt=new Date()
     const modifiedAt=new Date()
     try{
