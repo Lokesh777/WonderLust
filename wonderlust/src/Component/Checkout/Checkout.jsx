@@ -278,30 +278,37 @@ const sampleHotelData =
     "nearby": [],
     "__v": 0
 }
-// const sampleUserData = {
-//     fname: 'Lokesh',
-//     lname: "kumar",
-// }
+
 const CheckoutPage = () => {
-    const [money, setMoney] = useState(0)
-    // const navigate=useNavigate()
     const [imageNo, setImageNo] = useState(0);
-    // const [imageNoX, setImageNoX] = useState(1);
     const [persons, setPersons] = useState(1);
     const [food, setFood] = useState(1)
     const [prebook, setPrebook] = useState(1)
-    const imageNoCounter = useRef(null);
     const token = useSelector(store => store.auth.data.token);
     const dispatch = useDispatch();
-    const [discount,setDiscount] = useState(1);
     const [items, setItems] = useState(sampleHotelData);
-    const [value,setValue]=useState(0);
+
+    const [roomPrice, setRoomPrice] = useState(0);
+    const [OfferRoomPrice, setOfferRoomPrice] = useState(0);
+    const [servicesCharge, setServicesCharge] = useState(0);
+    const [room, setRoom] = useState(0);
+
+    useEffect(()=>{
+        setServicesCharge(food*80 + prebook*16);
+    }, [food, prebook]);
+
+
     let data = {};
  
     /*
     hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId
     */
 
+    const selectRoom = (index) =>{
+        setRoomPrice(items.rooms[index].price);
+        setOfferRoomPrice(items.rooms[index].realPrice);
+        setRoom(index);
+    }
 
     useEffect(() => {
 
@@ -313,34 +320,28 @@ const CheckoutPage = () => {
 
     }, []);
 
-    console.log("money", money)
+    const onSuccess = () => {
+        alert('Booking Created successfully');
+        navigator('/trip')
+      }
+    
+      const onError = (message) => {
+        alert(message);
+      }
+
 
     const handlSubmit = () => {
-
-        dispatch(Create_Booking(data, token))
+        let obj={
+            hotelId:items._id,
+            roomsPrice:OfferRoomPrice,
+            servicesCharge:servicesCharge,
+            roomsData:room,
+            persons:1
+        }
+        dispatch(Create_Booking(obj, token, onSuccess, onError));
     }
 
-    //add the room price in money
-    const RoomPrice = (e) => {
-        let x = money + Number(e)
-        setMoney(x);
-    }
-    //add the service charge
-    const ServiceCharge = (e) => {
-        let x = money + food * 50
-        setMoney(x);
-    }
-
-    //add the booking Charge
-    const BookingCharge = (e) => {
-        let x = money + 8 * prebook
-        setMoney(x);
-    }
-
-    const onToken = (token, addresses) => {
-        console.log(token, addresses);
-        //   navigate("/")
-    };
+    
 
  
     
@@ -385,11 +386,7 @@ const CheckoutPage = () => {
                     <div className={style.roomBoxGrid}>
                         {items.rooms?.map((ele, i) =>
                             // console.log("hii",ele)
-                            <RoomCard
-                                handleClick={
-                                    RoomPrice
-                                }
-                                key={ele + 'selectRoom'} data={ele} />
+                            <RoomCard key={i + 'selectRoom'} info={{data:ele, curRoom:room, index:i}} methods={{selectRoom}} />
                         )}
                     </div>
 
@@ -414,10 +411,10 @@ const CheckoutPage = () => {
                             value={food}
                             onChange={(e) => setFood((e.target.value))}
                             placeholder='Food Per Person' />
-                        <button 
+                        {/* <button 
                         className={style.ProceedBtn}
-                        onClick={ServiceCharge}>Add</button>
-                        <span style={{color:"black"}} >${food}</span>
+                        onClick={}>Add</button> */}
+                        <span style={{color:"black"}} >${food*80}</span>  ($80 per person)
                          
 
                     </h2>
@@ -438,9 +435,8 @@ const CheckoutPage = () => {
                             placeholder='pre-booked' />
                        
 
-                        <button className={style.ProceedBtn}  onClick={BookingCharge}> Add</button>
-                      <span style={{color:"black"}} > ${prebook} </span>
-                        Per Room
+                        {/* <button className={style.ProceedBtn}> Add</button> */}
+                      <span style={{color:"black"}} >${prebook*16}</span>  ($16 per room) 
                     </h2>
                 </div>
 
@@ -453,21 +449,18 @@ const CheckoutPage = () => {
                 <div style={{ textAlign: "left", padding: "1rem" }}>
 
                     <h3 className={style.calculationLK} style={{ color: "#7d2ae8", fontWeight: "bolder" }} >Order Summary</h3>
-                    <p className={style.calculationLK}  >Total Price :<span id="price">${money}</span></p>
+                    <p className={style.calculationLK}  >Service Charges :<span className={style.showTrough}>${servicesCharge}</span></p>
+                    <p className={style.calculationLK}  >Room Total Price :<span className={style.showTrough}>${OfferRoomPrice}</span><span className={style.striketrhough}>${roomPrice}</span></p>
+                    <p className={style.calculationLK}  >Total Price :<span className={style.showTrough}>${OfferRoomPrice+servicesCharge}</span><span className={style.striketrhough}>${roomPrice+servicesCharge}</span></p>
+        
+            
                 
-                    <p className={style.calculationLK}
-                    //   className={style.disc}
-                    >Discount Value: <span id="disoffer">${value}</span></p>
-
-                    {/* <!-- form  for discount selection here --> */}
-
-                    <h4 className={style.calculationLK} >Amount to be Paid: <span id="finalamt">${money}</span></h4>
 
                     <button>
                         <StripeCheckout
                             style={{ color: "violet" }}
                             stripeKey="pk_test_m9Dp6uaJcynCkZNTNS1nDR8B00AQg2m6vJ"
-                            token={onToken}
+                            token={handlSubmit}
                         />
                     </button>
 

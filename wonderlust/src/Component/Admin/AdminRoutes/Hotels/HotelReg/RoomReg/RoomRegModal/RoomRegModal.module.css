@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     height: 100vh;
+    z-index: 5000000;
     background-color: rgba(0, 0, 0, 0.623);
 }
 
