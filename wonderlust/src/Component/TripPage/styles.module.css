@@ -1,12 +1,18 @@
 .page{
-    background-color:rgb(233, 233, 233);
     padding: 25px 0;
     min-height: 90vh;
+    display: grid;
+    width: 100%;
+    margin: auto;
+    grid-template-columns: 40% 50%;
+    margin-top: 20px;
 }
 
 .board{
-    width: 40%;
-    margin: auto;
+    background-color:rgb(233, 233, 233);
+    padding: 25px;
+    border-radius: 25px;
+    margin: auto 50px;
 }
 
 .createButton{
@@ -38,9 +44,21 @@
 
 .tripBoard{
     text-align: left;
+    margin: 20px auto;
+    padding: 20px 10px;
 }
 
 .tripBoard>h2{
     font-size: 22px;
-    font-weight: 1000;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+
+/* bookings */
+.bookingsBoard{
+    background-color:rgb(233, 233, 233);
+    padding: 25px;
+    border-radius: 25px;
+    margin: auto 50px;
 }

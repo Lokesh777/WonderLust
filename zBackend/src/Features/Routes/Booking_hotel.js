@@ -2,12 +2,14 @@ const express = require('express');
 const Booking_Hotel = require('../Models/Bookings_hotel')
 const Hotel = require('../Models/Hotel.js')
 const app = express.Router();
+const AuthmiddleWare = require('../Middlewares/AuthmiddleWare');
+const authMiddleware = require('../Middlewares/AuthmiddleWare');
 
 
 // admin middleware
 app.get('/', async(req, res)=>{
     try{
-        const data = await Booking_Hotel.find();
+        const data = await Booking_Hotel.find().sort({modifiedAt:-1}).populate([{path:"hotel", select:{name:true}}]);;
         res.send(data);
     }catch(err){
         res.send({error:true, message:err.message})
@@ -15,8 +17,8 @@ app.get('/', async(req, res)=>{
 })
 
 // auth middleware || admin middleware
-app.get('/user/:userid', async(req, res)=>{
-    const userId = req.params.userid;
+app.get('/user/',AuthmiddleWare,async(req, res)=>{
+    const userId = req.headers.userid;
     try{
         const data = await Booking_Hotel.find({user:userId});
         res.send(data);
@@ -26,20 +28,22 @@ app.get('/user/:userid', async(req, res)=>{
 })
 
 // auth middleware || admin middleware
-app.post('/', async(req, res)=>{
-    const userId = req.headers.userid;
+app.post('/', authMiddleware, async(req, res)=>{
+    const {userId} = req.headers;
     const {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId} = req.body;
+    const hotel=hotelId;
     const createdAt=new Date()
     const modifiedAt=new Date()
     try{
-        const hotel = await Hotel.findById(hotelId);
+        const newhotel = await Hotel.findById(hotel);
 
         const calPrice = hotel.rooms[roomsData].realPrice*persons;
         
         if(calPrice!==roomsPrice){
             return res.send({error:true, message:'pricing mismatched'});
         }
-        const newBooking = await Booking_Hotel.create({user:userId, hotelId, totalPrice, roomsPrice, servicesCharge,roomsData,persons,tripId,createdAt,modifiedAt, type:'hotel'});
+        
+        const newBooking = await Booking_Hotel.create({user:userId, hotel, totalPrice, roomsPrice, servicesCharge,roomsData,persons,tripId,createdAt,modifiedAt, type:'hotel'});
 
 
 
