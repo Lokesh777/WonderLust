@@ -1,7 +1,8 @@
 import axios from "axios";
+import { API_URL } from "../API/api";
 import { GET_CITY_FAILURE, GET_CITY_REQUEST, GET_CITY_SUCCESS } from "./typesCitySearch";
 
-const URL = `http://localhost:8080`;
+const URL = API_URL;
 
 export const getCityAction = (city) => async (dispatch) => {
   try {

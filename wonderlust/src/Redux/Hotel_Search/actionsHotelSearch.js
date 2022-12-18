@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../API/api";
 import {
   FILTER_BY_PRICE_FAILURE,
   FILTER_BY_PRICE_REQ,
@@ -11,7 +12,7 @@ import {
   GET_HOTEL_DETAILS_SUCCESS,
 } from "./typesHotelSearch";
 
-const URL = `http://localhost:8080`;
+const URL =API_URL
 
 export const getHotelAction = (city) => async (dispatch) => {
   console.log("city", city.replace(/^"|"$/g, ""));
