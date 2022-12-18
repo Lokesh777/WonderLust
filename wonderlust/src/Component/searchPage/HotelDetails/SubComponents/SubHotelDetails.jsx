@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const SubHotelDetails = ({ hotelData, id }) => {
   let navigate = useNavigate();
-  console.log("SubHotelDetails:", hotelData);
+  // console.log("SubHotelDetails:", hotelData);
 
   const { images } = hotelData;
   // console.log('images:', images)
@@ -41,8 +41,11 @@ const SubHotelDetails = ({ hotelData, id }) => {
   const length = images.length - 1;
 
   const handleReserve = () => {
-    console.log("handleReserve:", handleReserve);
     // navigate(`/hotels`);
+    navigate(`/checkout`);
+    localStorage.removeItem("searchQuery");
+
+    // console.log("handleReserve:", handleReserve);
     localStorage.setItem("hotelBooking", JSON.stringify(hotelData));
   };
   const nextSlide = () => {
@@ -68,7 +71,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
 
   return (
     <>
-    <div className="slider"></div>
+      <div className="slider"></div>
       <div className={styles.flex} onClick={handleOpen} style={{ cursor: "pointer" }}>
         <div className={styles.left}>
           <img src={hotelData.images[0]} alt="" />

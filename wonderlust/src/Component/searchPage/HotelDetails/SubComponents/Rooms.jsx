@@ -30,18 +30,14 @@ const Tyed = styled(Typography)`
   font-weight: 600;
 `;
 
-const Rooms = ({ room, hId,handleReserve }) => {
-
+const Rooms = ({ room, hId, handleReserve }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
   const [price, setPrice] = useState(0);
 
- 
-
   const handleOpen = () => {
-   
     setOpen(true);
   };
   const handleClose = () => {
@@ -62,10 +58,12 @@ const Rooms = ({ room, hId,handleReserve }) => {
     navigate(`/hotels/${hId}/${id}`);
   };
 
-  // const handleReserve=()=>{
-  //   navigate(`checkout`)
+  // const handleReserve = () => {
+  //   navigate(`checkout`);
+  //   localStorage.removeItem("searchQuery");
+
   //   localStorage.setItem("hotelBooking", JSON.stringify(hoteldata));
-  // }
+  // };
   const modal = (
     <div className={styles.modal}>
       <Box className={styles.flex_box}>
@@ -165,7 +163,7 @@ const Rooms = ({ room, hId,handleReserve }) => {
               </Box>
             </Box>
           </Box>
-        
+
           <Box style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
             <Box className={styles.flex_1} style={{ marginTop: "10px" }}>
               <p className={styles.green}>Fully refundable</p>
@@ -207,7 +205,7 @@ const Rooms = ({ room, hId,handleReserve }) => {
                 <small style={{ fontWeight: "bold", marginBottom: "5px" }}>${room.price + price} total</small>
                 <small>include tax & fees</small>
               </div>
-              <button color="secondary" onClick={handleReserve}  >
+              <button color="secondary" onClick={handleReserve}>
                 Reserve
               </button>
             </div>
