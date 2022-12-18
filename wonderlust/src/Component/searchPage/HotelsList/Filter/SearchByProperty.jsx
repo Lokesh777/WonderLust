@@ -1,16 +1,8 @@
-import { AccountCircle } from "@mui/icons-material";
-import { TextField, Divider, styled, Box, Typography } from "@mui/material";
+import { TextField, Divider, styled, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import SearchName from "../SearchHotel/SearchName";
-import { useEffect, useState } from "react";
-import FetchDataAxios from "../../FetchDataAxios";
+import { useState } from "react";
 import axios from "axios";
-
-// const useStyles = makeStyles({
-//   input: {
-//     background: "white",
-//   },
-// });
 
 const Wrapper = styled(Box)`
   .search-title {
@@ -46,27 +38,9 @@ const Wrapper = styled(Box)`
 `;
 
 export const SearchByProperty = ({ handleQueryChange, query, handleClicksSearch }) => {
-  console.log("query:", query);
   //   const classes = useStyles();
-  let c = [
-    {
-      _id: "639c639e938f5ea71d7ee53b",
-      name: "agra",
-      state: "uttar-pradesh",
-      country: "India",
-      places: [],
-    },
-    {
-      _id: "639c639e938f5ea71d7ee52d",
-      name: "ahmedabad",
-      state: "gujarat",
-      country: "India",
-      places: [],
-    },
-  ];
-  console.log("c:", c[0].name);
+
   const [cityState, setCityState] = useState([]);
-  console.log("cityState:", cityState);
 
   const getData = async (query) => {
     await axios

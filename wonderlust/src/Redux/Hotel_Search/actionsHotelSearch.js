@@ -14,18 +14,23 @@ import {
 const URL = `http://localhost:8080`;
 
 export const getHotelAction = (city) => async (dispatch) => {
-  let response;
+  console.log("city", city.replace(/^"|"$/g, ""));
+  console.log("city:", city.length);
+
   try {
     dispatch({ type: GET_HOTELS_REQUEST });
-    if (city) {
-      response = await axios.get(`${URL}/hotel?city=${city}&limit=10`);
+    if (city.lengt > 3) {
+      city = city.replace(/^"|"$/g, "");
+      let cityResponse = await axios.get(`${URL}/hotel?city=${city}`);
+      dispatch({ type: GET_HOTELS_SUCCESS, payload: cityResponse.data });
+      console.log("cityResponse.data:", cityResponse.data);
     } else {
-      response = await axios.get(`${URL}/hotel?limit=12`);
+      let response = await axios.get(`${URL}/hotel?limit=12`);
+      dispatch({ type: GET_HOTELS_SUCCESS, payload: response.data });
+      console.log("response.data :", response.data);
     }
-    dispatch({ type: GET_HOTELS_SUCCESS, payload: response.data });
-    // console.log("GetHotel response:", response);
     localStorage.removeItem("hotelBooking");
-    localStorage.removeItem("searchQuery");
+    // localStorage.removeItem("searchQuery");
   } catch (error) {
     dispatch({ type: GET_HOTELS_FAILURE, payload: error.message });
 
