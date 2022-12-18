@@ -76,7 +76,7 @@
 
 .searchBtnDiv > button {
     border: none;
-    background-color: rgb(195, 7, 195);
+    background-color: #7B1FA2;
     color: #fff;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -87,6 +87,7 @@
 
 .searchBtnDiv > button:hover {
     opacity: 0.8;
+    background-color: rgb(195, 7, 195);
 }
 
 .searchBox {

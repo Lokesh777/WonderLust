@@ -236,12 +236,12 @@ export default function ScrollableTabsButtonForce() {
                     aria-label="scrollable force tabs example"
                     className={styles.Tabs_data}
                 >
-                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Stays" icon={<ApartmentIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(0)} />
-                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Flights" icon={<FlightIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(1)} />
-                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Cars" icon={<DriveEtaIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(2)} />
-                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Packages" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><svg><path fill="#505c66" d="M21.59 11.59h-2.36V8.66c0-.23-.2-.41-.43-.41h-5.82a.42.42 0 00-.43.41v2.93H10.2a.42.42 0 00-.43.41v8.34c0 .23.21.41.43.41h11.4c.21 0 .41-.2.41-.41V12c0-.23-.2-.41-.41-.41zm-7.36-1.68h3.32v1.68h-3.32V9.91zm3.79 9.06l-1.2-1.17 2.37-2.36 1.17 1.17-2.34 2.36zM10.89 4.91V3.66a.4.4 0 00-.41-.41H4.64a.4.4 0 00-.41.41v2.93H2.4A.4.4 0 002 7v13.34c0 .2.18.41.41.41h5.7V10.34c0-.23.18-.43.41-.43h2.37v-5zM9.23 6.59H5.89V4.91h3.34v1.68z"></path></svg></svg>} {...a11yProps(3)} />
-                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Things to do" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><svg><path fill="#505c66" d="M22 10.18V6H2v4.18c.9 0 1.66.75 1.66 1.66 0 .9-.76 1.66-1.66 1.66v4.18h20V13.5c-.9 0-1.66-.76-1.66-1.66 0-.9.76-1.66 1.66-1.66zm-4.16 4.57c0 .23-.2.43-.43.43H6.59a.43.43 0 01-.43-.43V8.93c0-.23.2-.43.43-.43h10.82c.23 0 .43.2.43.43v5.82zm-10-4.57h8.32v3.32H7.84v-3.32z"></path></svg></svg>} {...a11yProps(4)} />
-                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} label="Cruises" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><svg><path path fill="#505c66" d="M20.34 10.96v1.68c0 .13-.06.24-.14.32-2.21 1.99-3.51 4.72-4.58 7.45-.24.62-.4 1.05-.48 1.3a.4.4 0 01-.39.29h-5.5a.4.4 0 01-.4-.3c-.07-.24-.23-.67-.47-1.3-1.06-2.7-2.4-5.47-4.58-7.44a.44.44 0 01-.14-.32v-1.68c0-.18.11-.33.3-.4l6.5-2.17c.23-.05.54.08.54.35L12 16l1-7.26c0-.28.3-.4.54-.35l6.5 2.16c.19.08.3.23.3.41zM5.83 8.2L12 6.12l6.17 2.07-1.72-3.14h1.66l-.47-1.37a.4.4 0 00-.39-.3h-4.14v-.97c0-.23-.2-.41-.4-.41H11.3c-.21 0-.41.18-.41.41v.98H6.75a.4.4 0 00-.4.29L5.9 5.05h1.66L5.83 8.19z"></path></svg></svg>} {...a11yProps(5)} />
+                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} onMouseOver={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} onMouseOut={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} label="Stays" icon={<ApartmentIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(0)} />
+                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} onMouseOver={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} onMouseOut={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} label="Flights" icon={<FlightIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(1)} />
+                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} onMouseOver={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} onMouseOut={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} label="Cars" icon={<DriveEtaIcon style={{ color: '#505c66', width: "25px" }} />} {...a11yProps(2)} />
+                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} onMouseOver={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} onMouseOut={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} label="Packages" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><svg><path fill="#505c66" d="M21.59 11.59h-2.36V8.66c0-.23-.2-.41-.43-.41h-5.82a.42.42 0 00-.43.41v2.93H10.2a.42.42 0 00-.43.41v8.34c0 .23.21.41.43.41h11.4c.21 0 .41-.2.41-.41V12c0-.23-.2-.41-.41-.41zm-7.36-1.68h3.32v1.68h-3.32V9.91zm3.79 9.06l-1.2-1.17 2.37-2.36 1.17 1.17-2.34 2.36zM10.89 4.91V3.66a.4.4 0 00-.41-.41H4.64a.4.4 0 00-.41.41v2.93H2.4A.4.4 0 002 7v13.34c0 .2.18.41.41.41h5.7V10.34c0-.23.18-.43.41-.43h2.37v-5zM9.23 6.59H5.89V4.91h3.34v1.68z"></path></svg></svg>} {...a11yProps(3)} />
+                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} onMouseOver={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} onMouseOut={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} label="Things to do" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><svg><path fill="#505c66" d="M22 10.18V6H2v4.18c.9 0 1.66.75 1.66 1.66 0 .9-.76 1.66-1.66 1.66v4.18h20V13.5c-.9 0-1.66-.76-1.66-1.66 0-.9.76-1.66 1.66-1.66zm-4.16 4.57c0 .23-.2.43-.43.43H6.59a.43.43 0 01-.43-.43V8.93c0-.23.2-.43.43-.43h10.82c.23 0 .43.2.43.43v5.82zm-10-4.57h8.32v3.32H7.84v-3.32z"></path></svg></svg>} {...a11yProps(4)} />
+                    <Tab style={{ textTransform: 'none', width: `${100 / 6}%` }} onMouseOver={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} onMouseOut={(e)=> {e.target.style.backgroundColor="#F5F5F5"}} label="Cruises" icon={<svg width="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><svg><path path fill="#505c66" d="M20.34 10.96v1.68c0 .13-.06.24-.14.32-2.21 1.99-3.51 4.72-4.58 7.45-.24.62-.4 1.05-.48 1.3a.4.4 0 01-.39.29h-5.5a.4.4 0 01-.4-.3c-.07-.24-.23-.67-.47-1.3-1.06-2.7-2.4-5.47-4.58-7.44a.44.44 0 01-.14-.32v-1.68c0-.18.11-.33.3-.4l6.5-2.17c.23-.05.54.08.54.35L12 16l1-7.26c0-.28.3-.4.54-.35l6.5 2.16c.19.08.3.23.3.41zM5.83 8.2L12 6.12l6.17 2.07-1.72-3.14h1.66l-.47-1.37a.4.4 0 00-.39-.3h-4.14v-.97c0-.23-.2-.41-.4-.41H11.3c-.21 0-.41.18-.41.41v.98H6.75a.4.4 0 00-.4.29L5.9 5.05h1.66L5.83 8.19z"></path></svg></svg>} {...a11yProps(5)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
@@ -290,11 +290,11 @@ export default function ScrollableTabsButtonForce() {
                                     }}
                                     renderInput={(params) => <TextField {...params} style={{
                                         position: "absolute",
-                                        top: "0px",
-                                        left: "-170px",
+                                        top: "-2px",
+                                        left: "-19px",
                                         opacity: 0,
                                         cursor: "pointer",
-                                        width: "100%"
+                                        width: "30%"
                                     }}/>}/>
                             </LocalizationProvider>
 
@@ -318,11 +318,11 @@ export default function ScrollableTabsButtonForce() {
                                     }}
                                     renderInput={(params) => <TextField {...params} style={{
                                         position: "absolute",
-                                        top: "0px",
-                                        left: "-170px",
+                                        top: "-2px",
+                                        left: "-19px",
                                         opacity: 0,
                                         cursor: "pointer",
-                                        width: "100%"
+                                        width: "30%"
                                     }}/>}/>
                         </LocalizationProvider>
                     </div>
