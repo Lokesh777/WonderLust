@@ -22,7 +22,7 @@ export const BookingCard = ({ data, methods }) => {
 
             <div className={style.otherInfo}>
                 <h2>Booking: {type}</h2>
-                <h2>{name}</h2>
+                <h2 style={{textTransform:"capitalize", fontWeight:'900'}}>{name}</h2>
                 <h2>Bill: ${totalPrice}</h2>
                 <p>{`${hours} : ${minutes}, ${date}/${month}/${year}`}</p>
             </div>

@@ -18,9 +18,9 @@ app.get('/', async(req, res)=>{
 
 // auth middleware || admin middleware
 app.get('/user/',AuthmiddleWare,async(req, res)=>{
-    const userId = req.headers.userid;
+    const userId = req.headers.userId;
     try{
-        const data = await Booking_Hotel.find({user:userId});
+        const data = await Booking_Hotel.find({user:userId}).populate([{path:"hotel", select:{name:true}}]);
         res.send(data);
     }catch(err){
         res.send({error:true, message:err.message})
@@ -37,7 +37,7 @@ app.post('/', authMiddleware, async(req, res)=>{
     try{
         const newhotel = await Hotel.findById(hotel);
 
-        const calPrice = hotel.rooms[roomsData].realPrice*persons;
+        const calPrice = newhotel.rooms[roomsData].realPrice*persons;
         
         if(calPrice!==roomsPrice){
             return res.send({error:true, message:'pricing mismatched'});

@@ -282,6 +282,7 @@ const sampleHotelData =
 const CheckoutPage = () => {
     const [imageNo, setImageNo] = useState(0);
     const [persons, setPersons] = useState(1);
+    const navigator = useNavigate();
     const [food, setFood] = useState(1)
     const [prebook, setPrebook] = useState(1)
     const token = useSelector(store => store.auth.data.token);
@@ -335,6 +336,7 @@ const CheckoutPage = () => {
             hotelId:items._id,
             roomsPrice:OfferRoomPrice,
             servicesCharge:servicesCharge,
+            totalPrice:OfferRoomPrice+servicesCharge,
             roomsData:room,
             persons:1
         }
