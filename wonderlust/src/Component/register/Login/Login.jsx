@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import style from '../Signup/signup.module.css'
 import './login.css'
-import {VStack,Container} from '@chakra-ui/react'
+import { VStack, Container } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SignInAction } from '../../../Redux/Auth/actions'
 
 
@@ -20,11 +20,11 @@ function Login() {
   const navigator = useNavigate();
   const dispatcher = useDispatch();
 
-  
+
   // events functions
-  const handleChange = (e)=>{
-    const {name, value} = e.target;
-    setFormData({...formData, [name] : value})
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value })
   }
   const signupSuccess = () => {
     alert('Looged In Successfully');
@@ -40,44 +40,65 @@ function Login() {
     setFormData(initialFormData)
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatcher(SignInAction(formData, signupSuccess, signupError));
   }
-  
+
 
 
 
   return (
-	<div className={style.Signup_continer} id='login_again'>
-    <h1 className='sign'>Sign in</h1>
-    <VStack  >
-    <Container maxW='md' className={style.Container}>
-      <form onSubmit={handleSubmit} >
-        <input className={style.Allinput} type="email" name="email" placeholder='Email address'
-        value={formData.email} 
-        onChange={handleChange}
-        />
-        <br />
-        <input className={style.Allinput} type="password" name='password' placeholder='Password'
-        value={formData.password} 
-        onChange={handleChange}
-        />
-        <br />
-        <span>
-        <input  type="checkbox" className={style.checkbox} /> Keep me signed in
-        </span>
-        <div className={style.privcy}>Selecting this checkbox will keep you signed into your account on this device until you sign out. Do not select this on shared devices.</div >
-        <div className={style.privcy}>By signing in, I agree to the Travelocity <Link to='#'>Terms and Conditions and Privacy Statement. </Link></div>
-        <button className={style.continue_button} type='submit'>Sign in</button>
-      </form>
-      <div className={style.Sign_in}>
-		 <div> <Link to='#'>Forgot password ?</Link> </div>
-        Aleardy have an account ? <Link to='/signup'>Create one</Link>
+    <div id='login_again'>
+      <div className={style.Signup_continer}  >
+        <div style={{ width: " 60%" }}>
+          <img className={style.ImageHalfLogin} src="https://wallpapercave.com/wp/wp2258700.jpg" alt="Logo" />
+        </div>
+        {/* Signup_continer */}
+        <div style={{ width: "40%" }}>
+           <div maxW='md' className={style.Container}>
+           
+            <form onSubmit={handleSubmit} >
+              
+                 <h2 className={style.Signuph2}
+                  >Login
+                  </h2>
+
+              <input className={style.Allinput} type="email" name="email" placeholder='Email address'
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <br />
+              <input className={style.Allinput} type="password" name='password' placeholder='Password'
+                value={formData.password}
+                onChange={handleChange}
+              />
+              <br />
+              <span>
+                <input type="checkbox" className={style.checkbox} /> Keep me signed in
+              </span>
+              <br />
+              <button className={style.continue_button} type='submit'>Sign in</button>
+            
+            </form>
+             
+              <div> 
+                <Link to='#'> 
+                  <p className={style.forgetPassword}>Forgot password ?</p>
+                </Link> 
+              </div>
+          
+            <div className={style.Sign_in}> 
+              Aleardy have an account ? 
+              <Link to='/signup'>
+                <span className={style.SignTab} >Signup</span>  
+              </Link>
+            </div>
+           </div>
+        </div>
+
       </div>
-   </Container>
-   </VStack>
-  </div>
+    </div>
   )
 }
 
