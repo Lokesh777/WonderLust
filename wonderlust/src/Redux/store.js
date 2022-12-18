@@ -7,6 +7,7 @@ import { Admin_Flight_Reducer } from "./Admin_Flight/Admin_Flight_Reducer";
 import { Admin_Trip_Reducer } from "./Admin_Trips/Admin_Trips_Reducer";
 import { Admin_Hotel_Reducer } from "./Admin_Hotel/Admin_Hotel_Reducer";
 import { getFilterByPrice, getHotelDetailReducer, getHotelReducer } from "./Hotel_Search/reducerHotelSearch";
+import { getCityReducer } from "./City_Search/reducerCitySearch";
 import { authReducer } from "./Auth/AuthReducer";
 
 const rootReducer = combineReducers({
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   hotel_search: getHotelReducer,
   hotel_filterByPrice: getFilterByPrice,
   hotel_details: getHotelDetailReducer,
-  auth:authReducer
+  city_details: getCityReducer,
+  auth: authReducer,
 });
 
 const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
