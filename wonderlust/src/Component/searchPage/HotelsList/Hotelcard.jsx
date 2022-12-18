@@ -6,6 +6,7 @@ import ImageSlide from "./Filter/ImageSlide";
 import StarIcon from "@mui/icons-material/Star";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ApartmentIcon from "@mui/icons-material/Apartment";
+import { useNavigate } from "react-router-dom";
 
 const responsive = {
   desktop: {
@@ -183,6 +184,7 @@ const Wrapper = styled("div")`
 // starRating
 // price
 export const Hotelcard = ({ data, handleOpenHotel }) => {
+const navigate = useNavigate()
   // let hotelData ={
   //   hotelId:data.hotelId,
   //   name:data.name,
@@ -202,6 +204,9 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  const handleHotel = (id) => {
+    navigate(`/hotel/${id}`);
+  };
   // console.log('Number(data.starRating):', typeof(data.starRating))
 
   return (
@@ -274,7 +279,7 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
         <div
           className="off"
           onClick={() => {
-            handleOpenHotel(data._id);
+            handleHotel(data._id);
           }}
         >
           View More{" "}

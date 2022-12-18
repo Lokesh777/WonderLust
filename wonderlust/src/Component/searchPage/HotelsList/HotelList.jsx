@@ -114,7 +114,6 @@ export const HotelList = () => {
   const [hotels, setHotels] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(false);
-  //   const classes = useStyle();
   const [priceFilter, setPriceFilter] = useState("");
   const navigate = useNavigate();
   const [searchHotel, setsearchHotel] = useState("");
@@ -123,13 +122,10 @@ export const HotelList = () => {
   const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
 
   const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
-  // const { cityState, loadingCity } = useSelector((state) => state.city_details);
-  const [citySe, setCitySe] = "";
 
   const [w, setW] = useState(window.innerWidth);
 
   let city = localStorage.getItem("searchQuery");
-  // console.log("searchQuery:", city);
 
   useEffect(() => {
     setloading(true);
