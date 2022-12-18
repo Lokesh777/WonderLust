@@ -202,10 +202,15 @@ box-shadow: rgba(0,0,3,29)0px 3px 6px;
 }
 
 .ProceedBtn{
-    background-color:#7d2ae8;
+    background-color:#6b0aea;
     border-radius:.2rem;
     width: max-content;
     padding: .3rem .6rem .3rem .6rem;
+    margin: 0rem .6rem 0rem .6rem;
     color: white;
     margin-top: 1rem;
+}
+.ProceedBtn:hover{
+    background-color: rgb(12, 1, 22);
+    color: white;
 }
