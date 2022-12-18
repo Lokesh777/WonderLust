@@ -19,15 +19,15 @@ export const getHotelAction = (city) => async (dispatch) => {
 
   try {
     dispatch({ type: GET_HOTELS_REQUEST });
-    if (city.lengt > 3) {
+    if (city.length > 3) {
       city = city.replace(/^"|"$/g, "");
       let cityResponse = await axios.get(`${URL}/hotel?city=${city}`);
       dispatch({ type: GET_HOTELS_SUCCESS, payload: cityResponse.data });
-      // console.log("cityResponse.data:", cityResponse.data);
+      console.log("cityResponse.data:", cityResponse.data);
     } else {
       let response = await axios.get(`${URL}/hotel?limit=12`);
       dispatch({ type: GET_HOTELS_SUCCESS, payload: response.data });
-      // console.log("response.data :", response.data);
+      console.log("response.data :", response.data);
     }
     localStorage.removeItem("hotelBooking");
     // localStorage.removeItem("searchQuery");
