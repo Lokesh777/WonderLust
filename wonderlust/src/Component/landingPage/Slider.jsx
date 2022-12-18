@@ -221,7 +221,7 @@ export default function ScrollableTabsButtonForce() {
             return;
         }else{
             setinputData(document.getElementById("strong_data_name").innerHTML || "")
-             localStorage.setItem("searchQuery", JSON.stringify(inputData || ""));
+             localStorage.setItem("searchQuery", JSON.stringify(inputData));
             setInterval(() => {
                 navigate("/hotels");
             }, 1000);
