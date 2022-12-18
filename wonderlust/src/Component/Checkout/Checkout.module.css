@@ -187,19 +187,10 @@ box-shadow: rgba(0,0,3,29)0px 3px 6px;
 /* ***************** Page total amount ****************** */
 .calculationLK{
     margin: .5rem 0rem .5rem 0rem;
-    /* color: #4f585e; */
-    font-size: 20px;
-}
-.calculationLK >span{
-    /* float: right; */
-    /* margin-left:22%; */
+    font-size: 16px;
     font-weight: 700;
-    font-size: 18px;
 }
-.calculationLK>del{
-  /* margin-left: 100px; */
-  font-size: 14px;
-}
+
 
 .ProceedBtn{
     background-color:#6b0aea;
@@ -213,4 +204,18 @@ box-shadow: rgba(0,0,3,29)0px 3px 6px;
 .ProceedBtn:hover{
     background-color: rgb(12, 1, 22);
     color: white;
+}
+
+.calculationLK .showTrough{
+    display: inline-block;
+    color: #000;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.calculationLK .striketrhough{
+    display: inline-block;
+    color: grey;
+    font-size: 13px;
+    text-decoration: line-through;
 }

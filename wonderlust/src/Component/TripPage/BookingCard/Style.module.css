@@ -35,6 +35,7 @@
 /*  */
 .emptyCard{
     color: #7d2ae8;
+    margin-top: 55px;
 }
 
 .emptyCard>h2, h3{
@@ -43,10 +44,21 @@
     text-transform: capitalize;
 }
 .emptyCard>h2{
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 900;
 }
 .emptyCard>h3{
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
+    color: #4a1c86;
+}
+.emptyCard button{
+    display: block;
+    padding: 7px 14px;
+    width: fit-content;
+    margin: 25px auto;
+}
+.emptyCard button.explore:hover{
+    text-decoration: underline;
+    background-color: #00000000;
 }

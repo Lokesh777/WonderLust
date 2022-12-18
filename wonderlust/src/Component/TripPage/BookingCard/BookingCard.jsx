@@ -1,8 +1,10 @@
 import style from './Style.module.css'
+import { useNavigate } from 'react-router-dom';
 
 export const BookingCard = ({ data, methods }) => {
     const { type, totalPrice, createdAt, hotel } = data;
-    const { name, _id } = hotel
+    const { name, _id } = hotel;
+    const navigate = useNavigate();
 
     const crDate = new Date(createdAt);
     const [year, month, date, hours, minutes] = [crDate.getFullYear(), crDate.getMonth()+1, crDate.getDate(), crDate.getHours(), crDate.getMinutes()]
@@ -20,7 +22,7 @@ export const BookingCard = ({ data, methods }) => {
 
             <div className={style.otherInfo}>
                 <h2>Booking: {type}</h2>
-                <h2>{name}</h2>
+                <h2 style={{textTransform:"capitalize", fontWeight:'900'}}>{name}</h2>
                 <h2>Bill: ${totalPrice}</h2>
                 <p>{`${hours} : ${minutes}, ${date}/${month}/${year}`}</p>
             </div>
@@ -30,9 +32,12 @@ export const BookingCard = ({ data, methods }) => {
 }
 
 export const EmptyBookingCard = () => {
+    const navigate = useNavigate();
     return <div className={style.emptyCard}>
         <h2>You don't have any booking.</h2>
         <h3>Go and start exploring</h3>
-        <button>Explore</button>
+        <button onClick={()=>{
+            return navigate('/')
+        }} className={style.explore}>Explore</button>
     </div>
 }  

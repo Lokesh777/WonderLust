@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import StripeCheckout from 'react-stripe-checkout';
 
-const Payment = () =>{
+const Payment = ({data}) =>{
 
   const navigate=useNavigate()
 

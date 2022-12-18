@@ -5,7 +5,7 @@ import { CreateModal } from './CreateModal/CreateModal';
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react';
 import { Get_Trips } from '../../Redux/Trips/actions';
-import TripCard from './TripCard/TripCard';
+import TripCard, { EmptyTripCard } from './TripCard/TripCard';
 import { Get_Bookings } from '../../Redux/Bookings/actions'
 import { BookingCard, EmptyBookingCard } from './BookingCard/BookingCard';
 
@@ -40,7 +40,10 @@ const Trip = () => {
                 <h2>Trips</h2>
 
                 <div className={style.tripGrid}>
-                    {tripData.map((i) => <TripCard key={i._id} data={i} />)}
+                    {tripData.length !== 0 ? <div className={style.tripGrid}>
+                        {tripData.map((i) => <TripCard key={i._id} data={i} />)}
+                    </div> :
+                        <EmptyTripCard  create={showModal}/>}
                 </div>
 
             </div>
@@ -48,11 +51,12 @@ const Trip = () => {
 
         <div className={style.bookingsBoard}>
             <h2>{tripStatus ? tripStatus : "Hotel Bookings"}</h2>
-            {bookingsData.length!==0?<div className={style.tripGrid}>
+            {bookingsData.length !== 0 ? <div className={style.tripGrid}>
                 {bookingsData.map((i) => <BookingCard key={i._id} data={i} />)}
-            </div>:
-            <EmptyBookingCard />}
+            </div> :
+                <EmptyBookingCard />}
         </div>
     </div>
 }
 export default Trip;
+

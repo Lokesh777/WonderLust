@@ -5,7 +5,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 5000000;
     display: flex;
     justify-content: right;
 }

@@ -5,6 +5,16 @@
     background-color: white;
     box-shadow: rgba(0,0,3,29)0px 3px 6px;
 }
+.selectedRoomCard{
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 7px;
+    background-color: white;
+    box-shadow: rgba(0,0,3,29)0px 3px 6px;
+    transform: scale(.9);
+   background-color: blueviolet;
+   color: white;
+}
 .roomCard:hover{
    transform: scale(.9);
    background-color: blueviolet;
@@ -31,6 +41,4 @@
     font-weight: 700;
    
 }
-/* .discount{ */
 
-/* } */

@@ -15,7 +15,7 @@ const authMiddleware = async (req, res, next) => {
     if(user.email!==email || role!==user.role){
         return res.status(401).send({error:true, message:"Unathorized Action or Invalid Token"})
     }
-    // console.log('midle', id)
+
     req.headers.userId = id;
     next();
 

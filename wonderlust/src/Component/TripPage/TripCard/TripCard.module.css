@@ -48,3 +48,36 @@
     background-color: #00000000;
     text-decoration: underline;
 }
+
+/* empty card */
+
+.emptyCard{
+    color: #7d2ae8;
+    margin-top: 55px;
+    text-align: center;
+}
+
+.emptyCard>h2, h3{
+    color: #7d2ae8;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+.emptyCard>h2{
+    font-size: 22px;
+    font-weight: 900;
+}
+.emptyCard>h3{
+    font-size: 18px;
+    font-weight: 700;
+    color: #4a1c86;
+}
+.emptyCard button{
+    display: block;
+    padding: 7px 14px;
+    width: fit-content;
+    margin: 25px auto;
+}
+.emptyCard button.explore:hover{
+    text-decoration: underline;
+    background-color: #00000000;
+}

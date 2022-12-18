@@ -25,3 +25,14 @@ export default ({data})=>{
         </div>
     </div>
 }
+
+export const EmptyTripCard = ({create}) => {
+    
+    return <div className={style.emptyCard}>
+        <h2>You don't have any Trip.</h2>
+        <h3>Click To Create New Trip</h3>
+        <button onClick={()=>{   
+            create()         ;
+        }} className={style.explore}>Create</button>
+    </div>
+} 

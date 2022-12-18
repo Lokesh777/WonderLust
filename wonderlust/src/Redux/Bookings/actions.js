@@ -12,7 +12,7 @@ export const Get_Bookings = (token) => async(dispatch) => {
 dispatch({type:Booking_Get_Loading});
 
 try{
-    let response =await axios.get('http://localhost:8080/bookingHotel',{headers:{token}});
+    let response =await axios.get('http://localhost:8080/bookingHotel/user',{headers:{token}});
     const {error, message} = response.data
 
     if(error){
@@ -21,7 +21,7 @@ try{
         const data = response.data;
         dispatch({type:Booking_Get_Success, payload:data});
     }
-
+    
 }catch(err){
     dispatch({type:Booking_Get_Error});
 }
@@ -31,19 +31,22 @@ export const Create_Booking = (data, token, onSuccess, onError) => async(dispatc
 dispatch({type:Booking_Create_Loading});
 const {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId} = data
 
+console.log('hotelId,', totalPrice)
+
+
 try{
-    let response =await axios.post('http://localhost:8080/trip', {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId}, {headers:{token:token}});
+    let response =await axios.post('http://localhost:8080/bookingHotel', {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId}, {headers:{token:token}});
     const {error, message} = response.data
     if(error){
         dispatch({type:Booking_Create_Error});
-        // onError(message)
+        onError(message)
     }else{
         dispatch({type:Booking_Create_Success, payload:{hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId}});
-        // onSuccess()
+        onSuccess()
     }
 
 }catch(err){
     dispatch({type:Booking_Create_Error});
-    // onError(err.message);
+    onError(err.message);
 }
 }
