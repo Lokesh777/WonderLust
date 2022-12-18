@@ -14,8 +14,8 @@ import {
 const URL = `http://localhost:8080`;
 
 export const getHotelAction = (city) => async (dispatch) => {
-  console.log("city", city.replace(/^"|"$/g, ""));
-  console.log("city:", city.length);
+  // console.log("city", city.replace(/^"|"$/g, ""));
+  // console.log("city:", city.length);
 
   try {
     dispatch({ type: GET_HOTELS_REQUEST });
