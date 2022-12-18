@@ -121,26 +121,23 @@ export const HotelList = () => {
 
   const dispatch = useDispatch();
   const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
+
   const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
   // const { cityState, loadingCity } = useSelector((state) => state.city_details);
-  const [citySe, setCitySe] = ('')
+  const [citySe, setCitySe] = "";
 
   const [w, setW] = useState(window.innerWidth);
 
   let city = localStorage.getItem("searchQuery");
-
-
+  // console.log("searchQuery:", city);
 
   useEffect(() => {
     setloading(true);
-    // if (searchHotel&&loadingCity) {
-    //   dispatch(getCityAction(searchHotel));
-      
-    // }
-   
+
     if (load) {
       dispatch(getHotelAction(city));
     }
+
     if (hotelsState) {
       // console.log("hotelsState:", hotelsState);
       setHotels(hotelsState);
@@ -153,7 +150,7 @@ export const HotelList = () => {
     }
     setTimeout(() => {
       setloading(false);
-    }, 1400);
+    }, 1000);
   }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
 
   useEffect(() => {
@@ -245,9 +242,9 @@ export const HotelList = () => {
     navigate(`/hotel/${id}`);
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [priceFilter]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [priceFilter]);
 
   return (
     <>
@@ -256,7 +253,7 @@ export const HotelList = () => {
           <div className="sorting">
             {
               <Box>
-                <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel}  handleClicksSearch={handleClicksSearch} />
+                <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
               </Box>
             }
             {/* ---------------------------------------------------------------------------------------------------Star rating  */}

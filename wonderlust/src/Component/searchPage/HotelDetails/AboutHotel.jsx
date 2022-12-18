@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./styles/mainHotel.module.css";
-// import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { AccessAlarm, ThreeDRotation } from "@mui/icons-material";
-// import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { useNavigate } from "react-router";
 import SubHotelDetails from "./SubComponents/SubHotelDetails";
-import Ads from "../HotelsList/Filter/Ad";
+// import Ads from "../HotelsList/Filter/Ad";
 import { Button } from "@mui/material";
 
 const AboutHotel = ({ hotelDetail, id }) => {

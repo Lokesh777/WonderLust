@@ -35,9 +35,11 @@ const Wrapper = styled("div")`
 
   ${"" /* border:1px solid red; */}
 
-  ${'' /* &:hover {
+  ${
+    "" /* &:hover {
     cursor: pointer;
-  } */}
+  } */
+  }
 
   .card-image {
     height: 100%;
@@ -211,7 +213,7 @@ export const Hotelcard = ({ data, handleOpenHotel }) => {
             swipeable={false}
             draggable={false}
             infinite={true}
-            autoPlay={true}
+            autoPlay={false}
             autoPlaySpeed={5000}
             centerMode={false}
             dotListClass="custom-dot-list-style"

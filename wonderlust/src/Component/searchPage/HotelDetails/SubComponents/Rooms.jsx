@@ -37,13 +37,11 @@ const Rooms = ({ room, hId,handleReserve }) => {
 
   const [open, setOpen] = useState(false);
   const [price, setPrice] = useState(0);
-  // const [totalPrice, setTotalPrice] = useState(room.price + price)
 
-  // console.log('totalPrice:', totalPrice)
-  // 0.rooms[0].price
+ 
 
   const handleOpen = () => {
-    // dispatch(paymentType(totalPrice))
+   
     setOpen(true);
   };
   const handleClose = () => {
@@ -61,10 +59,7 @@ const Rooms = ({ room, hId,handleReserve }) => {
   };
 
   const handleOpenRoom = (id) => {
-    // history.push('roomPage')
-    // dispatch(paymentType(totalPrice))
     navigate(`/hotels/${hId}/${id}`);
-    // console.log(id, hId)
   };
 
   // const handleReserve=()=>{

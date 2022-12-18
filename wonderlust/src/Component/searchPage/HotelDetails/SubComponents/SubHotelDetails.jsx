@@ -1,18 +1,9 @@
 import React, { useState } from "react";
-// import Rooms from './Rooms'
-// import AboutArea from './AboutArea'
-// import Amenities from './Amenities'
-// // import HotelMap from './HotelMap'
-// import HotelOverview from './HotelOverview'
-// import Policies from './Policies'
-// import Review from './Review'
+
 import styles from "../styles/subHotelDetails.module.css";
 import Modal from "@mui/material/Modal";
-// import CloseIcon from '@material-ui/icons/Close';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import CloseIcon from "@mui/icons-material/Close";
-// subHotel
-import { AccessAlarm, ThreeDRotation } from "@mui/icons-material";
 import HotelOverview from "./HotelOverView";
 import AboutArea from "./AboutArea";
 import Rooms from "./Rooms";
@@ -77,6 +68,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
 
   return (
     <>
+    <div className="slider"></div>
       <div className={styles.flex} onClick={handleOpen} style={{ cursor: "pointer" }}>
         <div className={styles.left}>
           <img src={hotelData.images[0]} alt="" />
