@@ -283,8 +283,7 @@ const CheckoutPage = () => {
     const [food,setFood]=useState(1)
     const [prebook,setPrebook]=useState(1)
     const imageNoCounter = useRef(null);
-    
-  
+
 
     return <div className={style.checkout}>
         <h1 className={style.pageHead}>Booking</h1>
