@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "react-multi-carousel/lib/styles.css";
 import styles from "../styles/subHotelDetails.module.css";
 import Modal from "@mui/material/Modal";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
@@ -8,7 +8,32 @@ import HotelOverview from "./HotelOverView";
 import AboutArea from "./AboutArea";
 import Rooms from "./Rooms";
 import { useNavigate } from "react-router-dom";
+import { Box, styled } from "@mui/material";
+import Carousel from "react-multi-carousel";
 
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+const Image = styled("img")(({ theme }) => ({
+  width: "100%",
+  height: "540px",
+  [theme.breakpoints.down("md")]: {
+    ObjectFit: "cover",
+    height: "160px",
+  },
+}));
 const SubHotelDetails = ({ hotelData, id }) => {
   let navigate = useNavigate();
   // console.log("SubHotelDetails:", hotelData);
@@ -56,24 +81,31 @@ const SubHotelDetails = ({ hotelData, id }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  const modal = (
-    <div className={styles.modal}>
-      <CloseIcon className={styles.close} onClick={handleClose} />
-      <FaChevronLeft className={styles.right_arrow} onClick={prevSlide} />
-      <FaChevronRight className={styles.left_arrow} onClick={nextSlide} />
-      <div className={styles.modal_img}>
-        {images.map((slide, index) => {
-          return <div key={index}>{index === current && <img src={slide} alt="hotelImages" />}</div>;
-        })}
-      </div>
-    </div>
-  );
-
   return (
     <>
-      <div className="slider"></div>
-      <div className={styles.flex} onClick={handleOpen} style={{ cursor: "pointer" }}>
-        <div className={styles.left}>
+      <div style={{ display: "grid", justifyContent: "center", marginRight: "20px" }}>
+        <div className="slider"></div>
+        <div className={styles.flex} onClick={handleOpen} style={{ cursor: "pointer", marginRight: "50px" }}>
+          <div style={{ width: "1200px", height: "500px" }}>
+            <Carousel
+              responsive={responsive}
+              swipeable={false}
+              draggable={false}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+              containerClass="carousel-container"
+            >
+              {images.map((data, id) => (
+                <Image style={{ height: "500px" }} key={id} src={data} alt={"banner"}></Image>
+              ))}
+            </Carousel>
+          </div>
+
+          {/* <div className={styles.left}>
           <img src={hotelData.images[0]} alt="" />
         </div>
         <div className={styles.right}>
@@ -89,52 +121,36 @@ const SubHotelDetails = ({ hotelData, id }) => {
           <div>
             <img src={hotelData.images[4]} alt="" />
           </div>
+        </div> */}
         </div>
-      </div>
-      <div className={styles.option}>
-        {options.map((option, i) => (
-          <p key={i}>
-            <a href={option.to}>{option.title}</a>
-          </p>
-        ))}
-        {/* <button className={styles.optionBtn}>
+        <div className={styles.option}>
+          {options.map((option, i) => (
+            <p key={i}>
+              <a href={option.to}>{option.title}</a>
+            </p>
+          ))}
+          {/* <button className={styles.optionBtn}>
           <a href="#rooms">Reserve a room</a>
         </button> */}
-      </div>
-
-      <div className={styles.flex} style={{ background: "#FFF", borderRadius: "0 0 10px 10px" }}>
-        <div className={styles.left_1} id="overview">
-          <HotelOverview hotelData={hotelData} />
         </div>
-        <div className={styles.right_1}>{/* <HotelMap hotelData={hotelData} /> */}</div>
+
+        <div className={styles.flex} style={{ background: "#FFF", borderRadius: "0 0 10px 10px" }}>
+          <div className={styles.left_1} id="overview">
+            <HotelOverview hotelData={hotelData} />
+          </div>
+          <div className={styles.right_1}>{/* <HotelMap hotelData={hotelData} /> */}</div>
+        </div>
+
+        <div className={styles.room_grid} id="rooms">
+          {hotelData.rooms.map((room) => (
+            <Rooms key={room.size} handleReserve={handleReserve} room={room} hId={id} />
+          ))}
+        </div>
+
+        <div id="location">
+          <AboutArea />
+        </div>
       </div>
-
-      <div className={styles.room_grid} id="rooms">
-        {hotelData.rooms.map((room) => (
-          <Rooms key={room.size} handleReserve={handleReserve} room={room} hId={id} />
-        ))}
-      </div>
-
-      <div id="location">
-        <AboutArea />
-      </div>
-
-      {/* <div id="location">
-                <AboutArea />
-            </div>
-            <div id="amenities">
-                <Amenities />
-            </div>
-            <div id="policies">
-                <Policies />
-            </div>
-            <div id="reviews">
-                <Review />
-            </div> */}
-
-      <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
-        {modal}
-      </Modal>
     </>
   );
 };
