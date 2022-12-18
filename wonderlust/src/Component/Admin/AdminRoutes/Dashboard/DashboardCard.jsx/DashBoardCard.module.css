@@ -20,7 +20,7 @@
     text-transform: uppercase;
     width: fit-content;
     padding: 0 65px 15px;
-    border-bottom: 1px solid orange;
+    border-bottom: 1px solid rgb(241, 5, 174);
     margin: auto;
 }
 
@@ -54,14 +54,16 @@
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    border: 1px groove rgb(146, 0, 243);
-    background-color: #fff;
+    /* border: 1px groove rgb(146, 0, 243); */
+    background-color: #7d2ae8;
     border-radius: 7px;
     cursor: pointer;
+    color: #fff;
 }
 
 .buttonBox button:hover{
     background-color: rgb(230, 201, 250);
+    color: #7d2ae8;
 }
 
 .buttonBox button:active{

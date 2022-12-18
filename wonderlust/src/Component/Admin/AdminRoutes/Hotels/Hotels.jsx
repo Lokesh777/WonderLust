@@ -56,7 +56,9 @@ export const Hotels = () => {
                         <label>
                             <p>Prices</p>
                             <div className={style.checkBoxes}>
-                                <label><p>High to Low</p><input type="checkbox"/></label>
+                                <label>
+                                    <p>High to Low</p>
+                                    <input type="checkbox"/></label>
                                 <label><p>Low To High</p><input type="checkbox"/></label>
                             </div>
                         </label>

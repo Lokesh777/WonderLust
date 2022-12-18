@@ -17,9 +17,9 @@
 }
 
 .hotelBtns:hover {
-    border-color: #0d5ab9;
+    border-color: #7d2ae8;
     box-shadow: inset 0 0 0 1px #0d5ab9;
-    color: #0d5ab9 !important;
+    color: #7d2ae8 !important;
 }
 
 .hotelGoingToBtn {

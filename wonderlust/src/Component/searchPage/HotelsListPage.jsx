@@ -28,19 +28,18 @@ export const HotelsListPage = () => {
       }, 1200);
     });
     return (
-      <>
+      <div>
         {loading ? (
           <Wrapper>
             <div className="progress">
-            <img src={trvloLogo} alt="" />
-
+            <img src={trvloLogo} alt="logo" />
               <CircularProgress color="secondary"/>
             </div>
           </Wrapper>
         ) : (
           <HotelList />
         )}
-      </>
+      </div>
     );
   };
   

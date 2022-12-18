@@ -8,9 +8,10 @@ export function Footer() {
             <hr className={styles.footerHr} />
             <div className={styles.footer}>
                 <div className={styles.flex}>
-                    <div>
-                        <img src="https://a.travel-assets.com/globalcontrols-service/content/f285fb631b0a976202ef57611c7050e9ef5ca51a/images/EG_Wordmark_blue_RGB.svg" alt="" />
+                    <div >
+                        <img className={styles.logoGif} src="travel.gif" alt="Logo" />
                     </div>
+                    
                     <div>
                         <ul className={styles.footerLinks}>
                             <h3>Company</h3>
