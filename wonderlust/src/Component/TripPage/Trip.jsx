@@ -5,11 +5,14 @@ import { CreateModal } from './CreateModal/CreateModal';
 import {useSelector, useDispatch} from 'react-redux'
 import { useEffect } from 'react';
 import { Get_Trips } from '../../Redux/Trips/actions';
+import TripCard from './TripCard/TripCard';
+import {Get_Bookings} from '../../Redux/Bookings/actions'
 
  const Trip = () => {
     const [disCreateModal, setDisCreateModal] = useState(false);
     const token = useSelector((store)=>store.auth.data.token);
     const tripData = useSelector((store)=>store.trip.data);
+    const bookingsData = useSelector((store)=>store.trip.bookings);
     const dispatch = useDispatch();
 
     const hideModal = () => {
@@ -20,7 +23,8 @@ import { Get_Trips } from '../../Redux/Trips/actions';
     }
 
     useEffect(()=>{
-        dispatch(Get_Trips(token))
+        dispatch(Get_Trips(token));
+        dispatch(Get_Bookings(token));
     }, [])
     return <div className={style.page}>
         <div className={style.board}>
@@ -33,9 +37,15 @@ import { Get_Trips } from '../../Redux/Trips/actions';
 
                 <h2>Trips</h2>
 
-                {tripData.map((i)=><h2 key={i._id}>{i.name}</h2>)}
+                <div className={style.tripGrid}>
+                    {tripData.map((i)=><TripCard key={i._id} data={i}/>)}
+                </div>
 
             </div>
+        </div>
+
+        <div className={style.bookingsBoard}>
+            <h2>Hotel Bookings</h2>
         </div>
     </div>
 }

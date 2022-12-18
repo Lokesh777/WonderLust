@@ -4,7 +4,6 @@ const JWT_SECRET = 'SERCRET1234'
 
 const authMiddleware = async (req, res, next) => {
   let { token } = req.headers;
-  console.log(token, 'tokenAuth')
   if (!token) {
     return res.status(404).send({ error: true, message: "No token found" });
   }
@@ -16,6 +15,7 @@ const authMiddleware = async (req, res, next) => {
     if(user.email!==email || role!==user.role){
         return res.status(401).send({error:true, message:"Unathorized Action or Invalid Token"})
     }
+    // console.log('midle', id)
     req.headers.userId = id;
     next();
 
