@@ -148,7 +148,7 @@ export const HotelList = () => {
     setTimeout(() => {
       setloading(false);
     }, 1000);
-  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice,city]);
+  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -259,7 +259,7 @@ export const HotelList = () => {
                   variant="contained"
                   startIcon={<LocationOnIcon />}
                 >
-                  {`Hotels in ${city}`}
+                  {`Hotels  ${city !== null ? city : " "}`}
                 </Button>
                 <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
               </Box>
@@ -357,9 +357,7 @@ export const HotelList = () => {
             ) : (
               <NoDataFound></NoDataFound>
             )}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <PaginationComp></PaginationComp>
-            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>{hotels.length > 10 && <PaginationComp></PaginationComp>}</div>
           </div>
           {/* {hotelsFilterPrice && !filterLoading ? (
          
