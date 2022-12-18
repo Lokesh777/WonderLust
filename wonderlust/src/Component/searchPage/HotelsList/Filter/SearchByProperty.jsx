@@ -62,7 +62,7 @@ export const SearchByProperty = ({ handleQueryChange, query, handleClicksSearch 
 
   return (
     <Wrapper>
-      <div className="search-title">Search by property name</div>
+      {/* <div className="search-title">Search by property name</div> */}
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} className="searchBar">
         <TextField
           style={{ background: "white", marginRight: "5px" }}

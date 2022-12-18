@@ -9,19 +9,11 @@ import { MdNavigateNext } from "react-icons/md";
 import { BiInfoCircle } from "react-icons/bi";
 
 // import FormControlLabel from '@material-ui/core/FormControlLabel'
-import SquareFootIcon from "@mui/icons-material/SquareFoot";
-import { LocationCityIcon } from "@mui/icons-material";
 
-import WifiIcon from "@mui/icons-material/Wifi";
-import HotelIcon from "@mui/icons-material/Hotel";
-import FreeBreakfastIcon from "@mui/icons-material/FreeBreakfast";
-import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import DoneIcon from "@mui/icons-material/Done";
-import { Modal, styled, Box, RadioGroup, Radio, FormControlLabel, Typography, Button } from "@mui/material";
+import { Modal, styled, Box, RadioGroup, Radio, FormControlLabel, Typography } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import { useDispatch } from "react-redux";
 // import { paymentType } from '../../Store/Action'
 import { useNavigate } from "react-router-dom";
 
@@ -31,15 +23,12 @@ const Tyed = styled(Typography)`
 `;
 
 const Rooms = ({ room, hId, handleReserve }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const [price, setPrice] = useState(0);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+ 
   const handleClose = () => {
     setOpen(false);
   };
@@ -54,9 +43,9 @@ const Rooms = ({ room, hId, handleReserve }) => {
     // navigate('/payment')
   };
 
-  const handleOpenRoom = (id) => {
-    navigate(`/hotels/${hId}/${id}`);
-  };
+  // const handleOpenRoom = (id) => {
+  //   navigate(`/hotels/${hId}/${id}`);
+  // };
 
   // const handleReserve = () => {
   //   navigate(`checkout`);
@@ -173,9 +162,9 @@ const Rooms = ({ room, hId, handleReserve }) => {
             </Box>
             <small>Before sun, 5 sep</small>
             <Box className={styles.flex_1}>
-              <p className={styles.more} onClick={handleOpenRoom}>
+              {/* <p className={styles.more} onClick={handleOpenRoom}>
                 More details
-              </p>
+              </p> */}
               <span>
                 <MdNavigateNext />
               </span>

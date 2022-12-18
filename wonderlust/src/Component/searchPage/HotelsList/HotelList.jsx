@@ -19,11 +19,11 @@ import { PaymentType } from "./Filter/PaymentType";
 import { PropertyType } from "./Filter/PropertyType";
 import { FoodPlans } from "./Filter/FoodPlans";
 import { PopularLocation } from "./Filter/PopularLocation";
-
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByPriceAction, getHotelAction } from "../../../Redux/Hotel_Search/actionsHotelSearch";
 import PaginationComp from "./Pagination/PaginationComp";
-import { getCityAction } from "../../../Redux/City_Search/actionCitySearch";
+// import { getCityAction } from "../../../Redux/City_Search/actionCitySearch";
 // import { makeStyles } from '@material-ui/core/styles'
 // const url = `http://localhost:3004/hotel`;
 // const url = `http://localhost:8080/hotel?limit=12`;
@@ -126,6 +126,7 @@ export const HotelList = () => {
   const [w, setW] = useState(window.innerWidth);
 
   let city = localStorage.getItem("searchQuery");
+  // console.log("city:", city);
 
   useEffect(() => {
     setloading(true);
@@ -147,7 +148,7 @@ export const HotelList = () => {
     setTimeout(() => {
       setloading(false);
     }, 1000);
-  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
+  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice,city]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -248,7 +249,18 @@ export const HotelList = () => {
         <Wrapper>
           <div className="sorting">
             {
-              <Box>
+              <Box style={{ display: "flex", flexDirection: "column", alignItems: "start", gap: "20px" }}>
+                <Button
+                  style={{ width: "70%" }}
+                  color="secondary"
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                  variant="contained"
+                  startIcon={<LocationOnIcon />}
+                >
+                  {`Hotels in ${city}`}
+                </Button>
                 <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
               </Box>
             }

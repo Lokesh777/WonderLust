@@ -14,16 +14,18 @@ import {
 const URL = `http://localhost:8080`;
 
 export const getHotelAction = (city) => async (dispatch) => {
-  // console.log("city", city.replace(/^"|"$/g, ""));
-  // console.log("city:", city.length);
+  console.log("city", city.replace(/^"|"$/g, ""));
+  console.log("city:", city.length);
 
   try {
     dispatch({ type: GET_HOTELS_REQUEST });
-    if (city.lengt > 3) {
+    if (city.length > 3) {
       city = city.replace(/^"|"$/g, "");
       let cityResponse = await axios.get(`${URL}/hotel?city=${city}`);
       dispatch({ type: GET_HOTELS_SUCCESS, payload: cityResponse.data });
       // console.log("cityResponse.data:", cityResponse.data);
+    localStorage.removeItem("hotelBooking");
+
     } else {
       let response = await axios.get(`${URL}/hotel?limit=12`);
       dispatch({ type: GET_HOTELS_SUCCESS, payload: response.data });

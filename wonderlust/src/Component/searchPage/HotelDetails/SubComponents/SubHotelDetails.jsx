@@ -43,7 +43,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
   const handleReserve = () => {
     // navigate(`/hotels`);
     navigate(`/checkout`);
-    localStorage.removeItem("searchQuery");
+    localStorage.clear("searchQuery");
 
     // console.log("handleReserve:", handleReserve);
     localStorage.setItem("hotelBooking", JSON.stringify(hotelData));

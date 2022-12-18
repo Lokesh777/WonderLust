@@ -15,19 +15,16 @@ const HotelDetails = () => {
   const { loading_Detail, hotelDetail } = useSelector((state) => state.hotel_details);
   // console.log('hotelDetail:', hotelDetail)
 
-
   const dispatch = useDispatch();
-
+  
+  // window.location.reload();
   useEffect(() => {
-
-
-    if (loading_Detail) {
+    if (loading_Detail && id) {
       dispatch(getHotelDetailsAction(id));
     }
-  }, [dispatch, loading_Detail,id]);
+  }, [dispatch, loading_Detail, id]);
 
   // console.log('loading_Detail:', loading_Detail)
-
 
   const styles = {
     progress: {
@@ -46,7 +43,7 @@ const HotelDetails = () => {
 
   return (
     <>
-      {!loading_Detail  ? (
+      {!loading_Detail ? (
         <div>
           <AboutHotel hotelDetail={hotelDetail} id={id} />
         </div>
