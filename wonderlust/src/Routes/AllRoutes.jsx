@@ -17,9 +17,9 @@ const Allroutes = () => {
         <Route path="/hotels" element={<HotelsListPage />} />
         <Route path="trip" element={<Trip />} />
         <Route path="support" element={<Support />} />
-        {/* <Route path="checkout" element={<CheckoutPage />} /> */}
-        {/* <Route path="signup" element={<Signup />}></Route> */}
-        {/* <Route path="login" element={<Login />}></Route> */}
+        <Route path="checkout" element={<CheckoutPage />} />
+        <Route path="signup" element={<Signup />}></Route>
+        <Route path="login" element={<Login />}></Route>
         <Route path="admin/*" element={<Admin />} />
         <Route path="/hotel/:id" element={<HotelDetails />} />
       </Routes>
