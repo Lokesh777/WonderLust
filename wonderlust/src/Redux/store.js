@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   hotel_filterByPrice: getFilterByPrice,
   hotel_details: getHotelDetailReducer,
   auth:authReducer,
-  bookings:BookingsReducer
+  bookings:BookingsReducer,
   city_details: getCityReducer,
 });
 
