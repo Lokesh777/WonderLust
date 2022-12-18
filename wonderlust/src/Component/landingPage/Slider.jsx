@@ -209,12 +209,12 @@ export default function ScrollableTabsButtonForce() {
     const handleSaveData = (e)=> {
         e.stopPropagation();
         setinputData(document.getElementById("strong_data_name").innerHTML)
-        console.log(inputData);
+        console.log(inputData, typeof(inputData));
        
         if(query === ""){
             return (alert("Please Enter City !"))
         }else{
-             localStorage.setItem("searchQuery", JSON.stringify(inputData || []));
+             localStorage.setItem("searchQuery", JSON.stringify(inputData || ""));
             setInterval(() => {
                 navigate("/hotels");
             }, 1000);
