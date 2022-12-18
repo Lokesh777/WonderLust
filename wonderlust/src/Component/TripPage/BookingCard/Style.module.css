@@ -1,0 +1,52 @@
+.BookingCard{
+    margin-bottom: 25px;
+    border: 1px solid #7d2ae8;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+.bookingHead{
+    font-size: 19px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+}
+.bookingHead>h3{
+    text-decoration: underline;
+    margin-right: 15px;
+}
+.info{
+    display: grid;
+    grid-template-columns: 40% 50%;
+    justify-content: space-between;
+}
+.QR_code>img{
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+.otherInfo{
+    display: flex;
+    padding: 7px 14px 7px 0;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/*  */
+.emptyCard{
+    color: #7d2ae8;
+}
+
+.emptyCard>h2, h3{
+    color: #7d2ae8;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+.emptyCard>h2{
+    font-size: 25px;
+    font-weight: 900;
+}
+.emptyCard>h3{
+    font-size: 22px;
+    font-weight: 700;
+}

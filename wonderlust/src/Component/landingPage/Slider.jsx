@@ -25,6 +25,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
 import { v4 as uuid } from "uuid";
 import {useNavigate} from "react-router-dom"
+import ToastService from "react-material-toast";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -114,6 +115,11 @@ export default function ScrollableTabsButtonForce() {
             setIsSearching(false);
         })
     }
+    const toast = ToastService.new({
+        place: "bottomLeft",
+        duration: 2,
+        maxCount: 6
+      });
 
 
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -208,13 +214,14 @@ export default function ScrollableTabsButtonForce() {
 
     const handleSaveData = (e)=> {
         e.stopPropagation();
-        setinputData(document.getElementById("strong_data_name").innerHTML)
         console.log(inputData, typeof(inputData));
        
         if(query === ""){
-            return (alert("Please Enter City !"))
+            toast.error("Please Enter City !");
+            return;
         }else{
-             localStorage.setItem("searchQuery", JSON.stringify(inputData || ""));
+            setinputData(document.getElementById("strong_data_name").innerHTML || "")
+             localStorage.setItem("searchQuery", JSON.stringify(inputData));
             setInterval(() => {
                 navigate("/hotels");
             }, 1000);
@@ -283,7 +290,7 @@ export default function ScrollableTabsButtonForce() {
                                 <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < startDate ){
-                                            alert("Please Enter a valid Date");
+                                            toast.warning("Please Enter a valid Date");
                                             return;
                                         }
                                         setStartDate(newValue);
@@ -310,7 +317,7 @@ export default function ScrollableTabsButtonForce() {
                         <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < endDate || newValue < startDate){
-                                            alert("Please Enter a valid Date");
+                                            toast.warning("CheckOut should be after CheckIn");
                                             setEndDate(startDate)
                                             return;
                                         }
@@ -438,7 +445,7 @@ export default function ScrollableTabsButtonForce() {
                             <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < startDate){
-                                             alert("Please Enter a valid Date")
+                                            toast.warning("Please Enter a valid Date");
                                              return;
                                         }
                                         setStartDate(newValue);
@@ -493,7 +500,7 @@ export default function ScrollableTabsButtonForce() {
                             <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < startDate){
-                                             alert("Please Enter a valid Date")
+                                            toast.warning("Please Enter a valid Date");
                                              return;
                                         }
                                         setStartDate(newValue);
@@ -519,7 +526,7 @@ export default function ScrollableTabsButtonForce() {
                             <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < endDate){
-                                            alert("Please Enter a valid Date");
+                                            toast.warning("CheckOut should be after CheckIn");
                                             return;
                                         }
                                         setEndDate(newValue);
@@ -576,7 +583,7 @@ export default function ScrollableTabsButtonForce() {
                             <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < startDate){
-                                             alert("Please Enter a valid Date")
+                                            toast.warning("Please Enter a valid Date");
                                              return;
                                         }
                                         setStartDate(newValue);
@@ -603,7 +610,7 @@ export default function ScrollableTabsButtonForce() {
                         <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < endDate){
-                                            alert("Please Enter a valid Date");
+                                            toast.warning("CheckOut should be after CheckIn");
                                             return;
                                         }
                                         setEndDate(newValue);
@@ -706,7 +713,7 @@ export default function ScrollableTabsButtonForce() {
                             <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < startDate){
-                                             alert("Please Enter a valid Date")
+                                            toast.warning("Please Enter a valid Date");
                                              return;
                                         }
                                         setStartDate(newValue);
@@ -733,7 +740,7 @@ export default function ScrollableTabsButtonForce() {
                         <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < endDate){
-                                            alert("Please Enter a valid Date");
+                                            toast.warning("CheckOut should be after CheckIn");
                                             return;
                                         }
                                         setEndDate(newValue);
@@ -824,7 +831,7 @@ export default function ScrollableTabsButtonForce() {
                             <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < startDate){
-                                             alert("Please Enter a valid Date")
+                                            toast.warning("Please Enter a valid Date");
                                              return;
                                         }
                                         setStartDate(newValue);
@@ -851,7 +858,7 @@ export default function ScrollableTabsButtonForce() {
                         <DatePicker
                                     onChange={(newValue) => {
                                         if(newValue < endDate){
-                                            alert("Please Enter a valid Date");
+                                            toast.warning("CheckOut should be after CheckIn");
                                             return;
                                         }
                                         setEndDate(newValue);
