@@ -1,19 +1,29 @@
 .page{
     padding: 25px 0;
-    min-height: 90vh;
     display: grid;
-    width: 100%;
-    margin: auto;
-    grid-template-columns: 40% 50%;
-    margin-top: 20px;
+    width: 95%;
+    grid-template-columns: 40% 40%;
+    gap: 5%;
+    margin: 20px auto 10px;
 }
 
-.board{
+.page>div{
+    width: 100%;
+    height: fit-content;
+    max-height: 100vh;
+    overflow-y: scroll;
     background-color:rgb(233, 233, 233);
     padding: 25px;
     border-radius: 25px;
-    margin: auto 50px;
 }
+.page>div::-webkit-scrollbar {
+    display: none;
+  }
+.page>div{
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
 
 .createButton{
     display: flex;
@@ -51,14 +61,14 @@
 .tripBoard>h2{
     font-size: 22px;
     font-weight: 900;
-    margin-bottom: 20px;
+    width: fit-content;
+    margin: auto auto 40px;
 }
 
 
 /* bookings */
-.bookingsBoard{
-    background-color:rgb(233, 233, 233);
-    padding: 25px;
-    border-radius: 25px;
-    margin: auto 50px;
+.bookingsBoard>h2{
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 20px;
 }
