@@ -17,7 +17,7 @@ const AboutHotel = ({ hotelDetail, id }) => {
         <div className={styles.mainBox}>
           <div className={styles.content}>
             <div className={styles.flex}>
-              <Button onClick={() => navigate("/hotels")}>GoBack</Button>
+              <Button style={{color:"darkviolet"}} onClick={() => navigate("/hotels")}>GoBack</Button>
               <p className={styles.ptag} onClick={() => navigate("/hotels")}>
                 See all properties
               </p>

@@ -18,9 +18,10 @@
       height: 45px;
       display: flex;
       align-items: center;
-      width: 100%;
+      width: 100%;font-weight: bolder;
       justify-content: center;
-      color:rgb(38, 37, 37)
+      color:#1e0046;
+      letter-spacing:2px;
 
     }
     .nav:hover {

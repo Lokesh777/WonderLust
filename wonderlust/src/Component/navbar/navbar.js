@@ -20,9 +20,9 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-const Reload = () => {
-  window.location.reload();
-};
+// const Reload = () => {
+//   window.location.reload();
+// };
 
 
   return (
@@ -35,9 +35,6 @@ const Reload = () => {
       <Box
          boxShadow='dark-lg'  
          height={"4.5rem"}
-        //  bg='blueviolet'
-        // bg={useColorModeValue("blueviolet", "#eaf8f8")}
-        // px={4}
         className={styles.mainBox}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
@@ -59,7 +56,7 @@ const Reload = () => {
              
              
               <Link
-                to="home"
+                to="/"
                 smooth={true}
                 duration={1000}
                 activeClass={styles.active}
@@ -67,7 +64,7 @@ const Reload = () => {
                 hashSpy={true}
               >
                      <Avatar
-                        onClick={Reload}
+                        // onClick={Reload}
                         boxSize={["10","12","14","16"]}
                         borderRadius="full"
                         className={styles.myLogo}

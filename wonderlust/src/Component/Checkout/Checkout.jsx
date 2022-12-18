@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './Checkout.module.css';
 import {AiFillStar} from 'react-icons/ai'
 import {FaArrowCircleLeft, FaArrowCircleRight} from 'react-icons/fa'
 import { useRef } from 'react';
 import RoomCard from './RoomCard/RoomCard';
 import Total from './Total/total';
+
 
 const sampleHotelData = {
     "contactInfo": {
@@ -277,6 +278,7 @@ const sampleHotelData = {
 //     lname: "kumar",
 // }
 const CheckoutPage = () => {
+    let money = 0;
     const [imageNo, setImageNo] = useState(0);
     // const [imageNoX, setImageNoX] = useState(1);
     const [persons, setPersons] = useState(1);
@@ -284,8 +286,24 @@ const CheckoutPage = () => {
     const [prebook,setPrebook]=useState(1)
     const imageNoCounter = useRef(null);
 
+    
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+
+      const items = JSON.parse(localStorage.getItem('hotelBooking'));
+
+    //   console.log("item",items.name)
+
+      if (items) {
+       setItems(items);
+      }
+
+    }, [items]);
+
 
     return <div className={style.checkout}>
+         {/* <h1>item</h1> */}
         <h1 className={style.pageHead}>Booking</h1>
 
         <div className={style.main}>
@@ -320,7 +338,9 @@ const CheckoutPage = () => {
                 <div className={style.roomBox}>
                     <h2>Select Room</h2>
                     <div className={style.roomBoxGrid}>
-                        {sampleHotelData.rooms.map((i, e)=><RoomCard key={e+'selectRoom'} data={sampleHotelData.rooms[e]}/>)}
+                        {sampleHotelData.rooms.map((i, e)=><RoomCard 
+                        handleClick={()=>{money=money+(sampleHotelData.rooms[e].realPrice)}}
+                        key={e+'selectRoom'} data={sampleHotelData.rooms[e]}/>)}
                     </div>
 
                     <div className={style.generalData}>
@@ -342,8 +362,8 @@ const CheckoutPage = () => {
                     value={food}
                     onChange={(e) => setFood((e.target.value))}
                     placeholder='Food Per Person' /> 
-                    =
-                   ${food*50}
+                    = 
+                   ${money=food*50+money}
                   </h2>
                 </div>
 
@@ -359,7 +379,7 @@ const CheckoutPage = () => {
                     onChange={(e) => setPrebook((e.target.value))}
                     placeholder='pre-booked' /> 
                     =
-                   ${prebook*8}  Per Room
+                   ${money=money+prebook*8}  Per Room
                   </h2>
                 </div>
 
@@ -370,7 +390,7 @@ const CheckoutPage = () => {
              {/* total calculation after discount */}
             <div className={style.pricing}>
                  <img src='travel.gif' alt='Logo' />
-                 <Total />
+                 <Total  />
 
             </div>
         </div>

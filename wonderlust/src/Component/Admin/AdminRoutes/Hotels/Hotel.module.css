@@ -8,8 +8,11 @@
     padding: 0px 45px 10px;
     width: fit-content;
     margin: 0px auto 30px;
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid rgb(231, 13, 194);
+    letter-spacing:2px;
+    color: #7d2ae8;
 }
+
 .hotel *{
     padding: 0;
     margin: 0;
@@ -40,6 +43,7 @@
     gap: 20px;
     width: 80%;
     margin: auto;
+    letter-spacing:1px;
 }
 
 /* Panel */
@@ -54,11 +58,14 @@
     justify-content: center;
     color: #fff;
     margin: auto;
-    background-color: green;
+    background-color: #7d2ae8;
     transform: translate(40px, -70px);
+    letter-spacing:2px;
 }
 .registerButton p{
     padding: 0 15px 0 0;
+    letter-spacing:1px;
+    /* color: #7d2ae8; */
 }
 
 .panelBox{
@@ -75,15 +82,18 @@
     text-align: center;
     width: fit-content;
     padding: 5px 20px;
-    border-bottom: 1px solid orange;
+    border-bottom: 1px solid rgb(246, 19, 250);
     margin: 0 auto 10px;
+    letter-spacing:2px;
 }
 .panelBox>label{
     display: block;
     margin-bottom: 15px;
+    letter-spacing:1px;
 }
+
 .panelBox>label>input{
-    border: 1px solid grey;
+    border: 1px solid rgb(255, 11, 226);
     padding: 5px 10px;
     border-radius: 7px;
     box-sizing: border-box;
@@ -93,6 +103,7 @@
 .panelBox>label>p{
     padding: 5px;
     font-weight: 500;
+    letter-spacing:1px;
 }
 .checkBoxes{
     display: flex;
@@ -104,11 +115,19 @@
     width: fit-content;
     align-items: center;
     margin-right: 10px;
+    letter-spacing:1px;
+    
 }
 .checkBoxes label p{
     width: fit-content;
     padding: 2px 7px;
-    font-size: 14px
+    font-size: 14px;
+    letter-spacing:1px;
+    
+}
+.checkBoxes > label >input{
+    border: 1px solid rgb(255, 11, 226);
+    /* background-color: #7d2ae8; */
 }
 
 
@@ -119,11 +138,12 @@
 
 /* cards */
 .hotelcard{
-    border: 1px solid skyblue;
+    /* border: 1px solid rgb(239, 8, 235); */
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: rgba(0,0,3,29)0px 3px 6px;
 }
 
 .hotelcard .images{
@@ -148,10 +168,12 @@
     font-weight: 700;
     /* width: 250px; */
     padding: 7px 14px 7px;
-    border-bottom: 1px solid rgb(194, 194, 194);
+    border-bottom: 1px solid rgb(232, 12, 199);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    letter-spacing:2px;
+    color: #7d2ae8;
 }
 
 .hotelcard .info .infoStars{

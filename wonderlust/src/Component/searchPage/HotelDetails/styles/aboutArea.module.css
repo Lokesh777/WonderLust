@@ -17,12 +17,14 @@
 }
 
 .about>h2 {
+    letter-spacing: 2px;
     margin: 0;
     padding: 0;
 }
 
 .about>h3 {
     margin: 18px 0 12px;
+    letter-spacing: 2px;
 }
 
 .about>p {
@@ -85,6 +87,7 @@
 
 .about_area h3 {
     margin: 0;
+    letter-spacing: 2px;
     padding: 0;
 }
 

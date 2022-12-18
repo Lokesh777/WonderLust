@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, h6 {
     color: #242c33;
+    letter-spacing: 2px;
 }
 
 .container {
@@ -19,10 +20,11 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #2A6EC1;
+    color: darkviolet;
     padding: 4px 12px;
     background: #FFF;
-    font-size: 14px;
+    letter-spacing: 2px;
+    font-size: 16px;
 }
 
 .flex>:nth-child(n):hover {

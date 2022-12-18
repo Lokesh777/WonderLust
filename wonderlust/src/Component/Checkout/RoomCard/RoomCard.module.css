@@ -9,20 +9,28 @@
    transform: scale(.9);
    background-color: blueviolet;
    color: white;
+
 }
 
 .name{
     text-transform: uppercase;
     font-size: 17px;
+    font-weight: bolder;
+    
+}
+.name:hover{
+    color: aliceblue;
+    font-weight: 900;
 }
 .price{
-    color: grey;
+    color: #d929dc;
     text-decoration:line-through;
 }
 .realPrice{
     font-size: 25px;
     font-weight: 700;
+   
 }
-.discount{
+/* .discount{ */
 
-}
+/* } */
