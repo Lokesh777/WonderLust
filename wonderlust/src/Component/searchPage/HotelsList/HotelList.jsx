@@ -126,6 +126,7 @@ export const HotelList = () => {
   const [w, setW] = useState(window.innerWidth);
 
   let city = localStorage.getItem("searchQuery");
+  console.log("city:", city);
 
   useEffect(() => {
     setloading(true);
@@ -147,7 +148,7 @@ export const HotelList = () => {
     setTimeout(() => {
       setloading(false);
     }, 1000);
-  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
+  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -308,6 +309,16 @@ export const HotelList = () => {
                 endIcon={<Star />}
               >
                 5
+              </Button>
+              <Button
+                color="secondary"
+                onClick={() => {
+                  window.location.reload();
+                }}
+                variant="contained"
+                endIcon={<Star />}
+              >
+                All
               </Button>
             </BoxButton>
             {/* ------------------------------------------------------------------------------------------------------- Your Budget rating  */}
