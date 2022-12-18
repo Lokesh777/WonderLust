@@ -1,0 +1,50 @@
+.tripCard{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 15px 25px;
+    background-color: #bd8bfd;
+}
+
+.tripCard>.tripCardHead{
+    font-size: 27px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.tripCardDiscription{
+    color: rgb(58, 58, 58);
+    font-size: 14px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.timeStamps{
+    display: flex;
+    justify-content: space-between;
+}
+.timeStamps>p{
+    font-size: 13px;
+    color: purple;
+}
+
+.buttonBox{
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: right;
+}
+
+.buttonBox>button{
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+.buttonBox>button:hover{
+    background-color: #00000000;
+    text-decoration: underline;
+}

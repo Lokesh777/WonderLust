@@ -23,16 +23,19 @@ import { PopularLocation } from "./Filter/PopularLocation";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByPriceAction, getHotelAction } from "../../../Redux/Hotel_Search/actionsHotelSearch";
 import PaginationComp from "./Pagination/PaginationComp";
+import { getCityAction } from "../../../Redux/City_Search/actionCitySearch";
 // import { makeStyles } from '@material-ui/core/styles'
 // const url = `http://localhost:3004/hotel`;
 // const url = `http://localhost:8080/hotel?limit=12`;
 
 const Wrapper = styled(Box)`
-  width: 90%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 0px auto;
   display: grid;
   grid-template-columns: 22% 63% 15%;
   grid-gap: 1.5rem;
+  background-color: #d1c2d9;
+  padding: 2rem 1rem;
 
   .filter-title {
     font-size: 1rem;
@@ -119,13 +122,22 @@ export const HotelList = () => {
   const dispatch = useDispatch();
   const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
   const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
+  // const { cityState, loadingCity } = useSelector((state) => state.city_details);
+  const [citySe, setCitySe] = ('')
 
   const [w, setW] = useState(window.innerWidth);
 
   let city = localStorage.getItem("searchQuery");
 
+
+
   useEffect(() => {
     setloading(true);
+    // if (searchHotel&&loadingCity) {
+    //   dispatch(getCityAction(searchHotel));
+      
+    // }
+   
     if (load) {
       dispatch(getHotelAction(city));
     }
@@ -142,7 +154,7 @@ export const HotelList = () => {
     setTimeout(() => {
       setloading(false);
     }, 1400);
-  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice,city]);
+  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -150,9 +162,6 @@ export const HotelList = () => {
     };
     window.addEventListener("resize", handleResize);
 
-    // getData();
-
-    // console.log(hotels);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -162,9 +171,7 @@ export const HotelList = () => {
     setsearchHotel(val);
   };
   const handleClicksSearch = () => {
-  // console.log('handleClicksSearch:', searchHotel)
-
-
+    // console.log('handleClicksSearch:', searchHotel)
   };
   const handleChange = (event) => {
     const range = event.target.value.split(" ").map(Number);
@@ -247,7 +254,11 @@ export const HotelList = () => {
       {load === false || hotelsState ? (
         <Wrapper>
           <div className="sorting">
-            <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
+            {
+              <Box>
+                <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel}  handleClicksSearch={handleClicksSearch} />
+              </Box>
+            }
             {/* ---------------------------------------------------------------------------------------------------Star rating  */}
             <div className="filter-title">Star rating</div>
             <BoxButton style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>

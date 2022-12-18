@@ -285,6 +285,7 @@ const CheckoutPage = () => {
     const [food,setFood]=useState(1)
     const [prebook,setPrebook]=useState(1)
     const imageNoCounter = useRef(null);
+
     
     const [items, setItems] = useState([]);
 
@@ -299,7 +300,7 @@ const CheckoutPage = () => {
       }
 
     }, [items]);
-// console.log("item",items)
+
 
     return <div className={style.checkout}>
          {/* <h1>item</h1> */}
