@@ -19,7 +19,7 @@ import { PaymentType } from "./Filter/PaymentType";
 import { PropertyType } from "./Filter/PropertyType";
 import { FoodPlans } from "./Filter/FoodPlans";
 import { PopularLocation } from "./Filter/PopularLocation";
-
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByPriceAction, getHotelAction } from "../../../Redux/Hotel_Search/actionsHotelSearch";
 import PaginationComp from "./Pagination/PaginationComp";
@@ -249,7 +249,18 @@ export const HotelList = () => {
         <Wrapper>
           <div className="sorting">
             {
-              <Box>
+              <Box style={{ display: "flex", flexDirection: "column", alignItems: "start", gap: "20px" }}>
+                <Button
+                  style={{ width: "70%" }}
+                  color="secondary"
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                  variant="contained"
+                  startIcon={<LocationOnIcon />}
+                >
+                  {`Hotels in ${city}`}
+                </Button>
                 <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
               </Box>
             }
@@ -309,16 +320,6 @@ export const HotelList = () => {
                 endIcon={<Star />}
               >
                 5
-              </Button>
-              <Button
-                color="secondary"
-                onClick={() => {
-                  window.location.reload();
-                }}
-                variant="contained"
-                endIcon={<Star />}
-              >
-                All
               </Button>
             </BoxButton>
             {/* ------------------------------------------------------------------------------------------------------- Your Budget rating  */}

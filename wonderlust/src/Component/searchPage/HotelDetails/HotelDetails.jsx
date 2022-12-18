@@ -16,7 +16,8 @@ const HotelDetails = () => {
   // console.log('hotelDetail:', hotelDetail)
 
   const dispatch = useDispatch();
-
+  
+  // window.location.reload();
   useEffect(() => {
     if (loading_Detail && id) {
       dispatch(getHotelDetailsAction(id));

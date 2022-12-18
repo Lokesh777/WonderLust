@@ -173,9 +173,9 @@ const Rooms = ({ room, hId, handleReserve }) => {
             </Box>
             <small>Before sun, 5 sep</small>
             <Box className={styles.flex_1}>
-              <p className={styles.more} onClick={handleOpenRoom}>
+              {/* <p className={styles.more} onClick={handleOpenRoom}>
                 More details
-              </p>
+              </p> */}
               <span>
                 <MdNavigateNext />
               </span>
