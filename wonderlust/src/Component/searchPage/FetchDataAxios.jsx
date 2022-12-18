@@ -1,17 +1,11 @@
 import axios from "axios";
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const FetchDataAxios = (url) => {
-  const [hotelData, setHotelData] = useState([]);
+const FetchDataAxios = async (url) => {
+  let { data } = await axios.get(url);
+  console.log('data:', data)
 
-  useEffect(() => {
-    (async () => {
-      let { data } = await axios.get(url);
-      setHotelData(data);
-    })();
-  }, [url]);
-
-  return { hotelData };
+  return data;
 };
 
 export default FetchDataAxios;

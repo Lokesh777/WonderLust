@@ -23,23 +23,11 @@ function LandingPage() {
       <div><img alt="image" src="https://user-images.githubusercontent.com/107500115/208183969-dde18812-f0a1-4377-8146-bb036cdfadd0.png" /></div>
       </div>
       <div className={styles.info1}>
-        <div className={styles.info1InnerDiv}>
-          <div style={{ width: "50%" }}>
-            <h3 className={styles.info1Heading}>All-inclusive resorts </h3>
-            <p className={styles.info1Para}>
-              Think of nothing beyond having a great time with your family
-            </p>
-            <button className={styles.info1Btn}>View deals</button>
-          </div>
+        <div>
+        <img alt="image" src="https://user-images.githubusercontent.com/107500115/208253080-0553c3b7-5974-4ca6-9a5b-08afb1a2c630.png" />
         </div>
-        <div className={styles.info1InnerDiv1}>
-          <div style={{ width: "50%" }}>
-            <h3 className={styles.info1Heading}>Last minute getaways</h3>
-            <p className={styles.info1Para}>
-              Celebrate the moment with an unexpected getaway
-            </p>
-            <button className={styles.info1Btn}>View deals</button>
-          </div>
+        <div>
+        <img alt="image" src="https://user-images.githubusercontent.com/107500115/208253526-ea202b27-f504-4230-9532-170d9ab7f78f.png" />
         </div>
       </div>
       <div className={styles.info3}>
