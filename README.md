@@ -1,5 +1,5 @@
 
-<img src="https://prized-ring-1889.netlify.app/travel.gif" alt="apnamart" />
+<img align="center" src="https://prized-ring-1889.netlify.app/travel.gif" alt="apnamart" />
 
 <br/>
 🎯 Hi our Project Team Name is WonderLust -New Beginning 
