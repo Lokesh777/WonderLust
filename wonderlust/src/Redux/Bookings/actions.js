@@ -11,6 +11,8 @@ import axios from 'axios';
 export const Get_Bookings = (token) => async(dispatch) => {
 dispatch({type:Booking_Get_Loading});
 
+console.log('get req')
+
 try{
     let response =await axios.get('http://localhost:8080/bookingHotel/user',{headers:{token}});
     const {error, message} = response.data
@@ -31,7 +33,6 @@ export const Create_Booking = (data, token, onSuccess, onError) => async(dispatc
 dispatch({type:Booking_Create_Loading});
 const {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId} = data
 
-console.log('hotelId,', totalPrice)
 
 
 try{
