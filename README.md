@@ -1,8 +1,8 @@
 
 <img align="center" src="https://prized-ring-1889.netlify.app/travel.gif" alt="apnamart" />
-
+ <h1> WonderLust -New Beginning </h1>
 <br/>
-🎯 Hi our Project Team Name is WonderLust -New Beginning 
+🎯 Hi our Project Team Name is WonderLust. 
 <br/>
 🎯Project Code: # prized-ring-1889
 <br/>
