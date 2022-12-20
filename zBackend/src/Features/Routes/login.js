@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../Models/User')
 const bcrypt = require('bcryptjs')
 
-const JWT_SECRET = 'SERCRET1234'
+const JWT_SECRET = process.env.JWT_SECRET
 
 app.post("/login", async (req, res) => {
 	const { email, password } = req.body;
