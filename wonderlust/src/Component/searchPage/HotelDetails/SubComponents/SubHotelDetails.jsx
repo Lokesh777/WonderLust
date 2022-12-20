@@ -71,7 +71,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
     // localStorage.removeItem("searchQuery");
 
     // console.log("handleReserve:", handleReserve);
-    localStorage.setItem("hotelBooking", JSON.stringify(hotelData));
+    // localStorage.setItem("hotelBooking", JSON.stringify(hotelData));
   };
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -85,7 +85,7 @@ const SubHotelDetails = ({ hotelData, id }) => {
     <>
       <div style={{ display: "grid", justifyContent: "center", marginRight: "20px" }}>
         <div className="slider"></div>
-        <div className={styles.flex} onClick={handleOpen} style={{ cursor: "pointer", marginRight: "50px" }}>
+        <div className={styles.flex} onClick={handleOpen} style={{ cursor: "pointer", margin: "auto" }}>
           <div style={{ width: "1200px", height: "500px" }}>
             <Carousel
               responsive={responsive}
