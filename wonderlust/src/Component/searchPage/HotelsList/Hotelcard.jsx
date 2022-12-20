@@ -184,7 +184,7 @@ const Wrapper = styled("div")`
 // starRating
 // price
 export const Hotelcard = ({ data, handleOpenHotel }) => {
-const navigate = useNavigate()
+  const navigate = useNavigate();
   // let hotelData ={
   //   hotelId:data.hotelId,
   //   name:data.name,
@@ -194,6 +194,8 @@ const navigate = useNavigate()
   // }
   // console.log('hotelData:', hotelData)
   const [w, setW] = useState(window.innerWidth);
+  let hotlDetails = JSON.parse(localStorage.getItem("hotelBooking")) || null;
+
   useEffect(() => {
     const handleResize = () => {
       setW(window.innerWidth);
@@ -204,10 +206,16 @@ const navigate = useNavigate()
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const handleHotel = (id) => {
     navigate(`/hotel/${id}`);
+    // var found = data.find(function (element) {
+    //   return element._id === id
+    // });
+    localStorage.setItem("hotelBooking", JSON.stringify(data));
+
+    // navigate(`/`);
   };
-  // console.log('Number(data.starRating):', typeof(data.starRating))
 
   return (
     <Wrapper>

@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SearchName from "../SearchHotel/SearchName";
 import { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../../../../Redux/API/api";
 
 const Wrapper = styled(Box)`
   .search-title {
@@ -41,10 +42,10 @@ export const SearchByProperty = ({ handleQueryChange, query, handleClicksSearch 
   //   const classes = useStyles();
 
   const [cityState, setCityState] = useState([]);
-
+let url = API_URL
   const getData = async (query) => {
     await axios
-      .get(`http://localhost:8080/city?name=${query}`)
+      .get(`${url}/city?name=${query}`)
       .then((res) => {
         const { data } = res;
         console.log("City:", data);
