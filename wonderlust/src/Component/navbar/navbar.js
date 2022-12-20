@@ -15,10 +15,12 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 // import { FaLaptop } from "react-icons/fa";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [state,setState] = useState(false);
 
 // const Reload = () => {
 //   window.location.reload();
@@ -96,7 +98,7 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Support</div>
               </Link>
-              <Link
+              {/* <Link
                 to="checkout"
                 smooth={true}
                 duration={1000}
@@ -105,17 +107,8 @@ export default function Navbar() {
                 hashSpy={true}
               >
                 <div className={styles.nav}>Checkout</div>
-              </Link>
-              <Link
-                to="trip"
-                smooth={true}
-                duration={1000}
-                activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div className={styles.nav}>Trip</div>
-              </Link>
+              </Link> */}
+            
               <Link
                 to="hotels"
                 smooth={true}
@@ -136,19 +129,41 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Admin</div>
               </Link>
+             {state?(
+              <>
+             
               <Link
+                to="trip"
+                smooth={true}
+                duration={1000}
+                activeClass={styles.active}
+                spy={true}
+                hashSpy={true}
+                onClick={()=>setState(false)}
+              >
+                <div className={styles.nav}>Trip</div>
+              </Link>
+              </>
+             ):(
+              <>
+                   <Link
                 to="login"
                 smooth={true}
                 duration={1000}
                 activeClass={styles.active}
                 spy={true}
                 hashSpy={true}
+                onClick={()=>setState(true)}
               >
                 <div className={styles.nav}>Login</div>
               </Link>
-          
+
+                
+                
+              </>
+             )}
              
-            
+             
             </HStack>
           </HStack>
         </Flex>
@@ -169,17 +184,8 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Support</div>
               </Link>
-              <Link
-                to="trip"
-                smooth={true}
-                duration={1000}
-                activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div className={styles.nav}>Trip</div>
-              </Link>
-              <Link
+             
+               <Link
                 to="hotels"
                 smooth={true}
                 duration={1000}
@@ -199,16 +205,39 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Admin</div>
               </Link>
+              {state?(
+              <>
+             
               <Link
+                to="trip"
+                smooth={true}
+                duration={1000}
+                activeClass={styles.active}
+                spy={true}
+                hashSpy={true}
+                onClick={()=>setState(false)}
+              >
+                <div className={styles.nav}>Trip</div>
+              </Link>
+              </>
+             ):(
+              <>
+                   <Link
                 to="login"
                 smooth={true}
                 duration={1000}
                 activeClass={styles.active}
                 spy={true}
                 hashSpy={true}
+                onClick={()=>setState(true)}
               >
                 <div className={styles.nav}>Login</div>
               </Link>
+
+                
+                
+              </>
+             )}
               
             </Stack>
           </Box>
