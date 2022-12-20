@@ -23,6 +23,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByPriceAction, getHotelAction } from "../../../Redux/Hotel_Search/actionsHotelSearch";
 import PaginationComp from "./Pagination/PaginationComp";
+import axios from "axios";
+import { API_URL } from "../../../Redux/API/api";
 // import { getCityAction } from "../../../Redux/City_Search/actionCitySearch";
 // import { makeStyles } from '@material-ui/core/styles'
 // const url = `http://localhost:3004/hotel`;
@@ -32,7 +34,7 @@ const Wrapper = styled(Box)`
   width: 100%;
   margin: 0px auto;
   display: grid;
-  grid-template-columns: 22% 63% 15%;
+  grid-template-columns: 22% 63% 12%;
   grid-gap: 1.5rem;
   background-color: #d1c2d9;
   padding: 2rem 1rem;
@@ -111,50 +113,158 @@ const BoxButton = styled(Box)`
 `;
 
 export const HotelList = () => {
+  // const [hotels, setHotels] = useState([]);
+  // const [data, setData] = useState([]);
+  // const [loading, setloading] = useState(false);
+  // const [priceFilter, setPriceFilter] = useState("");
+  // const navigate = useNavigate();
+  // const [searchHotel, setsearchHotel] = useState("");
+
+  // const dispatch = useDispatch();
+  // const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
+
+  // const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
+
+  // const [w, setW] = useState(window.innerWidth);
+
+  // let city = localStorage.getItem("searchQuery");
+  // // console.log("city:", city);
+
+  // useEffect(() => {
+  //   setloading(true);
+
+  //   if (load) {
+  //     dispatch(getHotelAction(city));
+  //   }
+
+  //   if (hotelsState) {
+  //     // console.log("hotelsState:", hotelsState);
+  //     setHotels(hotelsState);
+  //     setData(hotelsState);
+  //   }
+  //   if (!filterLoading) {
+  //     // console.log("filterLoading:", filterLoading);
+  //     setHotels(hotelsFilterPrice);
+  //     setData(hotelsFilterPrice);
+  //   }
+  //   setTimeout(() => {
+  //     setloading(false);
+  //   }, 1000);
+  // }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setW(window.innerWidth);
+  //   };
+  //   window.addEventListener("resize", handleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
+
+  // const handleQueryChange = (val) => {
+  //   setsearchHotel(val);
+  // };
+  // const handleClicksSearch = () => {
+  //   // console.log('handleClicksSearch:', searchHotel)
+  // };
+  // const handleChange = (event) => {
+  //   const range = event.target.value.split(" ").map(Number);
+  //   setPriceFilter(event.target.value);
+  //   // handlePriceFilter(range[0], range[1]);
+  //   setloading(true);
+  //   dispatch(filterByPriceAction(range[0], range[1]));
+  //   setTimeout(() => {
+  //     setloading(false);
+  //   }, 1400);
+  //   // setHotels(hotelsFilterPrice);
+  //   // console.log("hotels:", hotels);
+  // };
+
+  // // const handlePriceFilter = useCallback(
+  // //   (a, b) => {
+  // //     console.log("a, b:", a, b);
+  // //     setloading(true);
+  // //     if (a === 0 && b === 0) {
+  // //       setHotels(data);
+  // //     } else {
+  // //       const newData = data.filter((item) => {
+  // //         console.log("item:", item.rooms[0].price);
+
+  // //         return item.rooms[0].price >= a && item.rooms[0].price <= b;
+  // //       });
+  // //       console.log("newData:", newData);
+  // //       setHotels(newData);
+  // //     }
+
+  // //     setTimeout(() => {
+  // //       setloading(false);
+  // //     }, 1400);
+  // //   },
+  // //   [data]
+  // // );
+
+  // // const getData = () => {
+  // //   setloading(true);
+  // //   axios
+  // //     .get(url)
+  // //     .then((res) => {
+  // //       const { data } = res;
+  // //       setData(data);
+  // //       setHotels(data);
+  // //       // console.log('data:', data)
+  // //       setloading(false);
+  // //     })
+  // //     .catch((err) => {
+  // //       console.log(err);
+  // //     });
+  // // };
+  // // const handleStar = () => {};
+  // const handleStar = useCallback(
+  //   (star) => {
+  //     setloading(true);
+  //     const newData = data.filter((item) => {
+  //       return item.starRating >= star;
+  //     });
+
+  //     setHotels(newData);
+
+  //     setTimeout(() => {
+  //       setloading(false);
+  //     }, 1600);
+  //   },
+  //   [data]
+  // );
+  // // console.log("data:", data);
+  // const handleOpenHotel = (id) => {
+  //   navigate(`/hotel/${id}`);
+  // };
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [priceFilter]);
+
+  // --------//
   const [hotels, setHotels] = useState([]);
+  // console.log("hotels:", hotels[1]);
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(false);
   const [priceFilter, setPriceFilter] = useState("");
-  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchHotel, setsearchHotel] = useState("");
 
-  const dispatch = useDispatch();
-  const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
-
-  const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
-
   const [w, setW] = useState(window.innerWidth);
-
   let city = localStorage.getItem("searchQuery");
-  // console.log("city:", city);
-
-  useEffect(() => {
-    setloading(true);
-
-    if (load) {
-      dispatch(getHotelAction(city));
-    }
-
-    if (hotelsState) {
-      // console.log("hotelsState:", hotelsState);
-      setHotels(hotelsState);
-      setData(hotelsState);
-    }
-    if (!filterLoading) {
-      // console.log("filterLoading:", filterLoading);
-      setHotels(hotelsFilterPrice);
-      setData(hotelsFilterPrice);
-    }
-    setTimeout(() => {
-      setloading(false);
-    }, 1000);
-  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
 
   useEffect(() => {
     const handleResize = () => {
       setW(window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
+
+    getData();
+    console.log(hotels);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -164,61 +274,52 @@ export const HotelList = () => {
   const handleQueryChange = (val) => {
     setsearchHotel(val);
   };
-  const handleClicksSearch = () => {
-    // console.log('handleClicksSearch:', searchHotel)
-  };
+
   const handleChange = (event) => {
     const range = event.target.value.split(" ").map(Number);
     setPriceFilter(event.target.value);
-    // handlePriceFilter(range[0], range[1]);
-    setloading(true);
-    dispatch(filterByPriceAction(range[0], range[1]));
-    setTimeout(() => {
-      setloading(false);
-    }, 1400);
-    // setHotels(hotelsFilterPrice);
-    // console.log("hotels:", hotels);
+    handlePriceFilter(range[0], range[1]);
   };
 
-  // const handlePriceFilter = useCallback(
-  //   (a, b) => {
-  //     console.log("a, b:", a, b);
-  //     setloading(true);
-  //     if (a === 0 && b === 0) {
-  //       setHotels(data);
-  //     } else {
-  //       const newData = data.filter((item) => {
-  //         console.log("item:", item.rooms[0].price);
+  const handlePriceFilter = (a, b) => {
+    setloading(true);
+    const newData = data.filter((item) => {
+      return item.price >= a && item.price < b;
+    });
 
-  //         return item.rooms[0].price >= a && item.rooms[0].price <= b;
-  //       });
-  //       console.log("newData:", newData);
-  //       setHotels(newData);
-  //     }
+    setHotels(newData);
+    setTimeout(() => {
+      setloading(false);
+    }, 2000);
+  };
 
-  //     setTimeout(() => {
-  //       setloading(false);
-  //     }, 1400);
-  //   },
-  //   [data]
-  // );
+  const getData = () => {
+    let url = `${API_URL}/hotel`;
+    if (city) {
+      console.log("citybrfoe:", city);
+      city = city.replace(/^"|"$/g, "");
 
-  // const getData = () => {
-  //   setloading(true);
-  //   axios
-  //     .get(url)
-  //     .then((res) => {
-  //       const { data } = res;
-  //       setData(data);
-  //       setHotels(data);
-  //       // console.log('data:', data)
-  //       setloading(false);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // const handleStar = () => {};
+      console.log("city:", city);
+      url = `${API_URL}/hotel?city=${city}`;
+    }
+
+    setloading(true);
+    axios
+      .get(url)
+      .then((res) => {
+        const { data } = res;
+        console.log("data:", data);
+        setData(data);
+        setHotels(data);
+        setloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const handleClicksSearch = () => {
+    // console.log('handleClicksSearch:', searchHotel)
+  };
   const handleStar = useCallback(
     (star) => {
       setloading(true);
@@ -230,136 +331,134 @@ export const HotelList = () => {
 
       setTimeout(() => {
         setloading(false);
-      }, 1600);
+      }, 2000);
     },
     [data]
   );
-  // console.log("data:", data);
+
   const handleOpenHotel = (id) => {
-    navigate(`/hotel/${id}`);
+    // history.push(`/hotels/${id}`);
   };
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [priceFilter]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      {load === false || hotelsState ? (
-        <Wrapper>
-          <div className="sorting">
-            {
-              <Box style={{ display: "flex", flexDirection: "column", alignItems: "start", gap: "20px" }}>
-                <Button
-                  style={{ width: "70%" }}
-                  color="secondary"
-                  onClick={() => {
-                    window.location.reload();
-                  }}
-                  variant="contained"
-                  startIcon={<LocationOnIcon />}
-                >
-                  {`Hotels  ${city !== null ? city : " "}`}
-                </Button>
-                <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
-              </Box>
-            }
-            {/* ---------------------------------------------------------------------------------------------------Star rating  */}
-            <div className="filter-title">Star rating</div>
-            <BoxButton style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+      <Wrapper>
+        <div className="sorting">
+          {
+            <Box style={{ display: "flex", flexDirection: "column", alignItems: "start", gap: "20px" }}>
               <Button
+                style={{ width: "70%" }}
                 color="secondary"
                 onClick={() => {
-                  handleStar(1);
+                  window.location.reload();
                 }}
                 variant="contained"
-                endIcon={<Star />}
+                startIcon={<LocationOnIcon />}
               >
-                1
+                {`Hotels  ${city !== null ? city : " "}`}
               </Button>
+              <SearchByProperty handleQueryChange={handleQueryChange} query={searchHotel} handleClicksSearch={handleClicksSearch} />
+            </Box>
+          }
+          {/* ---------------------------------------------------------------------------------------------------Star rating  */}
+          <div className="filter-title">Star rating</div>
+          <BoxButton style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+            <Button
+              color="secondary"
+              onClick={() => {
+                handleStar(1);
+              }}
+              variant="contained"
+              endIcon={<Star />}
+            >
+              1
+            </Button>
 
-              <Button
-                color="secondary"
-                onClick={() => {
-                  handleStar(2);
-                }}
-                variant="contained"
-                endIcon={<Star />}
-              >
-                2
-              </Button>
+            <Button
+              color="secondary"
+              onClick={() => {
+                handleStar(2);
+              }}
+              variant="contained"
+              endIcon={<Star />}
+            >
+              2
+            </Button>
 
-              <Button
-                color="secondary"
-                onClick={() => {
-                  handleStar(3);
-                }}
-                variant="contained"
-                endIcon={<Star />}
-              >
-                3
-              </Button>
+            <Button
+              color="secondary"
+              onClick={() => {
+                handleStar(3);
+              }}
+              variant="contained"
+              endIcon={<Star />}
+            >
+              3
+            </Button>
 
-              <Button
-                color="secondary"
-                onClick={() => {
-                  handleStar(4);
-                }}
-                variant="contained"
-                endIcon={<Star />}
-              >
-                4
-              </Button>
+            <Button
+              color="secondary"
+              onClick={() => {
+                handleStar(4);
+              }}
+              variant="contained"
+              endIcon={<Star />}
+            >
+              4
+            </Button>
 
-              <Button
-                color="secondary"
-                onClick={() => {
-                  handleStar(5);
-                }}
-                variant="contained"
-                endIcon={<Star />}
-              >
-                5
-              </Button>
-            </BoxButton>
-            {/* ------------------------------------------------------------------------------------------------------- Your Budget rating  */}
-            <div className="filter-title">Your Budget</div>
-            <div className="popular-filter">
-              <FormControl component="fieldset">
-                <RadioGrp aria-label="guest-rating" name="guest-rating" value={priceFilter} onChange={handleChange}>
-                  <FormControlLabel value="0 0" control={<Radio color="secondary" />} label="All" />
-                  <FormControlLabel value="300 400" control={<Radio color="secondary" />} label="Less than 350$" />
-                  <FormControlLabel value="400 600" control={<Radio color="secondary" />} label="400$ to 600$" labelPlacement="end" />
-                  <FormControlLabel value="600 800" control={<Radio color="secondary" />} label="600$ to 800$" labelPlacement="end" />
-                  <FormControlLabel value="800 1000" control={<Radio color="secondary" />} label="800$ to 100$" labelPlacement="end" />
-                  <FormControlLabel value="1000 1500" control={<Radio color="secondary" />} label="1000$ and above" labelPlacement="end" />
-                </RadioGrp>
-              </FormControl>
+            <Button
+              color="secondary"
+              onClick={() => {
+                handleStar(5);
+              }}
+              variant="contained"
+              endIcon={<Star />}
+            >
+              5
+            </Button>
+          </BoxButton>
+          {/* ------------------------------------------------------------------------------------------------------- Your Budget rating  */}
+          <div className="filter-title">Your Budget</div>
+          <div className="popular-filter">
+            <FormControl component="fieldset">
+              <RadioGrp aria-label="guest-rating" name="guest-rating" value={priceFilter} onChange={handleChange}>
+                <FormControlLabel value="0 0" control={<Radio color="secondary" />} label="All" />
+                <FormControlLabel value="300 400" control={<Radio color="secondary" />} label="Less than 350$" />
+                <FormControlLabel value="400 600" control={<Radio color="secondary" />} label="400$ to 600$" labelPlacement="end" />
+                <FormControlLabel value="600 800" control={<Radio color="secondary" />} label="600$ to 800$" labelPlacement="end" />
+                <FormControlLabel value="800 1000" control={<Radio color="secondary" />} label="800$ to 100$" labelPlacement="end" />
+                <FormControlLabel value="1000 1500" control={<Radio color="secondary" />} label="1000$ and above" labelPlacement="end" />
+              </RadioGrp>
+            </FormControl>
+          </div>
+          {w > 500 && <PopularFilter></PopularFilter>}
+          {w > 500 && <GuestRating></GuestRating>}
+          {w > 500 && <PaymentType></PaymentType>}
+          {w > 500 && <PropertyType></PropertyType>}
+          {w > 500 && <PopularLocation />} {w > 500 && <FoodPlans />}
+        </div>
+        {/*------------------------------------------------------------------------------------------>>>>>> Hotel List  */}
+        <div className="list">
+          {loading ? (
+            <div className="progress">
+              <img src={trvloLogo} alt="" />
+              Loading.......
+              <CircularProgress color="secondary" />
             </div>
-            {w > 500 && <PopularFilter></PopularFilter>}
-            {w > 500 && <GuestRating></GuestRating>}
-            {w > 500 && <PaymentType></PaymentType>}
-            {w > 500 && <PropertyType></PropertyType>}
-            {w > 500 && <PopularLocation />} {w > 500 && <FoodPlans />}
-          </div>
-          {/*------------------------------------------------------------------------------------------>>>>>> Hotel List  */}
-          <div className="list">
-            {loading ? (
-              <div className="progress">
-                <img src={trvloLogo} alt="" />
-                Loading.......
-                <CircularProgress color="secondary" />
-              </div>
-            ) : hotels.length > 0 ? (
-              hotels.map((item) => {
-                return <Hotelcard handleOpenHotel={handleOpenHotel} key={item._id} data={item} />;
-              })
-            ) : (
-              <NoDataFound></NoDataFound>
-            )}
-            <div style={{ display: "flex", justifyContent: "center" }}>{hotels.length > 10 && <PaginationComp></PaginationComp>}</div>
-          </div>
-          {/* {hotelsFilterPrice && !filterLoading ? (
+          ) : hotels.length > 0 ? (
+            hotels.map((item) => {
+              return <Hotelcard handleOpenHotel={handleOpenHotel} key={item._id} data={item} />;
+            })
+          ) : (
+            <NoDataFound></NoDataFound>
+          )}
+          <div style={{ display: "flex", justifyContent: "center" }}>{hotels.length > 10 && <PaginationComp></PaginationComp>}</div>
+        </div>
+        {/* {hotelsFilterPrice && !filterLoading ? (
          
             <div className="list">
               {loading || filterLoading ? (
@@ -393,33 +492,14 @@ export const HotelList = () => {
               )}
             </div>
           )} */}
-          {w > 728 && (
-            <div className="ads">
-              <Ads></Ads>
-              <Ads></Ads>
-              <Ads></Ads>
-            </div>
-          )}
-        </Wrapper>
-      ) : (
-        <div
-          className="progress"
-          style={{
-            width: "50%",
-            height: "100px",
-            margin: "auto",
-            display: "flex",
-            marginTop: "200px",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img style={{ height: "100px" }} src={trvloLogo} alt="" />
-          Loading.......
-          <CircularProgress color="secondary" />
-        </div>
-      )}
+        {w > 728 && (
+          <div className="ads">
+            <Ads></Ads>
+            <Ads></Ads>
+            <Ads></Ads>
+          </div>
+        )}
+      </Wrapper>
     </>
   );
 };
