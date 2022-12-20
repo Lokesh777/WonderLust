@@ -26,6 +26,7 @@ import { TextField } from '@mui/material';
 import { v4 as uuid } from "uuid";
 import {useNavigate} from "react-router-dom"
 import ToastService from "react-material-toast";
+import { API_URL } from '../../Redux/API/api';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -107,7 +108,7 @@ export default function ScrollableTabsButtonForce() {
     const handleSearchByQuery = () => {
         setIsSearching(false);
 
-        axios.get(`http://localhost:8080/city?name=${query}`).then((res) => {
+        axios.get(`${API_URL}/city?name=${query}`).then((res) => {
             setSearchQueryResult(res.data);
         }).catch((err) => {
             console.log(err);
