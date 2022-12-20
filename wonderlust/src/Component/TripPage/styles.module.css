@@ -10,19 +10,19 @@
 .page>div{
     width: 100%;
     height: fit-content;
-    max-height: 100vh;
-    overflow-y: scroll;
+    /* max-height: 100vh; */
+    /* overflow-y: scroll; */
     background-color:rgb(233, 233, 233);
     padding: 25px;
     border-radius: 25px;
 }
-.page>div::-webkit-scrollbar {
+/* .page>div::-webkit-scrollbar {
     display: none;
   }
 .page>div{
     -ms-overflow-style: none; 
     scrollbar-width: none; 
-  }
+  } */
 
 
 .createButton{

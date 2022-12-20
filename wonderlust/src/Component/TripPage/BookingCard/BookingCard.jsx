@@ -2,6 +2,7 @@ import style from './Style.module.css'
 import { useNavigate } from 'react-router-dom';
 
 export const BookingCard = ({ data, methods }) => {
+    console.log(data)
     const { type, totalPrice, createdAt, hotel } = data;
     const { name, _id } = hotel;
     const navigate = useNavigate();
