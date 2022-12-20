@@ -33,6 +33,7 @@ I worked on this project during unit-6 (NEM201) construct week at Masai School w
  </p>
 <br>
 
+
 <img src="https://tpc.googlesyndication.com/simgad/16504752563993428365?" alt="WonderLust" />
 
 🎯## Important Links 🔗 
@@ -69,3 +70,18 @@ I worked on this project during unit-6 (NEM201) construct week at Masai School w
 - Debugging
 - Deploy the website
 
+## Landing Page
+
+ <img src="landing.png" alt="Landing Page" />
+
+## Product Page
+
+ <img src="product.png" alt="product Page" />
+
+## checkout Page
+
+ <img src="checkout.png" alt="checkout Page" />
+
+## login Page
+
+ <img src="./image/login.png" alt="login Page" />
