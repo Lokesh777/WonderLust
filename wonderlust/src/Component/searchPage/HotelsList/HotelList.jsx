@@ -113,158 +113,50 @@ const BoxButton = styled(Box)`
 `;
 
 export const HotelList = () => {
-  // const [hotels, setHotels] = useState([]);
-  // const [data, setData] = useState([]);
-  // const [loading, setloading] = useState(false);
-  // const [priceFilter, setPriceFilter] = useState("");
-  // const navigate = useNavigate();
-  // const [searchHotel, setsearchHotel] = useState("");
-
-  // const dispatch = useDispatch();
-  // const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
-
-  // const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
-
-  // const [w, setW] = useState(window.innerWidth);
-
-  // let city = localStorage.getItem("searchQuery");
-  // // console.log("city:", city);
-
-  // useEffect(() => {
-  //   setloading(true);
-
-  //   if (load) {
-  //     dispatch(getHotelAction(city));
-  //   }
-
-  //   if (hotelsState) {
-  //     // console.log("hotelsState:", hotelsState);
-  //     setHotels(hotelsState);
-  //     setData(hotelsState);
-  //   }
-  //   if (!filterLoading) {
-  //     // console.log("filterLoading:", filterLoading);
-  //     setHotels(hotelsFilterPrice);
-  //     setData(hotelsFilterPrice);
-  //   }
-  //   setTimeout(() => {
-  //     setloading(false);
-  //   }, 1000);
-  // }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setW(window.innerWidth);
-  //   };
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
-  // const handleQueryChange = (val) => {
-  //   setsearchHotel(val);
-  // };
-  // const handleClicksSearch = () => {
-  //   // console.log('handleClicksSearch:', searchHotel)
-  // };
-  // const handleChange = (event) => {
-  //   const range = event.target.value.split(" ").map(Number);
-  //   setPriceFilter(event.target.value);
-  //   // handlePriceFilter(range[0], range[1]);
-  //   setloading(true);
-  //   dispatch(filterByPriceAction(range[0], range[1]));
-  //   setTimeout(() => {
-  //     setloading(false);
-  //   }, 1400);
-  //   // setHotels(hotelsFilterPrice);
-  //   // console.log("hotels:", hotels);
-  // };
-
-  // // const handlePriceFilter = useCallback(
-  // //   (a, b) => {
-  // //     console.log("a, b:", a, b);
-  // //     setloading(true);
-  // //     if (a === 0 && b === 0) {
-  // //       setHotels(data);
-  // //     } else {
-  // //       const newData = data.filter((item) => {
-  // //         console.log("item:", item.rooms[0].price);
-
-  // //         return item.rooms[0].price >= a && item.rooms[0].price <= b;
-  // //       });
-  // //       console.log("newData:", newData);
-  // //       setHotels(newData);
-  // //     }
-
-  // //     setTimeout(() => {
-  // //       setloading(false);
-  // //     }, 1400);
-  // //   },
-  // //   [data]
-  // // );
-
-  // // const getData = () => {
-  // //   setloading(true);
-  // //   axios
-  // //     .get(url)
-  // //     .then((res) => {
-  // //       const { data } = res;
-  // //       setData(data);
-  // //       setHotels(data);
-  // //       // console.log('data:', data)
-  // //       setloading(false);
-  // //     })
-  // //     .catch((err) => {
-  // //       console.log(err);
-  // //     });
-  // // };
-  // // const handleStar = () => {};
-  // const handleStar = useCallback(
-  //   (star) => {
-  //     setloading(true);
-  //     const newData = data.filter((item) => {
-  //       return item.starRating >= star;
-  //     });
-
-  //     setHotels(newData);
-
-  //     setTimeout(() => {
-  //       setloading(false);
-  //     }, 1600);
-  //   },
-  //   [data]
-  // );
-  // // console.log("data:", data);
-  // const handleOpenHotel = (id) => {
-  //   navigate(`/hotel/${id}`);
-  // };
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [priceFilter]);
-
-  // --------//
   const [hotels, setHotels] = useState([]);
-  // console.log("hotels:", hotels[1]);
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(false);
   const [priceFilter, setPriceFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
   const [searchHotel, setsearchHotel] = useState("");
 
+  const dispatch = useDispatch();
+  const { hotelsState, loading: load } = useSelector((state) => state.hotel_search);
+
+  const { hotelsFilterPrice, loading: filterLoading } = useSelector((state) => state.hotel_filterByPrice);
+
   const [w, setW] = useState(window.innerWidth);
+
   let city = localStorage.getItem("searchQuery");
+  // console.log("city:", city);
+
+  useEffect(() => {
+    setloading(true);
+
+    if (load) {
+      dispatch(getHotelAction(city));
+    }
+
+    if (hotelsState) {
+      // console.log("hotelsState:", hotelsState);
+      setHotels(hotelsState);
+      setData(hotelsState);
+    }
+    if (!filterLoading) {
+      // console.log("filterLoading:", filterLoading);
+      setHotels(hotelsFilterPrice);
+      setData(hotelsFilterPrice);
+    }
+    setTimeout(() => {
+      setloading(false);
+    }, 1000);
+  }, [dispatch, load, hotelsState, priceFilter, filterLoading, hotelsFilterPrice, city]);
 
   useEffect(() => {
     const handleResize = () => {
       setW(window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
-
-    getData();
-    console.log(hotels);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -274,52 +166,61 @@ export const HotelList = () => {
   const handleQueryChange = (val) => {
     setsearchHotel(val);
   };
-
-  const handleChange = (event) => {
-    const range = event.target.value.split(" ").map(Number);
-    setPriceFilter(event.target.value);
-    handlePriceFilter(range[0], range[1]);
-  };
-
-  const handlePriceFilter = (a, b) => {
-    setloading(true);
-    const newData = data.filter((item) => {
-      return item.price >= a && item.price < b;
-    });
-
-    setHotels(newData);
-    setTimeout(() => {
-      setloading(false);
-    }, 2000);
-  };
-
-  const getData = () => {
-    let url = `${API_URL}/hotel`;
-    if (city) {
-      console.log("citybrfoe:", city);
-      city = city.replace(/^"|"$/g, "");
-
-      console.log("city:", city);
-      url = `${API_URL}/hotel?city=${city}`;
-    }
-
-    setloading(true);
-    axios
-      .get(url)
-      .then((res) => {
-        const { data } = res;
-        console.log("data:", data);
-        setData(data);
-        setHotels(data);
-        setloading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   const handleClicksSearch = () => {
     // console.log('handleClicksSearch:', searchHotel)
   };
+  const handleChange = (event) => {
+    const range = event.target.value.split(" ").map(Number);
+    setPriceFilter(event.target.value);
+    // handlePriceFilter(range[0], range[1]);
+    setloading(true);
+    dispatch(filterByPriceAction(range[0], range[1]));
+    setTimeout(() => {
+      setloading(false);
+    }, 1400);
+    // setHotels(hotelsFilterPrice);
+    // console.log("hotels:", hotels);
+  };
+
+  // const handlePriceFilter = useCallback(
+  //   (a, b) => {
+  //     console.log("a, b:", a, b);
+  //     setloading(true);
+  //     if (a === 0 && b === 0) {
+  //       setHotels(data);
+  //     } else {
+  //       const newData = data.filter((item) => {
+  //         console.log("item:", item.rooms[0].price);
+
+  //         return item.rooms[0].price >= a && item.rooms[0].price <= b;
+  //       });
+  //       console.log("newData:", newData);
+  //       setHotels(newData);
+  //     }
+
+  //     setTimeout(() => {
+  //       setloading(false);
+  //     }, 1400);
+  //   },
+  //   [data]
+  // );
+
+  // const getData = () => {
+  //   setloading(true);
+  //   axios
+  //     .get(url)
+  //     .then((res) => {
+  //       const { data } = res;
+  //       setData(data);
+  //       setHotels(data);
+  //       // console.log('data:', data)
+  //       setloading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  // const handleStar = () => {};
   const handleStar = useCallback(
     (star) => {
       setloading(true);
@@ -331,18 +232,122 @@ export const HotelList = () => {
 
       setTimeout(() => {
         setloading(false);
-      }, 2000);
+      }, 1600);
     },
     [data]
   );
-
+  // console.log("data:", data);
   const handleOpenHotel = (id) => {
-    // history.push(`/hotels/${id}`);
+    navigate(`/hotel/${id}`);
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [priceFilter]);
+
+  // --------//
+  // const [hotels, setHotels] = useState([]);
+  // // console.log("hotels:", hotels[1]);
+  // const [data, setData] = useState([]);
+  // const [loading, setloading] = useState(false);
+  // const [priceFilter, setPriceFilter] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
+  // const [searchHotel, setsearchHotel] = useState("");
+
+  // const [w, setW] = useState(window.innerWidth);
+  // let city = localStorage.getItem("searchQuery");
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setW(window.innerWidth);
+  //   };
+  //   window.addEventListener("resize", handleResize);
+
+  //   getData();
+  //   console.log(hotels);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
+
+  // const handleQueryChange = (val) => {
+  //   setsearchHotel(val);
+  // };
+
+  // const handleChange = (event) => {
+  //   const range = event.target.value.split(" ").map(Number);
+  //   setPriceFilter(event.target.value);
+  //   handlePriceFilter(range[0], range[1]);
+  // };
+
+  // const handlePriceFilter = (a, b) => {
+  //   setloading(true);
+
+  //   const newData = data.filter((item) => {
+  //     // return item.price >= a && item.price < b;
+  //     return item.rooms[0].price >= a && item.rooms[0].price <= b;
+  //   });
+   
+  //   console.log("newData:",  data[0].rooms[0].price);
+  //   console.log("newData:",  data);
+
+  //   setHotels(newData);
+  //   setTimeout(() => {
+  //     setloading(false);
+  //   }, 2000);
+  // };
+
+  // const getData = () => {
+  //   let url = `${API_URL}/hotel`;
+  //   if (city) {
+  //     console.log("citybrfoe:", city);
+  //     city = city.replace(/^"|"$/g, "");
+
+  //     console.log("city:", city);
+  //     url = `${API_URL}/hotel?city=${city}`;
+  //   }
+
+  //   setloading(true);
+  //   axios
+  //     .get(url)
+  //     .then((res) => {
+  //       const { data } = res;
+  //       console.log("data:", data);
+  //       setData(data);
+  //       setHotels(data);
+  //       setloading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  // const handleClicksSearch = () => {
+  //   // console.log('handleClicksSearch:', searchHotel)
+  // };
+  // const handleStar = useCallback(
+  //   (star) => {
+  //     setloading(true);
+  //     const newData = data.filter((item) => {
+  //       return item.starRating >= star;
+  //     });
+
+  //     setHotels(newData);
+
+  //     setTimeout(() => {
+  //       setloading(false);
+  //     }, 2000);
+  //   },
+  //   [data]
+  // );
+
+  // const handleOpenHotel = (id) => {
+  //   // history.push(`/hotels/${id}`);
+  // };
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   return (
     <>
       <Wrapper>
