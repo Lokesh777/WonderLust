@@ -9,6 +9,7 @@ import TripCard, { EmptyTripCard } from './TripCard/TripCard';
 import { Get_Bookings } from '../../Redux/Bookings/actions'
 import { BookingCard, EmptyBookingCard } from './BookingCard/BookingCard';
 import axios  from 'axios'
+import { API_URL } from '../../Redux/API/api';
 
 const sampleData = [
     {
@@ -70,7 +71,7 @@ const Trip = () => {
 
     useEffect(()=>{
         let getData = async() =>{
-            let res = await axios.get('http://localhost:8080/bookingHotel/user', {headers:{token}});
+            let res = await axios.get(`${API_URL}/bookingHotel/user`, {headers:{token}});
             setbookingsData(res.data);
         }
         getData();
