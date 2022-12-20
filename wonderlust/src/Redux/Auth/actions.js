@@ -16,13 +16,15 @@ export const SignInAction = (data, onSuccess, onError) =>async (dispatch) => {
     dispatch({type:auth_signIn_loading});
     try{
         let res=await axios.post('http://localhost:8080/login/login', {email, password});
-        let {token, role, error, message} = res.data;
+        let {token, role, error, message, fname} = res.data;
+
+        
 
         if(error){
             dispatch({type:auth_signIn_error, payload:message});
             onError(message)
         }else{
-            dispatch({type:auth_signIn_success, payload:{token, role}});
+            dispatch({type:auth_signIn_success, payload:{token, role, fname}});
             onSuccess();
         }
 

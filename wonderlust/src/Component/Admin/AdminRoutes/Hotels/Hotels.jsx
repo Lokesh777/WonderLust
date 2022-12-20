@@ -81,11 +81,11 @@ export const Hotels = () => {
                 </div>
             </div>
             <div>
-                <div>
+                {/* <div>
                     <button>Prev</button>
                     <p>1</p>
                     <button>next</button>
-                </div>
+                </div> */}
             <div className={style.container}>
                 {data.map((item) => <HotelCard key={item._id + 'hotelview'} data={item}></HotelCard>)}
             </div>
