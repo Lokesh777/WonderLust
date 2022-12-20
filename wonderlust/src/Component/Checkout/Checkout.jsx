@@ -369,6 +369,7 @@ const CheckoutPage = () => {
                             <p style={{ backgroundColor: 'rgb(80, 22, 173)' }}>Upto 35% off</p>
                         </div>
                     </div>
+                   
                     <div>
                         {imageNo > 0 ? <button onClick={() => {
                             setImageNo((i) => i - 1);
