@@ -7,12 +7,13 @@ import {
         Trip_Get_Success
     } from './actionTypes';
 import axios from 'axios';
+import { API_URL } from '../API/api';
 
 export const Get_Trips = (token) => async(dispatch) => {
     dispatch({type:Trip_Get_Loading});
     
     try{
-        let response =await axios.get('http://localhost:8080/trip',{headers:{token}});
+        let response =await axios.get(`${API_URL}/trip`,{headers:{token}});
         const {error, message} = response.data
 
         if(error){
@@ -32,7 +33,7 @@ export const Create_Trip = (data, token, onSuccess, onError) => async(dispatch) 
     const {name, description} = data
 
     try{
-        let response =await axios.post('http://localhost:8080/trip', {name, description}, {headers:{token:token}});
+        let response =await axios.post(`${API_URL}/trip`, {name, description}, {headers:{token:token}});
         console.log(response.data)
         const {error, message} = response.data
         if(error){

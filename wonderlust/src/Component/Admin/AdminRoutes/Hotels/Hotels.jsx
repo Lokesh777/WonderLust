@@ -2,14 +2,15 @@ import { useEffect, useState } from "react"
 import style from './Hotel.module.css';
 import axios from "axios";
 import { HotelCard } from "./HotelCard";
-import {MdOutlineAddBusiness} from 'react-icons/md'
+import {MdOutlineAddBusiness} from 'react-icons/md';
+import { API_URL } from "../../../../Redux/API/api";
 
 export const Hotels = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         async function getData() {
-            let res = await axios.get('http://localhost:8080/hotel?priceSort=desc');
+            let res = await axios.get(`${API_URL}/hotel?priceSort=desc`);
             setData(res.data);
         }
         getData();
@@ -81,11 +82,11 @@ export const Hotels = () => {
                 </div>
             </div>
             <div>
-                <div>
+                {/* <div>
                     <button>Prev</button>
                     <p>1</p>
                     <button>next</button>
-                </div>
+                </div> */}
             <div className={style.container}>
                 {data.map((item) => <HotelCard key={item._id + 'hotelview'} data={item}></HotelCard>)}
             </div>

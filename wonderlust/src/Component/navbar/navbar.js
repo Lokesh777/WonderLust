@@ -2,13 +2,13 @@
 import {
   Box,
   Flex,
-//   Avatar,
+  //   Avatar,
   HStack,
   IconButton,
   useDisclosure,
   // useColorModeValue,
   Stack,
-  
+
   // Text,
   Avatar,
 } from "@chakra-ui/react";
@@ -16,27 +16,32 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { SignOut } from "../../Redux/Auth/actions";
 // import { FaLaptop } from "react-icons/fa";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [state,setState] = useState(false);
+  const [state, setState] = useState(false);
+  const dispatcher = useDispatch();
+  const isAuth = useSelector(store => store.auth.data.isAuth);
+  const userName = useSelector(store => store.auth.data.user);
 
-// const Reload = () => {
-//   window.location.reload();
-// };
+  // const Reload = () => {
+  //   window.location.reload();
+  // };
 
 
   return (
     <>
-     {/* <Box
+      {/* <Box
         bg={useColorModeValue("#eaf8f8", "#eaf8f8")}
         px={4}
         className={styles.mainBox}
       ></Box> */}
       <Box
-         boxShadow='dark-lg'  
-         height={"4.5rem"}
+        boxShadow='dark-lg'
+        height={"4.5rem"}
         className={styles.mainBox}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
@@ -55,8 +60,8 @@ export default function Navbar() {
             alignItems={"center"}
           >
             <Box>
-             
-             
+
+
               <Link
                 to="/"
                 smooth={true}
@@ -65,17 +70,17 @@ export default function Navbar() {
                 spy={true}
                 hashSpy={true}
               >
-                     <Avatar
-                        // onClick={Reload}
-                        boxSize={["10","12","14","16"]}
-                        borderRadius="full"
-                        className={styles.myLogo}
-                         mt={['3','4','4','4']}
-                         ml={['1','1','1','2']}
-                          size={"md"}
-                          src="travel.gif"
-                        />
-                   
+                <Avatar
+                  // onClick={Reload}
+                  boxSize={["10", "12", "14", "16"]}
+                  borderRadius="full"
+                  className={styles.myLogo}
+                  mt={['3', '4', '4', '4']}
+                  ml={['1', '1', '1', '2']}
+                  size={"md"}
+                  src="travel.gif"
+                />
+
                 {/* <Text fontSize="xl" fontWeight="bolder" className="logo">
                 <FaLaptop size='40' color="white"/>
                 </Text> */}
@@ -87,7 +92,7 @@ export default function Navbar() {
               spacing={8}
               display={{ base: "none", md: "flex" }}
             >
-             
+
               <Link
                 to="support"
                 smooth={true}
@@ -108,7 +113,7 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Checkout</div>
               </Link> */}
-            
+
               <Link
                 to="hotels"
                 smooth={true}
@@ -129,50 +134,60 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Admin</div>
               </Link>
-             {state?(
-              <>
-             
+
+              {
+                isAuth ?
+                  <Link
+                    to="trip"
+                    smooth={true}
+                    duration={1000}
+                    activeClass={styles.active}
+                    spy={true}
+                    hashSpy={true}
+                    onClick={() => setState(false)}
+                  >
+                    <div className={styles.nav}>Trip</div>
+                  </Link>
+                  : ""
+              }
+              {isAuth ?
+                // <Link
+                //   to="trip"
+                //   smooth={true}
+                //   duration={1000}
+                //   activeClass={styles.active}
+                //   spy={true}
+                //   hashSpy={true}
+                //   onClick={() => setState(false)}
+                // >
+                  <div className={styles.nav}>{userName}</div>
+                // {/* </Link> */}
+                : ""}
               <Link
-                to="trip"
-                smooth={true}
-                duration={1000}
-                activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-                onClick={()=>setState(false)}
-              >
-                <div className={styles.nav}>Trip</div>
-              </Link>
-              </>
-             ):(
-              <>
-                   <Link
                 to="login"
                 smooth={true}
                 duration={1000}
                 activeClass={styles.active}
                 spy={true}
                 hashSpy={true}
-                onClick={()=>setState(true)}
+                onClick={() => {
+                  setState(true)
+                  dispatcher(SignOut())
+                }}
               >
-                <div className={styles.nav}>Login</div>
+                <div className={styles.nav}>{isAuth ? 'Logout' : 'Login'}</div>
               </Link>
 
-                
-                
-              </>
-             )}
-             
-             
+
             </HStack>
           </HStack>
         </Flex>
 
         {isOpen ? (
           <Box
-           bg='#d1c2d9'
-          pb={4}
-          display={{ md: "none" }}>
+            bg='#d1c2d9'
+            pb={4}
+            display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               <Link
                 to="support"
@@ -184,8 +199,8 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Support</div>
               </Link>
-             
-               <Link
+
+              <Link
                 to="hotels"
                 smooth={true}
                 duration={1000}
@@ -205,40 +220,52 @@ export default function Navbar() {
               >
                 <div className={styles.nav}>Admin</div>
               </Link>
-              {state?(
-              <>
-             
+
+              {isAuth ?
+                <Link
+                  to="trip"
+                  smooth={true}
+                  duration={1000}
+                  activeClass={styles.active}
+                  spy={true}
+                  hashSpy={true}
+                  onClick={() => setState(false)}
+                >
+                  <div className={styles.nav}>Trip</div>
+                </Link>
+                : ""}
+
+              {isAuth ?
+                // <Link
+                //   to="trip"
+                //   smooth={true}
+                //   duration={1000}
+                //   activeClass={styles.active}
+                //   spy={true}
+                //   hashSpy={true}
+                //   onClick={() => setState(false)}
+                // >
+                  <div className={styles.nav}>{userName}</div>
+                // {/* </Link> */}
+                : ""}
+
+
               <Link
-                to="trip"
-                smooth={true}
-                duration={1000}
-                activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-                onClick={()=>setState(false)}
-              >
-                <div className={styles.nav}>Trip</div>
-              </Link>
-              </>
-             ):(
-              <>
-                   <Link
                 to="login"
                 smooth={true}
                 duration={1000}
                 activeClass={styles.active}
                 spy={true}
                 hashSpy={true}
-                onClick={()=>setState(true)}
+                onClick={() => {
+                  setState(true)
+                  dispatcher(SignOut())
+                }
+                }
               >
-                <div className={styles.nav}>Login</div>
+                <div className={styles.nav}>{isAuth ? 'Logout' : 'Login'}</div>
               </Link>
 
-                
-                
-              </>
-             )}
-              
             </Stack>
           </Box>
         ) : null}

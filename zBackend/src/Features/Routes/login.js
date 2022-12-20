@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../Models/User')
 const bcrypt = require('bcryptjs')
 
-const JWT_SECRET = 'SERCRET1234'
+const JWT_SECRET = process.env.JWT_SECRET
 
 app.post("/login", async (req, res) => {
 	const { email, password } = req.body;
@@ -16,9 +16,10 @@ app.post("/login", async (req, res) => {
 	}
 	if (await bcrypt.compare(password, user.password)) {
 	  const token = jwt.sign({ email: user.email, id:user._id, role:user.role}, JWT_SECRET);
+
   
 	  if (res.status(201)) {
-		return res.json({token: token, role:user.role });
+		return res.json({token: token, role:user.role, fname:user.fname });
 	  } else {
 		return res.json({error:true, message:"error, please try again"});
 	  }

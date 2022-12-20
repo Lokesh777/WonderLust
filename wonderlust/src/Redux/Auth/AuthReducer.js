@@ -13,12 +13,14 @@ import {
 
 const iniToken = getLocalStorage('tokenWonderLust');
 const iniType = getLocalStorage('roleWonderLust');
+const iniName = getLocalStorage('nameWonderLust');
 
 const initialData = {
     data:{
         isAuth:!!iniToken,
         token: iniToken,
         role: iniType,
+        user:iniName
     },
     signInloading:false,
     signUploading:false,
@@ -44,12 +46,14 @@ export const authReducer= (state=initialData, {type, payload}) => {
         case auth_signIn_success:{
             setLocalStorage('tokenWonderLust', payload.token)
             setLocalStorage('roleWonderLust', payload.role)
+            setLocalStorage('nameWonderLust', payload.fname)
             return{
                 ...state,
                 data:{
                     isAuth:true,
                     token: payload.token,
-                    role: payload.role
+                    role: payload.role,
+                    user:payload.fname
                 },
                 signInerror:false,
                 signInloading:false,
@@ -82,12 +86,14 @@ export const authReducer= (state=initialData, {type, payload}) => {
         case auth_signOut:{
             setLocalStorage('tokenWonderLust', null)
             setLocalStorage('roleWonderLust', null)
+            setLocalStorage('nameWonderLust', null)
             return{
                 ...state,
                 data:{
                     isAuth:false,
                     token: null,
-                    type: null
+                    type: null,
+                    user:null
                 },
                 error:false,
                 loading:false

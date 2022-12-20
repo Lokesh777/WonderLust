@@ -7,14 +7,14 @@ import {
     Booking_Get_Success
 } from './actionTypes';
 import axios from 'axios';
-
+import { API_URL } from '../API/api';
 export const Get_Bookings = (token) => async(dispatch) => {
 dispatch({type:Booking_Get_Loading});
 
 console.log('get req')
 
 try{
-    let response =await axios.get('http://localhost:8080/bookingHotel/user',{headers:{token}});
+    let response =await axios.get(`${API_URL}/bookingHotel/user`,{headers:{token}});
     const {error, message} = response.data
 
     if(error){
@@ -36,7 +36,7 @@ const {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId
 
 
 try{
-    let response =await axios.post('http://localhost:8080/bookingHotel', {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId}, {headers:{token:token}});
+    let response =await axios.post(`${API_URL}/bookingHotel`, {hotelId, totalPrice,roomsPrice, roomsData,servicesCharge, persons, tripId}, {headers:{token:token}});
     const {error, message} = response.data
     if(error){
         dispatch({type:Booking_Create_Error});
