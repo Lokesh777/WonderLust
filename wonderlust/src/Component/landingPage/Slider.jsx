@@ -220,8 +220,8 @@ export default function ScrollableTabsButtonForce() {
             toast.error("Please Enter City !");
             return;
         }else{
-            setinputData(document.getElementById("strong_data_name").innerText)
-             localStorage.setItem("searchQuery", JSON.stringify(inputData));
+            setinputData(document.getElementById("strong_data_name").innerText || "")
+             localStorage.setItem("searchQuery", inputData === ""? "Agra" : JSON.stringify(inputData));
             setInterval(() => {
                 navigate("/hotels");
             }, 1000);

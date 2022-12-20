@@ -1,119 +1,71 @@
-# prized-ring-1889
+
+<img align="center" src="https://prized-ring-1889.netlify.app/travel.gif" alt="apnamart" />
+ <h1> WonderLust -New Beginning </h1>
+<br/>
+🎯 Hi our Project Team Name is WonderLust. 
+<br/>
+🎯Project Code: # prized-ring-1889
+<br/>
+🎯 IA - Akash
+<br/>
+🎯 Team Leader - Lokesh Kumar Bairwa
+<hr>
+ Wonderlust offers booking for flights, hotels, vacation rentals, rental cars, cruises and things to do. And no, you're not seeing double.
+ we <br/> inspire you to “Wander Wisely” and is dedicated to being your travel champion - acompanion and instigator, wandering the world beside you
+<br/>
+while helping make your traveling experience memorable with innovative apps, competitive prices and 24/7 customer service. Book Now !
+<br/>
+<br/>
+I worked on this project during unit-6 (NEM201) construct week at Masai School with the help of other four members.
+
+<h2><i>🎯 Using Languages & Tools 🧰</i></h2>
+<p align="center">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css3" />
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="javascript" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="nodejs" />
+    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="expressjs" />
+    <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="mongodb" />
+    <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm" />
+    <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white" alt="postman" />
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="reactjs" />
+   <img src="https://img.shields.io/badge/Chakra%20UI-3bc7bd?style=for-the-badge&logo=chakraui&logoColor=white" alt="chakra-ui" />
+   <img src="https://img.shields.io/badge/-Material--UII-blue" alt="redux" />
+ </p>
+<br>
+
+<img src="https://tpc.googlesyndication.com/simgad/16504752563993428365?" alt="WonderLust" />
+
+🎯## Important Links 🔗 
+<a href="https://prized-ring-1889.netlify.app/">Deployed Link</a>
+<br>
+
+## 👯 Collaborators
+<a href="https://github.com/Lokesh777">Lokesh Kumar Bairwa</a><br>
+<a href="https://github.com/LV-23">Lokesh Vyavhare</a><br>
+<a href="https://github.com/Gowtham-Chokkalingam">Gowtham Chokkalingam</a><br>
+<a href="https://github.com/osamakhan9">MOHAMMAD OSAMA</a><br>
+<a href="https://github.com/itsAkash12">Akash Kumar Singh</a><br>
 
 
-website name - WonderLust Fly & Explore 
-IA - Akash
-Team Leader - Lokesh Kumar Bairwa (Fw18_0979)
-
-**Basic Rules**
-
-<> use node version 18 only
-
-<> Create Your sub-branch for doing your task 
-
-<> clone the work on daily basis  as well push the work daily.
-
-<> Focus on the user interface and proper Responsive Layout
-
-<> Use more backend in your task
-
-<> Take the help with Team Leader(Lokesh Kumar)or Team Member if you had any Issue.
-
-<> ask me for css or userInterface if you have more work in your task.
 
 
-***********************************************************************************
-
-**Primary Color**
-
-Button color = #7d2ae8	
-
-background Color = #d1c2d9
-
-************************************************************************************
-
-**Responsive Layout**
-
-Design for desktop displays from 1024×768 through 1920×1080.
-
-Design for tablet displays from 601×962 through 1280×800.
-
-Design for mobile displays from 360×640 through 414×896.
-
-*****************************************************************************************
-
-**Lokesh(fw20_0254)**=> will handle the **Support** and **Tree** section of the wonderLust 
-
-[] do the chat section of the **Support** and use proper Modal
-
-[] Create **Trip Page** and display that in the form of card on same page.
-
-[]create the Admin page for the whole website so we can create the product and it will add in the databases.
-
-[] try to use responsive css
-
-[] create some other extra as you feel to do
-
-****************************************************************************
-
-**Gowtham(fw20_0116)**=> will handle the **Hotel/Flight - Search** part with using the backend 
+🎯 Features
+- Responsive Home Page.
+- Login/Signup page with working properly.
+- Product page show appending data.
+- Add the Detailed page successfully.
+- Checkout page and payment done successfully. 
+- Trip Page to keep all History and successfull trips.
+- Slider for changing the form
+- Admin Page for creating the new Product 
+- Search Functionlity
+- Create the Api for product , Authentication, generate the cities name, Todo list for trip 
 
 
-[] create the api for the hotel search result which display on the product page after debouncing 
+## Area of Responsibility
 
-[]create beautifulll card  with your design ,no need to copy with the website and pass the all data(like  name,price description,button for checkout ,discount ) and you can transfer single product to the DetailedPage where you can see whole image of product and whole description with proceed button.
-
-[]take the help With **Lokesh vyavhar** for creating the data by admin page after this.
-
-[] first Focus on userInterface atleast
-
-[]do the proper responsiveness of the your section.
-
-****************************************************************************
-
-**Mohammad Osama (fw18_0297)**=> will handle the **Login and signup** page with backend 
-
-[]Login page
-
-[]signup page
-
-[] use the backend and do the proper responsiveness.
-
-[]make sure user name will display on the Navbar after login.
-
-[]put the login all credential like wrong password,wrond email alert and all.
-
-[]try to put the Github Login/google login by passport.js and use other liberary.
-
-*******************************************************************************
-
-**Akash Singh(fw20_1302)**=> will handle the **Landing Page and Footer Section**.
-
-[]landing Page with all clouser/slider and use the neet and clean css 
-
-[]focus on the **Responsive Layout** for you spacially 
-
-[]do the responsive lauout of the footer section.
-
-[]use the clear layout ,and no need to copy with clone website.
-
-[]put the animation as you like and you can search the animation from google.com|
-
-********************************************************************************
-
-**Lokesh Kumar(fw18_0979)** => will do the **Navbar and checkout** section and **Logo Design**.
-
-[]create the repository and assign the task to each and every member.
-
-[]create the boiler plate for the Project Structure. 
-
-[]create the responsive navbar.
-
-[] Design the Logo for WonderLust.
-
-[]create the responsive checkout form and user Detail form
-
-[]Align the project with team member 
-
-[]check the work Progress.
+- Integrated all the pages successfully.
+- Developed the Payment page, Checkout Page , Navbar Page.
+- Debugging
+- Deploy the website
 

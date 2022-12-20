@@ -1,21 +1,16 @@
 import React from "react";
 import styles from "../styles/room.module.css";
-// import styles from '../styles/subHotelDetails.module.css'
 
 import { useState } from "react";
 import { MdNavigateNext } from "react-icons/md";
-// import PoolIcon from '@mui/icons-material/Pool';
 
 import { BiInfoCircle } from "react-icons/bi";
 
-// import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import DoneIcon from "@mui/icons-material/Done";
 import { Modal, styled, Box, RadioGroup, Radio, FormControlLabel, Typography } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
-// import { paymentType } from '../../Store/Action'
-import { useNavigate } from "react-router-dom";
 
 const Tyed = styled(Typography)`
   color: gray;
@@ -43,16 +38,7 @@ const Rooms = ({ room, hId, handleReserve }) => {
     // navigate('/payment')
   };
 
-  // const handleOpenRoom = (id) => {
-  //   navigate(`/hotels/${hId}/${id}`);
-  // };
-
-  // const handleReserve = () => {
-  //   navigate(`checkout`);
-  //   localStorage.removeItem("searchQuery");
-
-  //   localStorage.setItem("hotelBooking", JSON.stringify(hoteldata));
-  // };
+ 
   const modal = (
     <div className={styles.modal}>
       <Box className={styles.flex_box}>

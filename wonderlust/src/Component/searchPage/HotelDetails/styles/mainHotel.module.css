@@ -1,37 +1,42 @@
-h1, h2, h3, h4, h5, h6 {
-    color: #242c33;
-    letter-spacing: 2px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #242c33;
+  letter-spacing: 2px;
 }
 
 .container {
-    background: #F0F3F5;
-    text-align: justify;
-
+  background: #f0f3f5;
+  text-align: justify;
+  margin-right: 50px;
 }
 
 .mainBox {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    gap: 22px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 22px;
 }
 
 .flex {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: darkviolet;
-    padding: 4px 12px;
-    background: #FFF;
-    letter-spacing: 2px;
-    font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: darkviolet;
+  padding: 4px 12px;
+  background: #fff;
+  letter-spacing: 2px;
+  font-size: 16px;
 }
 
-.flex>:nth-child(n):hover {
-    cursor: pointer;
-    text-decoration: underline;
+.flex > :nth-child(n):hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .content {
-    flex-grow: 1;
+  flex-grow: 1;
 }
